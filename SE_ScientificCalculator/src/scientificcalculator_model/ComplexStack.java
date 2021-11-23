@@ -5,10 +5,13 @@
  */
 package scientificcalculator_model;
 
+import java.util.Stack;
+
 /**
  *
  * @author Anna
  */
-public class ComplexStack {
+public class ComplexStack extends Stack{
+    
     
 }
