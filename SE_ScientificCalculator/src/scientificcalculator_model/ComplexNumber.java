@@ -10,21 +10,27 @@ package scientificcalculator_model;
  */
 public class ComplexNumber {
     
-    double real, immaginary;
-    String total;
+    double real, imaginary;
     
-    public ComplexNumber(double real, double immaginary){
+    public ComplexNumber(double real, double imaginary){
         this.real = real;
-        this.immaginary = immaginary;
+        this.imaginary = imaginary;
     }
-    
+
+    public double getReal() {
+        return real;
+    }
+
+    public double getImaginary() {
+        return imaginary;
+    }
     
     @Override
     public String toString(){
-        if (immaginary > 0)
-            return real + "+" + immaginary + "j"; 
-        else if (immaginary < 0)
-            return real + "" + immaginary + "j"; 
+        if (imaginary > 0)
+            return real + "+" + imaginary + "j"; 
+        else if (imaginary < 0)
+            return real + "" + imaginary + "j"; 
         return "";
     }
     

@@ -46,7 +46,8 @@ public class CalculatorTest {
     
     @Test
     public void testAddition(){
-        assertEquals(new ComplexNumber(15, 4), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)));
+        assertEquals(new ComplexNumber(15, 4).getReal(), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)).getReal(),0.0000001);
+        assertEquals(new ComplexNumber(15, 4).getImaginary(), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)).getImaginary(),0.0000001);
     }
 
     // TODO add test methods here.

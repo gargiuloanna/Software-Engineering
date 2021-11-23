@@ -86,6 +86,6 @@ public class Calculator {
     }
     
     public ComplexNumber addition(ComplexNumber a, ComplexNumber b){
-        return new ComplexNumber(0,0);
+        return new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary());
     }
 }
