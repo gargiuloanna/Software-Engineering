@@ -10,13 +10,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import scientificcalculator_model.ComplexStack;
 
 /**
  *
  * @author Anna
  */
 public class ComplexStackTest {
-    
+    ComplexStack stack;
     public ComplexStackTest() {
     }
     
@@ -40,7 +41,8 @@ public class ComplexStackTest {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void hello() {
+    public void testGetMemory() {
+        return 0;
         
     
     }
