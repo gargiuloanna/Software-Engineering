@@ -10,4 +10,6 @@ package scientificcalculator_model;
  */
 public class ComplexNumber {
     
+    
+    
 }
