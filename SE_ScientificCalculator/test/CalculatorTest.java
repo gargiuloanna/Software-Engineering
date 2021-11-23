@@ -40,8 +40,9 @@ public class CalculatorTest {
     public void tearDown() {
     }
     
+    @Test
     public void testStringToDouble(){
-        assertEquals(new ComplexNumber(12, 21), c.stringToComplex("12+21j"));
+        assertEquals(new ComplexNumber(12.0, 1.0), c.stringToComplex("12+j"));
     }
 
     // TODO add test methods here.
