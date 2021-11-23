@@ -11,12 +11,7 @@ package scientificcalculator_model;
 public class Calculator {
     
     
-    
-    
-    
-    
-    
-    
+  
     public ComplexNumber stringToComplex(String s){
         
         ComplexNumber c;
@@ -56,7 +51,7 @@ public class Calculator {
                 }
                 
             }
-            return new Complex();
+            
         }
         
         if (sign_index != -1){
@@ -90,4 +85,7 @@ public class Calculator {
         return new ComplexNumber(real, immaginary);
     }
     
+    public ComplexNumber addition(ComplexNumber a, ComplexNumber b){
+        return new ComplexNumber(0,0);
+    }
 }

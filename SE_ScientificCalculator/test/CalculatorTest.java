@@ -43,6 +43,11 @@ public class CalculatorTest {
     public void testStringToDouble(){
         assertEquals(new ComplexNumber(12, 21), c.stringToComplex("12+21j"));
     }
+    
+    @Test
+    public void testAddition(){
+        assertEquals(new ComplexNumber(15, 4), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)));
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

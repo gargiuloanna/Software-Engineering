@@ -18,6 +18,7 @@ public class ComplexNumber {
         this.immaginary = immaginary;
     }
     
+    
     @Override
     public String toString(){
         if (immaginary > 0)
