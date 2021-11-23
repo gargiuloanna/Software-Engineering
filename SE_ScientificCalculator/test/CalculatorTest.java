@@ -16,6 +16,7 @@ import scientificcalculator_model.ComplexNumber;
  *
  * @author marco
  */
+
 public class CalculatorTest {
     
     Calculator c;
@@ -42,13 +43,53 @@ public class CalculatorTest {
     
     @Test
     public void testStringToDouble(){
-        assertEquals(new ComplexNumber(12.0, 1.0), c.stringToComplex("12+j"));
+        //DEFINIZIONE CASI POSSIBILI DI INSERIMENTO
+        
+        //a+bj
+        assertEquals(new ComplexNumber(15, 4).getReal(), c.stringToComplex("15+4j").getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(15, 4).getImaginary(), c.stringToComplex("15+4j").getImaginary(), 0.0000001);
+        
+        //a
+        assertEquals(new ComplexNumber(15, 0).getReal(), c.stringToComplex("15").getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(15, 0).getImaginary(), c.stringToComplex("15").getImaginary(), 0.0000001);
+        
+        //bj
+        assertEquals(new ComplexNumber(0, 4).getReal(), c.stringToComplex("4j").getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(0, 4).getImaginary(), c.stringToComplex("4j").getImaginary(), 0.0000001);
+        
+        //bj+a
+        assertEquals(new ComplexNumber(15, 4).getReal(), c.stringToComplex("15+4j").getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(15, 4).getImaginary(), c.stringToComplex("15+4j").getImaginary(), 0.0000001);
     }
     
     @Test
     public void testAddition(){
         assertEquals(new ComplexNumber(15, 4).getReal(), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)).getReal(),0.0000001);
         assertEquals(new ComplexNumber(15, 4).getImaginary(), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)).getImaginary(),0.0000001);
+    }
+    
+    @Test
+    public void testProduct(){
+        
+        //Test di (1+j)(1-j)
+        assertEquals(new ComplexNumber(2, 0).getReal(), c.product(new ComplexNumber(1, 1), new ComplexNumber(1, -1)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(2, 0).getImaginary(), c.product(new ComplexNumber(1, 1), new ComplexNumber(1, -1)).getImaginary(), 0.0000001);
+        
+        //Test di 12*12j
+        assertEquals(new ComplexNumber(0, 144).getReal(), c.product(new ComplexNumber(12, 0), new ComplexNumber(0, 12)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(0, 144).getImaginary(), c.product(new ComplexNumber(12, 0), new ComplexNumber(0, 12)).getImaginary(), 0.0000001);
+        
+        //Test di (12+4j)(12+4j)
+        assertEquals(new ComplexNumber(128, 96).getReal(), c.product(new ComplexNumber(12, 4), new ComplexNumber(12, 4)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(128, 96).getImaginary(), c.product(new ComplexNumber(12, 4), new ComplexNumber(12, 4)).getImaginary(), 0.0000001);
+        
+        //Test di 12*12
+        assertEquals(new ComplexNumber(144, 00).getReal(), c.product(new ComplexNumber(12, 0), new ComplexNumber(12, 0)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(144, 00).getImaginary(), c.product(new ComplexNumber(12, 0), new ComplexNumber(12, 0)).getImaginary(), 0.0000001);
+        
+        //Test di 12j*12j
+        assertEquals(new ComplexNumber(-144, 0).getReal(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(-144, 0).getImaginary(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getImaginary(), 0.0000001);
     }
 
     // TODO add test methods here.
