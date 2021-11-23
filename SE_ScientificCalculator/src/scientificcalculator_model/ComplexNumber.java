@@ -10,6 +10,14 @@ package scientificcalculator_model;
  */
 public class ComplexNumber {
     
+    double real, immaginary;
+    String total;
+    
+    public ComplexNumber(double real, double immaginary){
+        this.real = real;
+        this.immaginary = immaginary;
+    }
+    
     
     
 }
