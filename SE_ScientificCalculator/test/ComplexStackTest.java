@@ -42,7 +42,6 @@ public class ComplexStackTest {
     //
     @Test
     public void testGetMemory() {
-        return 0;
         
     
     }
