@@ -18,6 +18,13 @@ public class ComplexNumber {
         this.immaginary = immaginary;
     }
     
-    
+    @Override
+    public String toString(){
+        if (immaginary > 0)
+            return real + "+" + immaginary + "j"; 
+        else if (immaginary < 0)
+            return real + "" + immaginary + "j"; 
+        return "";
+    }
     
 }
