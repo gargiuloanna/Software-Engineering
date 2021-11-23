@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import scientificcalculator_model.Calculator;
+import scientificcalculator_model.ComplexNumber;
 
 /**
  *
