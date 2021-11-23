@@ -5,10 +5,24 @@
  */
 package scientificcalculator_model;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 /**
  *
  * @author Anna
  */
-public class ComplexStack {
+public class ComplexStack<ComplexNumber> extends Stack{
+    
+    public ArrayList<ComplexNumber> getMemory(int k){
+        ArrayList<ComplexNumber> elements= new ArrayList<>();
+        
+        for(int index=0; index<k; index++){
+            elements.add((ComplexNumber) this.elementAt(this.size()-index));  
+        }
+       
+        return elements;
+    }
+    
     
 }
