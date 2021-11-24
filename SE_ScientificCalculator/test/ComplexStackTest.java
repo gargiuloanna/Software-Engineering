@@ -81,6 +81,16 @@ public class ComplexStackTest {
         assertEquals(0, stack.stack_clear());
     }
     
+    @Test
+    public void testOver(){
+        ComplexStack stack= new ComplexStack();
+        
+        stack.add(new ComplexNumber(3,0));
+        stack.add(new ComplexNumber(4,0));
+        stack.add(new ComplexNumber(5,0));
+
+        assertEquals(0, stack.stack_clear());
+    }
     
     
 }

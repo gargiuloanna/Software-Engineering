@@ -9,12 +9,19 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- *
- * @author Anna
- * @param <ComplexNumber>
- */
+* The class ComplexStack implements a Java Stack that can be used with Complex Numbers.
+* The Stack uses and extends the Stack Class by implementing other methods such as 'Dup', 'Over', 'Stack_Clear', 'getMemory' and ''
+*
+* @param <ComplexNumber>
+* @see         Stack
+* @see         ComplexNumber
+*/
 public class ComplexStack<ComplexNumber> extends Stack{
-    
+
+    public ComplexStack() {
+        super();
+    }
+
     public ArrayList<ComplexNumber> getMemory(int k){
         ArrayList<ComplexNumber> elements= new ArrayList<>();
         
@@ -29,6 +36,8 @@ public class ComplexStack<ComplexNumber> extends Stack{
         
         return this.size();
     }
+    
+    
     
     
 }
