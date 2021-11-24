@@ -11,6 +11,7 @@ import java.util.Stack;
 /**
  *
  * @author Anna
+ * @param <ComplexNumber>
  */
 public class ComplexStack<ComplexNumber> extends Stack{
     
@@ -18,10 +19,15 @@ public class ComplexStack<ComplexNumber> extends Stack{
         ArrayList<ComplexNumber> elements= new ArrayList<>();
         
         for(int index=0; index<k; index++){
-            elements.add((ComplexNumber) this.elementAt(this.size()-index));  
+            elements.add((ComplexNumber) this.elementAt(this.size()-1-index));  
         }
-       
         return elements;
+    }
+    
+    public int stack_clear(){
+            this.clear();
+        
+        return this.size();
     }
     
     

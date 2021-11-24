@@ -45,33 +45,42 @@ public class ComplexStackTest {
     @Test
     public void testGetMemory() {
         ComplexStack stack= new ComplexStack();
+        ComplexNumber five=new ComplexNumber(3,0);
+        ComplexNumber four=new ComplexNumber(4,0);
+        ComplexNumber three=new ComplexNumber(5,0);
         
-        stack.add(new ComplexNumber(3,0));
-        stack.add(new ComplexNumber(4,0));
-        stack.add(new ComplexNumber(5,0));
+        stack.add(three);
+        stack.add(four);
+        stack.add(five);
         
-        ArrayList<ComplexNumber> expectedlist= stack.getMemory(3);
+        ArrayList<ComplexNumber> actuals=stack.getMemory(3);
         
-        ComplexNumber expected[] = null;
+        //Comparison to see if five is pulled out correctly
+        assertEquals(five.getReal(), actuals.get(0).getReal(), 0.0000001);
+        assertEquals(five.getImaginary(), actuals.get(0).getImaginary(), 0.0000001);
         
+        //Comparison to see if four is pulled out correctly
+        assertEquals(four.getReal(), actuals.get(1).getReal(), 0.0000001);
+        assertEquals(four.getImaginary(), actuals.get(1).getImaginary(), 0.0000001);
         
-        stack.add(new ComplexNumber(3,0));
-        stack.add(new ComplexNumber(4,0));
-        stack.add(new ComplexNumber(5,0));
+        //Comparison to see if three is pulled out correctly
+        assertEquals(three.getReal(), actuals.get(2).getReal(), 0.0000001);
+        assertEquals(three.getImaginary(), actuals.get(2).getImaginary(), 0.0000001);
         
-        expected[0]= new ComplexNumber(3,0);
-        expected[1]= new ComplexNumber(4,0);
-        expected[2]= new ComplexNumber(5,0);
 
-        ComplexNumber actual[] = null;
-        actual[0]= expectedlist.get(0);
-        actual[1]= expectedlist.get(1);
-        actual[2]= expectedlist.get(2);
-        
-        
-        assertArrayEquals(expected, actual);
-        
-        
-    
     }
+    
+    @Test
+    public void testClear(){
+        ComplexStack stack= new ComplexStack();
+        
+        stack.add(new ComplexNumber(3,0));
+        stack.add(new ComplexNumber(4,0));
+        stack.add(new ComplexNumber(5,0));
+
+        assertEquals(0, stack.stack_clear());
+    }
+    
+    
+    
 }
