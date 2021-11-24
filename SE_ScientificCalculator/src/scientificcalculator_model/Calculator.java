@@ -88,6 +88,11 @@ public class Calculator {
         return new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary());
     }
     
+    public ComplexNumber subtraction(ComplexNumber a, ComplexNumber b){
+        return new ComplexNumber(a.getReal() - b.getReal(),a.getImaginary() - b.getImaginary());
+        
+    }
+    
     public ComplexNumber product(ComplexNumber a, ComplexNumber b){
         double aa = a.getReal() * b.getReal();
         double aib_1 = a.getReal() * b.getImaginary();
