@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MacBook-Pro-di-Marco.local" name="CalculatorTest" skipped="0" tests="3" time="5.033" timestamp="2021-11-23T22:44:05">
+<testsuite errors="0" failures="0" hostname="MacBook-Pro-di-Marco.local" name="CalculatorTest" skipped="0" tests="3" time="5.059" timestamp="2021-11-24T11:57:21">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="IT" />
@@ -9,6 +9,7 @@
     <property name="javac.test.classpath" value=":build/classes:/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/lib/junit_4/junit-4.12.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/platform/modules/ext/hamcrest-core-1.3.jar" />
     <property name="libs.jsf20.maven-pom" value="" />
     <property name="manifest.custom.codebase" value="*" />
+    <property name="javac.test.sourcepath" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/empty" />
     <property name="maven.defaultProjectBuilder.disableGlobalModelCache" value="true" />
     <property name="libs.spring-webmvc4.0.src" value="" />
     <property name="javac.includes" value="CalculatorTest.java" />
@@ -29,6 +30,7 @@
     <property name="javafx.enabled" value="true" />
     <property name="javadoc.noindex" value="false" />
     <property name="sun.os.patch.level" value="unknown" />
+    <property name="auxiliary.org-netbeans-modules-projectapi.issue214819_5f_fx_5f_enabled" value="true" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
     <property name="netbeans.autoupdate.variant" value="" />
@@ -58,13 +60,14 @@
     <property name="libs.spring-webmvc5.0.javadoc" value="" />
     <property name="libs.spring-framework500.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/platform/modules/org-apache-commons-logging.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-aop-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-aspects-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-beans-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-context-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-context-indexer-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-context-support-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-core-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-expression-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-instrument-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-jcl-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-jdbc-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-jms-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-messaging-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-orm-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-oxm-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-test-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-tx-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-web-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-webflux-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-webmvc-5.2.9.RELEASE.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/spring-5/spring-websocket-5.2.9.RELEASE.jar" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner CalculatorTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/test/results/TEST-CalculatorTest.xml crashfile=/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/junitvmwatcher3141264152367080410.properties propsfile=/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/junit4882663946949543422.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner CalculatorTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/test/results/TEST-CalculatorTest.xml crashfile=/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/junitvmwatcher225219686629383083.properties propsfile=/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/junit2592667138465962127.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="build.sysclasspath" value="ignore" />
     <property name="manifest.encoding" value="UTF-8" />
     <property name="ap.supported.internal" value="true" />
     <property name="java.failonerror" value="true" />
     <property name="libs.javaee-api-8.0.maven-pom" value="" />
+    <property name="run.modulepath" value="" />
     <property name="libs.javaee-endorsed-api-7.0.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="libs.jaxws21.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/docs/jaxws-api-doc.zip" />
     <property name="libs.spring-webmvc4.0.javadoc" value="" />
@@ -83,6 +86,7 @@
     <property name="build.compiler.emacs" value="true" />
     <property name="libs.javaee-web-api-6.0.src" value="" />
     <property name="libs.jsp-compilation-syscp.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/extide/ant/lib/ant.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/servlet3.1-jsp2.3-api.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/glassfish-jspparser-4.0.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/jstl-impl.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/jsf-2_2/javax.faces.jar" />
+    <property name="javac.modulepath" value="" />
     <property name="javafx.deploy.includeDT" value="true" />
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/endorsed" />
     <property name="libs.groovy-all.src" value="" />
@@ -113,7 +117,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="/" />
-    <property name="javac.includesfile.binary" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/null218270645" />
+    <property name="javac.includesfile.binary" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/null960767543" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="javac.test.processorpath" value=":build/classes:/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/lib/junit_4/junit-4.12.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/platform/modules/ext/hamcrest-core-1.3.jar" />
     <property name="netbeans.buildnumber" value="12.5-fd523ddc12d6156412d7b81f0c8663d8913d1021" />
@@ -124,7 +128,6 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.jaxb.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/ide/docs/jaxb-api-doc.jar" />
     <property name="libs.struts.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/antlr-2.7.2.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/bsf-2.3.0.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-beanutils-1.8.0.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-chain-1.2.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-digester-1.8.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-fileupload-1.1.1.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-io-1.1.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-logging-1.0.4.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/commons-validator-1.3.1.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/jstl-1.0.2.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/oro-2.0.8.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/standard-1.0.6.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-core-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-el-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-extras-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-faces-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-mailreader-dao-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-scripting-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-taglib-1.3.10.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/struts/struts-tiles-1.3.10.jar" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="javac.includes.binary" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/test/classes/CalculatorTest.class" />
     <property name="ant.home" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/extide/ant" />
     <property name="libs.junit_4.src" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/lib/junit_4/junit-4.12-sources.jar" />
@@ -193,7 +196,6 @@
     <property name="javafx.deploy.backgroundupdate" value="false" />
     <property name="&lt;&lt;&lt;&lt;&lt;&lt;&lt;" value="HEAD" />
     <property name="javafx.disable.concurrent.runs" value="false" />
-    <property name="version-output" value="java version &quot;1.8" />
     <property name="test.binarytestincludes" value="" />
     <property name="javafx.preloader.jar.path" value="" />
     <property name="javadoc.preview" value="true" />
@@ -219,6 +221,7 @@
     <property name="javafx.application.implementation.version" value="1.0" />
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
     <property name="libs.junit_4.javadoc" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/lib/junit_4/junit-4.12-javadoc.jar" />
+    <property name="javac.test.modulepath" value="" />
     <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
     <property name="run.classpath" value="dist/SE_ScientificCalculator.jar::build/classes" />
     <property name="jna.boot.library.name" value="jnidispatch-nb" />
@@ -278,6 +281,7 @@
     <property name="dist.jar" value="dist/SE_ScientificCalculator.jar" />
     <property name="libs.spring-framework400.maven-pom" value="" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="debug.test.modulepath" value="" />
     <property name="ant.project.name" value="SE_ScientificCalculator" />
     <property name="libs.spring-webmvc5.0.src" value="" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA_WEBEE_WEBCOMMON_PHP0fc22e6a2-d923-4c33-ade3-d3bbab55ed67_2b725582-5d23-4b7a-a3b0-51b43ac667fe" />
@@ -285,14 +289,13 @@
     <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
     <property name="sun.cpu.isalist" value="" />
     <property name="libs.jakartaee-web-api-8.0.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/jakarta.jakartaee-web-api-8.0.0.jar" />
-    <property name="libs.spring-framework400.javadoc" value="" />
     <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="libs.spring-framework400.javadoc" value="" />
     <property name="libs.jakartaee-api-8.0.maven-pom" value="" />
     <property name="org.openide.specification.version" value="6.2" />
     <property name="libs.JUnit.maven-pom" value="" />
     <property name="user.home" value="/Users/marco" />
     <property name="annotation.processing.processors.list" value="" />
-    <property name="debug-args-line" value="-Xdebug" />
     <property name="libs.primefaces.maven-pom" value="" />
     <property name="libs.javaee-api-6.0.maven-pom" value="" />
     <property name="libs.JWSAntTasks.src" value="" />
@@ -302,12 +305,13 @@
     <property name="libs.spring-framework300.javadoc" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="libs.spring-webmvc5.0.maven-pom" value="" />
-    <property name="libs.CopyLibs.prop-version" value="2.0" />
+    <property name="libs.CopyLibs.prop-version" value="3.0" />
     <property name="libraries.dir" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/lib" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="java.version" value="1.8.0_312" />
     <property name="javadoc.version" value="false" />
     <property name="run.jvmargs.ide" value="" />
+    <property name="javac.processormodulepath" value="" />
     <property name="org.openide.version" value="deprecated" />
     <property name="source.encoding" value="UTF-8" />
     <property name="platform.java" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/bin/java" />
@@ -321,7 +325,7 @@
     <property name="libs.metro.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/webservices-api-javadoc.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/webservices-extra-javadoc.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/webservices-extra-api-javadoc.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/webservices-rt-javadoc.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/webservices-tools-javadoc.jar" />
     <property name="libs.struts.maven-pom" value="" />
     <property name="ant.file.jfx-impl" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/nbproject/jfx-impl.xml" />
-    <property name="jnidispatch.path" value="/Users/marco/Library/Caches/JNA/temp/jna2654453214352885387.tmp" />
+    <property name="jnidispatch.path" value="/Users/marco/Library/Caches/JNA/temp/jna5296634689030645094.tmp" />
     <property name="netbeans.home+have.tests" value="true" />
     <property name="annotation.processing.processor.options" value="" />
     <property name="libs.testng.maven-pom" value="" />
@@ -352,6 +356,7 @@
     <property name="built-jar.properties" value="/Users/marco/Documents/GitHub/SE_Project/SE_ScientificCalculator/build/built-jar.properties" />
     <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
+    <property name="javac.test.compilerargs" value="" />
     <property name="annotation.processing.enabled" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.jpa20-persistence.src" value="" />
@@ -372,6 +377,7 @@
     <property name="default.javac.source" value="1.8" />
     <property name="debug-transport-by-os" value="dt_socket" />
     <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="run.test.jvmargs" value="" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_312-b07" />
     <property name="default.javac.target" value="1.8" />
@@ -410,6 +416,7 @@
     <property name="libs.JAXB-ENDORSED.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/ide/modules/ext/jaxb/api/jaxb-api.jar" />
     <property name="libs.JDBC.maven-pom" value="" />
     <property name="nb.internal.action.name" value="test.single" />
+    <property name="run.test.modulepath" value="" />
     <property name="libs.javaee-api-7.0.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="libs.eclipselink.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.core-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.asm-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.antlr-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.jpql-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/org.eclipse.persistence.moxy-2.7.7.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/java/modules/ext/eclipselink/javax.persistence-2.2.1.jar" />
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
@@ -432,6 +439,7 @@
     <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/extide/ant/lib/ant.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/servlet3.1-jsp2.3-api.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/glassfish-jspparser-4.0.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/jsf-2_2/javax.faces.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/modules/ext/jstl-api.jar:/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/extide/ant/lib/ant-launcher.jar" />
     <property name="libs.javaee-web-api-8.0.javadoc" value="/Applications/NetBeans/Apache NetBeans 12.5.app/Contents/Resources/NetBeans/netbeans/enterprise/docs/javaee-doc-api.jar" />
+    <property name="debug.modulepath" value="" />
     <property name="ant.version" value="Apache Ant(TM) version 1.10.8 compiled on May 10 2020" />
     <property name="file.encoding" value="UTF-8" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
