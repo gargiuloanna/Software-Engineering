@@ -156,7 +156,6 @@ public class CalculatorTest {
         }
         
         assertTrue(e instanceof ArithmeticException);
-    
     }
     
     @Test
@@ -167,6 +166,12 @@ public class CalculatorTest {
         assertEquals(new ComplexNumber(-4, -4).getReal(), c.invert(new ComplexNumber(4, 4)).getImaginary(), 0.0000001);
         
     }
-
-   
+    
+    @Test
+    public void testSqrt(){
+        
+        //Test for (1+j)
+        assertEquals(new ComplexNumber(1.09868411, 0.45508986).getReal(), c.sqrt(new ComplexNumber(1, 1)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(1.09868411, 0.45508986).getImaginary(), c.sqrt(new ComplexNumber(1, 1)).getImaginary(), 0.0000001);
+    }
 }
