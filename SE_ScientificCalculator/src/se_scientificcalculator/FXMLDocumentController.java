@@ -86,7 +86,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperand(ActionEvent event) {
-        
+
     }
     
 }
