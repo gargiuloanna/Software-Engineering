@@ -23,7 +23,7 @@ public class ComplexStack<ComplexNumber> extends Stack{
     }
     
     /**
-    * Returns an ArrayList object that contains the k elements of the stack to be displayed. 
+    * The method reads and returns the last k elements from the stackayed. 
     * The k arguments symbolizes the number of elements of the stack that need to be added to the ArrayList.
     * If the number of elements requested is higher than the number of elements contained in the stack, the method
     * will return the full content of the stack.
@@ -44,7 +44,6 @@ public class ComplexStack<ComplexNumber> extends Stack{
     }
     
     /**
-    * Returns the size of the empty stack after that it has been cleared.
     * The method uses the clear method inherited from the class Stack.
     * <p>
     * @return      the size of the stack
@@ -57,7 +56,6 @@ public class ComplexStack<ComplexNumber> extends Stack{
     }
     
     /**
-    * Returns true if the elements have been swapped. 
     * The method swaps the last two elements of the stack.
     * If the stack is empty or the size of the stack is less than two, then the swap is not performed and the method returns false.
     * <p>
@@ -81,7 +79,6 @@ public class ComplexStack<ComplexNumber> extends Stack{
         
     }
     /**
-    * Returns true if the last element has been duplicated and added to the stack. 
     * The method duplicates and adds the last element of the stack on top of the stack.
     * If the stack is empty the duplication is not performed and the method returns false.
     * <p>
@@ -93,6 +90,20 @@ public class ComplexStack<ComplexNumber> extends Stack{
             return false;
         
         add(peek());
+        return true;
+    }
+    
+    /**
+    * The method removes last element of the stack and returns true.
+    * If the stack is empty drop is not performed and the method returns false.
+    * <p>
+    * @return      true if the last element of the stack has been removed
+    */
+    public boolean drop(){
+        if (empty())
+           return false;
+        
+        pop();
         return true;
     }
         
