@@ -80,6 +80,21 @@ public class ComplexStack<ComplexNumber> extends Stack{
         return true;
         
     }
+    /**
+    * Returns true if the last element has been duplicated and added to the stack. 
+    * The method duplicates and adds the last element of the stack on top of the stack.
+    * If the stack is empty the duplication is not performed and the method returns false.
+    * <p>
+    * @return      true if the duplication has been successfull
+    */
+    
+    public boolean dup(){
+        if (empty())
+            return false;
+        
+        add(peek());
+        return true;
+    }
         
         
     

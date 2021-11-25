@@ -99,6 +99,24 @@ public class ComplexStackTest {
 
     }
     
+        
+    @Test
+    public void testDup(){
+        
+        //Check that swaps returns correctly
+        assertEquals(true, stack.dup());
+        
+        //Check if the values have been swapped
+        ComplexNumber last= (ComplexNumber) stack.pop();
+        ComplexNumber secondCopyLast= (ComplexNumber) stack.pop();
+
+        assertEquals(secondCopyLast.getReal(), last.getReal(), 0.0000001);
+        assertEquals(secondCopyLast.getImaginary(), last.getImaginary(), 0.0000001);
+
+
+    }
+    
+    
     
     
 }
