@@ -111,40 +111,61 @@ public class CalculatorTest {
     @Test
     public void testProduct(){
         
-        //Test di (1+j)(1-j)
+        //Test for (1+j)(1-j)
         assertEquals(new ComplexNumber(2, 0).getReal(), c.product(new ComplexNumber(1, 1), new ComplexNumber(1, -1)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(2, 0).getImaginary(), c.product(new ComplexNumber(1, 1), new ComplexNumber(1, -1)).getImaginary(), 0.0000001);
         
-        //Test di 12*12j
+        //Test for 12*12j
         assertEquals(new ComplexNumber(0, 144).getReal(), c.product(new ComplexNumber(12, 0), new ComplexNumber(0, 12)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(0, 144).getImaginary(), c.product(new ComplexNumber(12, 0), new ComplexNumber(0, 12)).getImaginary(), 0.0000001);
         
-        //Test di (12+4j)(12+4j)
+        //Test for (12+4j)(12+4j)
         assertEquals(new ComplexNumber(128, 96).getReal(), c.product(new ComplexNumber(12, 4), new ComplexNumber(12, 4)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(128, 96).getImaginary(), c.product(new ComplexNumber(12, 4), new ComplexNumber(12, 4)).getImaginary(), 0.0000001);
         
-        //Test di 12*12
+        //Test for 12*12
         assertEquals(new ComplexNumber(144, 00).getReal(), c.product(new ComplexNumber(12, 0), new ComplexNumber(12, 0)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(144, 00).getImaginary(), c.product(new ComplexNumber(12, 0), new ComplexNumber(12, 0)).getImaginary(), 0.0000001);
         
-        //Test di 12j*12j
+        //Test for 12j*12j
         assertEquals(new ComplexNumber(-144, 0).getReal(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(-144, 0).getImaginary(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getImaginary(), 0.0000001);
     }
     
+    @Test
     public void testDivision(){
         
-        //Test di 1/(1+j)
-        assertEquals(new ComplexNumber(1/2, -1/2).getReal(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(1/2, -1/2).getImaginary(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getImaginary(), 0.0000001);
+        //Test for 1/(1+j)
+        assertEquals(new ComplexNumber(0.5, -0.5).getReal(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(0.5, -0.5).getImaginary(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getImaginary(), 0.0000001);
         
-        //Test di (a+bj)/(c+dj)
-        assertEquals(new ComplexNumber(3/113, 68/113).getReal(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(3/113, 68/113).getImaginary(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getImaginary(), 0.0000001);
+        //Test for (a+bj)/(c+dj)
+        assertEquals(new ComplexNumber((double)3/113, (double)68/113).getReal(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber((double)3/113, (double)68/113).getImaginary(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getImaginary(), 0.0000001);
         
-        //Test di j/(a+bj)
-        assertEquals(new ComplexNumber(17/650, 6/650).getReal(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(17/650, 6/650).getImaginary(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getImaginary(), 0.0000001);
+        //Test for j/(a+bj)
+        assertEquals(new ComplexNumber((double)17/650, (double)6/650).getReal(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber((double)17/650, (double)6/650).getImaginary(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getImaginary(), 0.0000001);
+        
+        //Test for division (a+bi)/0
+        Throwable e = null;
+        try{
+           ComplexNumber div = c.division(new ComplexNumber(5, 4), new ComplexNumber(0 ,0));
+        }catch(ArithmeticException ex){
+            e = ex;
+        }
+        
+        assertTrue(e instanceof ArithmeticException);
+    
+    }
+    
+    @Test
+    public void testInvert(){
+        
+        //Test for (a+bj)
+        assertEquals(new ComplexNumber(-4, -4).getReal(), c.invert(new ComplexNumber(4, 4)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(-4, -4).getReal(), c.invert(new ComplexNumber(4, 4)).getImaginary(), 0.0000001);
+        
     }
 
    
