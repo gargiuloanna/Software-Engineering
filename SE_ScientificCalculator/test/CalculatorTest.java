@@ -131,6 +131,21 @@ public class CalculatorTest {
         assertEquals(new ComplexNumber(-144, 0).getReal(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getReal(), 0.0000001);
         assertEquals(new ComplexNumber(-144, 0).getImaginary(), c.product(new ComplexNumber(0, 12), new ComplexNumber(0, 12)).getImaginary(), 0.0000001);
     }
+    
+    public void testDivision(){
+        
+        //Test di 1/(1+j)
+        assertEquals(new ComplexNumber(1/2, -1/2).getReal(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(1/2, -1/2).getImaginary(), c.division(new ComplexNumber(1, 0), new ComplexNumber(1, 1)).getImaginary(), 0.0000001);
+        
+        //Test di (a+bj)/(c+dj)
+        assertEquals(new ComplexNumber(3/113, 68/113).getReal(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(3/113, 68/113).getImaginary(), c.division(new ComplexNumber(5, 4), new ComplexNumber(7, -8)).getImaginary(), 0.0000001);
+        
+        //Test di j/(a+bj)
+        assertEquals(new ComplexNumber(17/650, 6/650).getReal(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getReal(), 0.0000001);
+        assertEquals(new ComplexNumber(17/650, 6/650).getImaginary(), c.division(new ComplexNumber(0, 1), new ComplexNumber(12, 34)).getImaginary(), 0.0000001);
+    }
 
    
 }
