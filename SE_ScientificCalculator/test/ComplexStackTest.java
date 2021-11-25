@@ -53,9 +53,6 @@ public class ComplexStackTest {
         
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void testGetMemory() {
         
@@ -90,8 +87,10 @@ public class ComplexStackTest {
         assertEquals(true, stack.swap());
         
         //Save the last two elements
-        ComplexNumber last= (ComplexNumber) stack.elementAt(2);
-        ComplexNumber secondLast= (ComplexNumber) stack.elementAt(1);
+        ComplexNumber last= (ComplexNumber) stack.pop();
+        ComplexNumber secondLast= (ComplexNumber) stack.pop();
+        stack.add(secondLast);
+        stack.add(last);
         
         //Check if the values have been swapped      
         assertEquals(four.getReal(), last.getReal(), 0.0000001);
@@ -106,15 +105,17 @@ public class ComplexStackTest {
     public void testDup(){
         
         //Save the last two elements
-        ComplexNumber lastBeforeDup= (ComplexNumber) stack.elementAt(stack.size()-1);
+        ComplexNumber lastBeforeDup= (ComplexNumber) stack.peek();
         
         //Check that dup returns correctly
         assertEquals(true, stack.dup());
         
         //save the elements after the dup
-        ComplexNumber lastAfterDup= (ComplexNumber) stack.elementAt(stack.size()-1);
-        ComplexNumber secondLastAfterDup= (ComplexNumber) stack.elementAt(stack.size()-2);
+        ComplexNumber lastAfterDup= (ComplexNumber) stack.pop();
+        ComplexNumber secondLastAfterDup= (ComplexNumber) stack.pop();
         
+        stack.add(secondLastAfterDup);
+        stack.add(lastAfterDup);
         //Check if the last element has been duplicated
         assertEquals(lastAfterDup.getReal(), lastBeforeDup.getReal(), 0.0000001);
         assertEquals(lastAfterDup.getImaginary(), lastBeforeDup.getImaginary(), 0.0000001);
@@ -137,7 +138,24 @@ public class ComplexStackTest {
         assertEquals(sizeBeforeDrop-1, sizeAfterDrop);
     }
     
+    @Test
+    public void testOver(){
+        //Save the second last element of the stack
+        stack.swap();
+        ComplexNumber secondLast = (ComplexNumber) stack.peek();
+        stack.swap();
+        
+        
+        //Check that over returns correctly
+        assertEquals(true, stack.over());
+        
+        ComplexNumber last= (ComplexNumber) stack.peek();
+
+        //Check if the element has been removed
+        assertEquals(secondLast.getReal(), last.getReal(), 0.0000001);
+        assertEquals(secondLast.getImaginary(), last.getImaginary(), 0.0000001);
     
     
+    }
     
 }

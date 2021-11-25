@@ -33,13 +33,16 @@ public class ComplexStack<ComplexNumber> extends Stack{
     */
     public ArrayList<ComplexNumber> getMemory(int k){
         ArrayList<ComplexNumber> elements= new ArrayList<>();
-        
+
         if(k>size())
             k=size();
         
-        for(int index=0; index<k; index++){
-            elements.add((ComplexNumber) elementAt(size()-1-index));  
-        }
+        for(int index=0; index<k; index++)
+            elements.add((ComplexNumber) pop());  
+        
+        for (int index=0; index<elements.size(); index++)
+            add(elements.get(elements.size()-1-index));
+            
         return elements;
     }
     
@@ -104,6 +107,24 @@ public class ComplexStack<ComplexNumber> extends Stack{
            return false;
         
         pop();
+        return true;
+    }
+    
+    /**
+    * The method duplicates the second last element of the stack, adds it to the top of the stack and returns true.
+    * If the stack is empty duplication is not performed and the method returns false.
+    * <p>
+    * @return      true if the second last element of the stack has been duplicated and added.
+    */
+    public boolean over(){
+        if (empty())
+           return false;
+        
+        swap();
+        ComplexNumber last= (ComplexNumber) peek();
+        swap();
+        add(last);
+                 
         return true;
     }
         
