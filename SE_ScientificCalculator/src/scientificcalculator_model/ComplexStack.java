@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
+ *
+ * @author Anna
+ */
+
+/**
 * The class ComplexStack implements a Java Stack that can be used with Complex Numbers.
 * The Stack uses and extends the Stack Class by implementing other methods such as 'Dup', 'Over', 'Stack_Clear', 'getMemory' and ''
 *
@@ -117,22 +122,16 @@ public class ComplexStack<ComplexNumber> extends Stack{
     * @return      true if the second last element of the stack has been duplicated and added.
     */
     public boolean over(){
-        if (empty())
-           return false;
+
+        if (swap()){
+            ComplexNumber last= (ComplexNumber) peek();
+            swap();
+            add(last);
+            return true;
+        }
         
-        swap();
-        ComplexNumber last= (ComplexNumber) peek();
-        swap();
-        add(last);
-                 
-        return true;
+        return false;
     }
-        
-        
-    
           
-    
-    
-    
     
 }

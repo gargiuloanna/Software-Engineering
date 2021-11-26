@@ -61,8 +61,7 @@ public class ComplexStackTest {
         //Comparison to see if five is pulled out correctly
         assertEquals(five.getReal(), actuals.get(0).getReal(), 0.0000001);
         assertEquals(five.getImaginary(), actuals.get(0).getImaginary(), 0.0000001);
-        
-        
+       
         //Comparison to see if four is pulled out correctly
         assertEquals(four.getReal(), actuals.get(1).getReal(), 0.0000001);
         assertEquals(four.getImaginary(), actuals.get(1).getImaginary(), 0.0000001);
@@ -97,6 +96,15 @@ public class ComplexStackTest {
         assertEquals(four.getImaginary(), last.getImaginary(), 0.0000001);
         assertEquals(five.getReal(), secondLast.getReal(), 0.0000001);
         assertEquals(five.getImaginary(), secondLast.getImaginary(), 0.0000001);
+        
+        //Check - stack contains only one element
+        stack.pop();
+        stack.pop();
+        assertEquals(false, stack.over());
+        
+        //Check - stack is empty
+        stack.stack_clear();
+        assertEquals(false, stack.over());
 
     }
     
@@ -104,7 +112,7 @@ public class ComplexStackTest {
     @Test
     public void testDup(){
         
-        //Save the last two elements
+        //Save the last element
         ComplexNumber lastBeforeDup= (ComplexNumber) stack.peek();
         
         //Check that dup returns correctly
@@ -116,11 +124,16 @@ public class ComplexStackTest {
         
         stack.add(secondLastAfterDup);
         stack.add(lastAfterDup);
+        
         //Check if the last element has been duplicated
         assertEquals(lastAfterDup.getReal(), lastBeforeDup.getReal(), 0.0000001);
         assertEquals(lastAfterDup.getImaginary(), lastBeforeDup.getImaginary(), 0.0000001);
         assertEquals(secondLastAfterDup.getReal(), lastBeforeDup.getReal(), 0.0000001);
         assertEquals(secondLastAfterDup.getImaginary(), lastBeforeDup.getImaginary(), 0.0000001);
+        
+        //Check-stack is empty
+        stack.stack_clear();
+        assertEquals(false, stack.dup());
         
     }
     
@@ -136,10 +149,15 @@ public class ComplexStackTest {
 
         //Check if the element has been removed
         assertEquals(sizeBeforeDrop-1, sizeAfterDrop);
+        
+        //Check-stack is empty
+        stack.stack_clear();
+        assertEquals(false, stack.drop());
     }
     
     @Test
     public void testOver(){
+        
         //Save the second last element of the stack
         stack.swap();
         ComplexNumber secondLast = (ComplexNumber) stack.peek();
@@ -151,9 +169,23 @@ public class ComplexStackTest {
         
         ComplexNumber last= (ComplexNumber) stack.peek();
 
-        //Check if the element has been removed
+        //Check if the second last element has been duplicated
         assertEquals(secondLast.getReal(), last.getReal(), 0.0000001);
         assertEquals(secondLast.getImaginary(), last.getImaginary(), 0.0000001);
+        
+        //Check - stack contains only one element
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        assertEquals(false, stack.over());
+        
+        //Check - stack is empty
+        stack.stack_clear();
+        assertEquals(false, stack.over());
+        
+        
+        
+        
     
     
     }
