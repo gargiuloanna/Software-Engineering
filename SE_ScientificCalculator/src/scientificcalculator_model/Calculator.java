@@ -96,7 +96,7 @@ public class Calculator {
      * @param b
      * @return a new ComplexNumber that contains the result.
      */
-    public ComplexNumber addition(ComplexNumber a, ComplexNumber b){
+    public static ComplexNumber addition(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary());
     }
     /**
@@ -106,7 +106,7 @@ public class Calculator {
      * @param b
      * @return a new ComplexNumber that contains the result.
      */
-    public ComplexNumber subtraction(ComplexNumber a, ComplexNumber b){
+    public static ComplexNumber subtraction(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getReal() - b.getReal(),a.getImaginary() - b.getImaginary());
         
     }
@@ -118,7 +118,7 @@ public class Calculator {
      * @param b
      * @return a new ComplexNumber that contains the result.
      */
-    public ComplexNumber product(ComplexNumber a, ComplexNumber b){
+    public static ComplexNumber product(ComplexNumber a, ComplexNumber b){
         double aa = a.getReal() * b.getReal();
         double aib_1 = a.getReal() * b.getImaginary();
         double aib_2 = a.getImaginary()* b.getReal();
@@ -126,7 +126,7 @@ public class Calculator {
         return new ComplexNumber((aa + iibb), (aib_1 + aib_2));
     }
     
-    private ComplexNumber conjugated(ComplexNumber x){
+    private static ComplexNumber conjugated(ComplexNumber x){
         return new ComplexNumber(x.getReal(), -x.getImaginary());
     }
     
@@ -137,7 +137,7 @@ public class Calculator {
      * @param b
      * @return a new ComplexNumber that contains the result.
      */
-    public ComplexNumber division(ComplexNumber a, ComplexNumber b){
+    public static ComplexNumber division(ComplexNumber a, ComplexNumber b){
         ComplexNumber N = product(a, conjugated(b));
         ComplexNumber D = product(b, conjugated(b));
         
@@ -153,15 +153,15 @@ public class Calculator {
      * @param x
      * @return a new ComplexNumber with -real and -imaginary.
      */
-    public ComplexNumber invert(ComplexNumber x){
+    public static ComplexNumber invert(ComplexNumber x){
         return new ComplexNumber(-x.getReal(), -x.getImaginary());
     }
     
-    public Double module(ComplexNumber x){
+    public static Double module(ComplexNumber x){
         return Math.sqrt(Math.pow(x.getReal(), 2) + Math.pow(x.getImaginary(), 2));
     }
     
-    public ComplexNumber sqrt(ComplexNumber x){
+    public static ComplexNumber sqrt(ComplexNumber x){
         double bABS = x.getImaginary()/Math.abs(x.getImaginary());
         System.out.println(bABS);
         double xABS = module(x);

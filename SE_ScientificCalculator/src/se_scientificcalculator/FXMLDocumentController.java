@@ -16,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import scientificcalculator_model.Calculator;
 import scientificcalculator_model.ComplexNumber;
+import scientificcalculator_model.ComplexStack;
 
 /**
  *
@@ -29,63 +30,104 @@ public class FXMLDocumentController implements Initializable {
     private TextField addTextfield;
     @FXML
     private ListView<ComplexNumber> history;
-    private ObservableList<ComplexNumber> lis;
+    private ComplexStack hist;
+    private ObservableList<ComplexNumber> list;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lis=FXCollections.observableArrayList();
-        history.setItems(lis);
+        list= FXCollections.observableArrayList();
+        hist= new ComplexStack();
+        history.setItems(list);
     }    
 
     @FXML
     private void prodButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void subButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.subtraction(firstOperand, secondOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void addButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.addition(firstOperand, secondOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void invButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.invert(firstOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void sqrtButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.sqrt(firstOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void divButton(ActionEvent event) {
+        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+        ComplexNumber sum=Calculator.division(firstOperand, secondOperand);
+        list.add(sum);
+        hist.add(sum);
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
+        hist.dup();
+        list.add((ComplexNumber) hist.peek());
     }
 
     @FXML
     private void dropButton(ActionEvent event) {
+        hist.drop();
+        list.remove(list.size()-1);
     }
 
     @FXML
     private void clearButton(ActionEvent event) {
+        hist.stack_clear();
+        list.clear();
     }
 
     @FXML
     private void overButton(ActionEvent event) {
+        hist.over();
+        list.add(list.get(list.size()-2));
     }
 
     @FXML
     private void swapButton(ActionEvent event) {
+        hist.swap();
+        ///da modificare nella lista
     }
 
     @FXML
     private void addOperand(ActionEvent event) {
-        String operand = addTextfield.getText();
-        lis.add(Calculator.stringToComplex(operand));
+        ComplexNumber operand = Calculator.stringToComplex(addTextfield.getText());
+        hist.add(operand);
+        list.add(operand);
 
     }
     

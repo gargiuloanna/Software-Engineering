@@ -7,7 +7,6 @@ package scientificcalculator_model;
 
 import java.util.ArrayList;
 import java.util.Stack;
-
 /**
  *
  * @author Anna
