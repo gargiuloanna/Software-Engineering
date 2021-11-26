@@ -23,7 +23,7 @@ public class Calculator {
         
         double real = 0;
         double immaginary = 0;
-        
+
         int sign_index = -1;
         
         //Prelevo la posizione di j se esiste nella stringa:

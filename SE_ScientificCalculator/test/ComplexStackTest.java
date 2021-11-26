@@ -20,9 +20,9 @@ import scientificcalculator_model.ComplexStack;
  */
 public class ComplexStackTest {
     ComplexStack stack;
-    ComplexNumber three=new ComplexNumber(3,0);
-    ComplexNumber four=new ComplexNumber(4,0);
-    ComplexNumber five=new ComplexNumber(5,0);
+    ComplexNumber three;
+    ComplexNumber four;
+    ComplexNumber five;
 
     public ComplexStackTest() {
     }
