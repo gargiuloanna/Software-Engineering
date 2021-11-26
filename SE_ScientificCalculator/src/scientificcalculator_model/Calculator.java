@@ -11,7 +11,14 @@ package scientificcalculator_model;
 public class Calculator {
     
     
-  
+    /**
+     * This method acts as a parser for the input string that contains the 
+     * complex number in algebraic (or Cartesian) form in a ComplexNumber 
+     * object that simplifies its representation for any operations.
+     * @param s
+     * @return a new ComplexNumber with real and imaginary part divided in two
+     * different attribute.
+     */
     public ComplexNumber stringToComplex(String s){
         
         double real = 0;
@@ -93,6 +100,13 @@ public class Calculator {
         
     }
     
+    /**
+     * This method make the arithmetical product between two 
+     * ComplexNumber object (a+bj)*(c+dj).
+     * @param a
+     * @param b
+     * @return a new ComplexNumber that contains the result.
+     */
     public ComplexNumber product(ComplexNumber a, ComplexNumber b){
         double aa = a.getReal() * b.getReal();
         double aib_1 = a.getReal() * b.getImaginary();
@@ -101,14 +115,52 @@ public class Calculator {
         return new ComplexNumber((aa + iibb), (aib_1 + aib_2));
     }
     
-    public ComplexNumber conjugated(ComplexNumber x){
+    private ComplexNumber conjugated(ComplexNumber x){
         return new ComplexNumber(x.getReal(), -x.getImaginary());
     }
     
+    /**
+     * This method make the arithmetical division between two 
+     * ComplexNumber object (a+bj)/(c+dj).
+     * @param a
+     * @param b
+     * @return a new ComplexNumber that contains the result.
+     */
     public ComplexNumber division(ComplexNumber a, ComplexNumber b){
         ComplexNumber N = product(a, conjugated(b));
         ComplexNumber D = product(b, conjugated(b));
         
-        return null;
+        if (D.getImaginary()==0 && D.getReal()==0)
+            throw new ArithmeticException();
+        
+        return new ComplexNumber(N.getReal()/D.getReal(), N.getImaginary()/D.getReal());
+    }
+    
+    /**
+     * This method act like a - before the entire ComplexNumber to invert the sign
+     * for the real and imaginary part.
+     * @param x
+     * @return a new ComplexNumber with -real and -imaginary.
+     */
+    public ComplexNumber invert(ComplexNumber x){
+        return new ComplexNumber(-x.getReal(), -x.getImaginary());
+    }
+    
+    public Double module(ComplexNumber x){
+        return Math.sqrt(Math.pow(x.getReal(), 2) + Math.pow(x.getImaginary(), 2));
+    }
+    
+    public ComplexNumber sqrt(ComplexNumber x){
+        double bABS = x.getImaginary()/Math.abs(x.getImaginary());
+        System.out.println(bABS);
+        double xABS = module(x);
+        System.out.println(xABS);
+        
+        double a1 = Math.sqrt((xABS+x.getReal())/2);
+        System.out.println(a1);
+        double a2 = Math.sqrt((xABS-x.getReal())/2);
+        System.out.println(a2);
+        
+        return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
     }
 }
