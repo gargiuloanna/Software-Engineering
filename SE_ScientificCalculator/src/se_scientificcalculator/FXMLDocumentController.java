@@ -7,10 +7,11 @@ package se_scientificcalculator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import scientificcalculator_model.Calculator;
@@ -22,22 +23,19 @@ import scientificcalculator_model.ComplexNumber;
  */
 public class FXMLDocumentController implements Initializable {
     
-    private Label label;
-    @FXML
-    private TextField addTextfiled;
-    @FXML
-    private ListView<?> cronologia;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World hello!!");
-        label.setText("Hello World hello hello!!");
-        label.setText("prova luigina!!");
-    }
+    
+    @FXML
+    private TextField addTextfield;
+    @FXML
+    private ListView<ComplexNumber> history;
+    private ObservableList<ComplexNumber> lis;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lis=FXCollections.observableArrayList();
+        history.setItems(lis);
     }    
 
     @FXML
@@ -86,6 +84,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperand(ActionEvent event) {
+        String operand = addTextfield.getText();
+        lis.add(Calculator.stringToComplex(operand));
 
     }
     

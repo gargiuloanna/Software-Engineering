@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import scientificcalculator_model.Calculator;
-import scientificcalculator_model.ComplexNumber;
+import scientificcalculator_model.*;
+
 
 /**
  *

@@ -19,7 +19,7 @@ public class Calculator {
      * @return a new ComplexNumber with real and imaginary part divided in two
      * different attribute.
      */
-    public ComplexNumber stringToComplex(String s){
+    public static ComplexNumber stringToComplex(String s){
         
         double real = 0;
         double immaginary = 0;
@@ -28,7 +28,6 @@ public class Calculator {
         
         //Prelevo la posizione di j se esiste nella stringa:
         int j_index = s.indexOf('j');
-        System.out.println(j_index);
         
         //Prelevo il segno dall'espressione se esiste nella stringa:
         if (s.substring(1, s.length()).indexOf('+')!=-1)
@@ -51,7 +50,7 @@ public class Calculator {
                     immaginary = Double.parseDouble(s.substring(0, s.indexOf('j')));
                 }
                 real = Double.parseDouble(s.substring(sign_index, s.length()));
-                System.out.println(real);
+               
             }
             else if (j_index>sign_index){ //Se j sta a destra significa che il primo numero è la parte reale
                 if (s.substring(s.length()-1, s.length()).equals("j")){
@@ -90,18 +89,30 @@ public class Calculator {
         
         return new ComplexNumber(real, immaginary);
     }
-    
+    /**
+     * This method makes the arithmetical addition between two operands
+     * ComplexNumber object (a+bj)*(c+dj).
+     * @param a
+     * @param b
+     * @return a new ComplexNumber that contains the result.
+     */
     public ComplexNumber addition(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary());
     }
-    
+    /**
+     * This method makes the arithmetical subtraction between two operands
+     * ComplexNumber object (a+bj)*(c+dj).
+     * @param a
+     * @param b
+     * @return a new ComplexNumber that contains the result.
+     */
     public ComplexNumber subtraction(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getReal() - b.getReal(),a.getImaginary() - b.getImaginary());
         
     }
     
     /**
-     * This method make the arithmetical product between two 
+     * This method makes the arithmetical product between two operands
      * ComplexNumber object (a+bj)*(c+dj).
      * @param a
      * @param b
@@ -120,7 +131,7 @@ public class Calculator {
     }
     
     /**
-     * This method make the arithmetical division between two 
+     * This method makes the arithmetical division between two operands
      * ComplexNumber object (a+bj)/(c+dj).
      * @param a
      * @param b
@@ -137,7 +148,7 @@ public class Calculator {
     }
     
     /**
-     * This method act like a - before the entire ComplexNumber to invert the sign
+     * This method acts like a - before the entire ComplexNumber to invert the sign
      * for the real and imaginary part.
      * @param x
      * @return a new ComplexNumber with -real and -imaginary.
