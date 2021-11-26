@@ -31,7 +31,7 @@ public class ComplexNumber {
             return real + "+" + imaginary + "j"; 
         else if (imaginary < 0)
             return real + "" + imaginary + "j"; 
-        return "";
+        return real + "";
     }
     
     
