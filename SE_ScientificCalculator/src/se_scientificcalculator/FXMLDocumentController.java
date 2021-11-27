@@ -106,7 +106,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void clearButton(ActionEvent event) {
-        hist.stack_clear();
+        hist.stackClear();
         list.clear();
     }
 

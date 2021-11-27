@@ -103,7 +103,7 @@ public class ComplexStackTest {
         assertEquals(false, stack.over());
         
         //Check - stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.over());
 
     }

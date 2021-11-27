@@ -56,7 +56,7 @@ public class ComplexStack<ComplexNumber> extends Stack{
     * @return      the size of the stack
     */
     
-    public int stack_clear(){
+    public int stackClear(){
             clear();
         
         return size();
