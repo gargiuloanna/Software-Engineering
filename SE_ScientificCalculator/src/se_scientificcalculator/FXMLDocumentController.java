@@ -6,7 +6,6 @@
 package se_scientificcalculator;
 
 import java.net.URL;
-import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,9 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import scientificcalculator_model.Calculator;
-import scientificcalculator_model.ComplexNumber;
-import scientificcalculator_model.ComplexStack;
+import scientificcalculator_model.*;
 
 /**
  *
@@ -49,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
         list.add(0, sum);
         hist.add(sum);
-        FXCollections.sort(list, Collections.reverseOrder());
+       
     }
 
     @FXML
@@ -133,7 +130,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperand(ActionEvent event) {
-        ComplexNumber operand = Calculator.stringToComplex(addTextfield.getText());
+        ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
         hist.add(operand);
         list.add(0, operand);
     }
