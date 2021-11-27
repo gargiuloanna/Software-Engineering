@@ -42,27 +42,6 @@ public class CalculatorTest {
     }
     
     @Test
-    public void testStringToDouble(){
-        //DEFINIZIONE CASI POSSIBILI DI INSERIMENTO
-        
-        //a+bj
-        assertEquals(new ComplexNumber(15, 4).getReal(), c.stringToComplex("15+4j").getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(15, 4).getImaginary(), c.stringToComplex("15+4j").getImaginary(), 0.0000001);
-        
-        //a
-        assertEquals(new ComplexNumber(15, 0).getReal(), c.stringToComplex("15").getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(15, 0).getImaginary(), c.stringToComplex("15").getImaginary(), 0.0000001);
-        
-        //bj
-        assertEquals(new ComplexNumber(0, 4).getReal(), c.stringToComplex("4j").getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(0, 4).getImaginary(), c.stringToComplex("4j").getImaginary(), 0.0000001);
-        
-        //bj+a
-        assertEquals(new ComplexNumber(15, 4).getReal(), c.stringToComplex("15+4j").getReal(), 0.0000001);
-        assertEquals(new ComplexNumber(15, 4).getImaginary(), c.stringToComplex("15+4j").getImaginary(), 0.0000001);
-    }
-    
-    @Test
     public void testAddition(){
         //(a+bj) + (a+bj)
         assertEquals(new ComplexNumber(15, 4).getReal(), c.addition(new ComplexNumber(10, 2), new ComplexNumber(5, 2)).getReal(),0.0000001);
