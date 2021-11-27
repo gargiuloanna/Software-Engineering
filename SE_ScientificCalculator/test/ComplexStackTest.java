@@ -132,7 +132,7 @@ public class ComplexStackTest {
         assertEquals(secondLastAfterDup.getImaginary(), lastBeforeDup.getImaginary(), 0.0000001);
         
         //Check-stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.dup());
         
     }
