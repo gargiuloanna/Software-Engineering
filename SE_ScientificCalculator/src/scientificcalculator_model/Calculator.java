@@ -161,16 +161,17 @@ public class Calculator {
         return Math.sqrt(Math.pow(x.getReal(), 2) + Math.pow(x.getImaginary(), 2));
     }
     
+    /**
+     * 
+     * @param x
+     * @return 
+     */
     public static ComplexNumber sqrt(ComplexNumber x){
         double bABS = x.getImaginary()/Math.abs(x.getImaginary());
-        System.out.println(bABS);
         double xABS = module(x);
-        System.out.println(xABS);
         
         double a1 = Math.sqrt((xABS+x.getReal())/2);
-        System.out.println(a1);
         double a2 = Math.sqrt((xABS-x.getReal())/2);
-        System.out.println(a2);
         
         return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
     }
