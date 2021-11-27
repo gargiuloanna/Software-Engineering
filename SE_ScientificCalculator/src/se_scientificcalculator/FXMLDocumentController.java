@@ -6,6 +6,7 @@
 package se_scientificcalculator;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,8 +47,9 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber secondOperand = (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
+        FXCollections.sort(list, Collections.reverseOrder());
     }
 
     @FXML
@@ -55,7 +57,7 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber secondOperand = (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.subtraction(firstOperand, secondOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
     }
 
@@ -64,7 +66,7 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber secondOperand = (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.addition(firstOperand, secondOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
     }
 
@@ -72,7 +74,7 @@ public class FXMLDocumentController implements Initializable {
     private void invButton(ActionEvent event) {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.invert(firstOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
     }
 
@@ -80,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
     private void sqrtButton(ActionEvent event) {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.sqrt(firstOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
     }
 
@@ -89,14 +91,14 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber firstOperand= (ComplexNumber) hist.pop();
         ComplexNumber secondOperand = (ComplexNumber) hist.pop();
         ComplexNumber sum=Calculator.division(firstOperand, secondOperand);
-        list.add(sum);
+        list.add(0, sum);
         hist.add(sum);
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
         hist.dup();
-        list.add((ComplexNumber) hist.peek());
+        list.add(0, (ComplexNumber) hist.peek());
     }
 
     @FXML
@@ -114,7 +116,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void overButton(ActionEvent event) {
         hist.over();
-        list.add(list.get(list.size()-2));
+        list.add(0, list.get(list.size()-2));
     }
 
     @FXML
@@ -125,16 +127,15 @@ public class FXMLDocumentController implements Initializable {
         list.remove(list.size()-1);
         list.remove(list.size()-1);
         
-        list.add(last);
-        list.add(secondLast);
+        list.add(0, last);
+        list.add(0, secondLast);
     }
 
     @FXML
     private void addOperand(ActionEvent event) {
         ComplexNumber operand = Calculator.stringToComplex(addTextfield.getText());
         hist.add(operand);
-        list.add(operand);
-
+        list.add(0, operand);
     }
     
 }
