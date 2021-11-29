@@ -19,7 +19,7 @@
          <font>
             <Font size="29.0" />
          </font></TextField>
-      <Button layoutX="22.0" layoutY="79.0" mnemonicParsing="false" onAction="#addOperand" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: A2639B;" text="Aggiungi Operando" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="22.0" layoutY="79.0" mnemonicParsing="false" onAction="#addOperand" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: ;" text="Aggiungi Operando" textAlignment="CENTER" wrapText="true" />
       <ListView fx:id="history" editable="true" layoutX="399.0" layoutY="41.0" prefHeight="261.0" prefWidth="152.0" />
       <Label layoutX="434.0" layoutY="11.0" prefHeight="19.0" prefWidth="83.0" text="  Cronologia" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
@@ -61,125 +61,125 @@
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="D" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3">
+            <RadioButton fx:id="radioD" mnemonicParsing="false" text="D" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="E" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4">
+            <RadioButton fx:id="radioE" mnemonicParsing="false" text="E" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="F" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="1">
+            <RadioButton fx:id="radioF" mnemonicParsing="false" text="F" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="1">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="G" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <RadioButton fx:id="radioG" mnemonicParsing="false" text="G" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="H" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <RadioButton fx:id="radioH" mnemonicParsing="false" text="H" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="I" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <RadioButton fx:id="radioI" mnemonicParsing="false" text="I" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="J" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <RadioButton fx:id="radioJ" mnemonicParsing="false" text="J" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="K" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="2">
+            <RadioButton fx:id="radioK" mnemonicParsing="false" text="K" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="2">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="L" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <RadioButton fx:id="radioL" mnemonicParsing="false" text="L" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="M" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <RadioButton fx:id="radioM" mnemonicParsing="false" text="M" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="N" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <RadioButton fx:id="radioN" mnemonicParsing="false" text="N" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="O" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <RadioButton fx:id="radioO" mnemonicParsing="false" text="O" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="P" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="3">
+            <RadioButton fx:id="radioP" mnemonicParsing="false" text="P" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Q" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <RadioButton fx:id="radioQ" mnemonicParsing="false" text="Q" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="R" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <RadioButton fx:id="radioR" mnemonicParsing="false" text="R" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="S" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <RadioButton fx:id="radioS" mnemonicParsing="false" text="S" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="T" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <RadioButton fx:id="radioT" mnemonicParsing="false" text="T" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="U" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="4">
+            <RadioButton fx:id="radioU" mnemonicParsing="false" text="U" textFill="WHITE" toggleGroup="$variables" GridPane.rowIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="V" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <RadioButton fx:id="radioV" mnemonicParsing="false" text="V" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="W" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <RadioButton fx:id="radioW" mnemonicParsing="false" text="W" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="X" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <RadioButton fx:id="radioX" mnemonicParsing="false" text="X" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Y" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <RadioButton fx:id="radioY" mnemonicParsing="false" text="Y" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Z" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <RadioButton fx:id="radioZ" mnemonicParsing="false" text="Z" textFill="WHITE" toggleGroup="$variables" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="11.0" />
                </font>
             </RadioButton>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="59.0" text="&gt;" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" text="&lt;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="37.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="52.0" text="-" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#insertInVariable" prefHeight="27.0" prefWidth="59.0" text="&gt;" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#getFromVariable" prefHeight="27.0" prefWidth="31.0" text="&lt;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#addToLast" prefHeight="27.0" prefWidth="37.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#subToLast" prefHeight="27.0" prefWidth="52.0" text="-" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <GridPane layoutX="21.0" layoutY="115.0" prefHeight="151.0" prefWidth="175.0">
