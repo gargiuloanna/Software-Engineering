@@ -37,7 +37,7 @@ public class ComplexNumberTest {
     }
     
     @Test
-    public void testStringToComplex(){
+    public void testStringTocComplex(){
         //a+bj
         assertEquals(new ComplexNumber(15, 4).getReal(), ComplexNumber.stringToComplex("15+4j").getReal(), 0.0000001);
         assertEquals(new ComplexNumber(15, 4).getImaginary(), ComplexNumber.stringToComplex("15+4j").getImaginary(), 0.0000001);

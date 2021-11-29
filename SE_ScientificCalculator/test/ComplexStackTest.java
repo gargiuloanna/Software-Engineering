@@ -75,7 +75,7 @@ public class ComplexStackTest {
     
     @Test
     public void testClear(){
-        assertEquals(0, stack.stack_clear());
+        assertEquals(0, stack.stackClear());
     }
     
     @Test
@@ -103,7 +103,7 @@ public class ComplexStackTest {
         assertEquals(false, stack.over());
         
         //Check - stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.over());
 
     }
@@ -132,7 +132,7 @@ public class ComplexStackTest {
         assertEquals(secondLastAfterDup.getImaginary(), lastBeforeDup.getImaginary(), 0.0000001);
         
         //Check-stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.dup());
         
     }
@@ -151,7 +151,7 @@ public class ComplexStackTest {
         assertEquals(sizeBeforeDrop-1, sizeAfterDrop);
         
         //Check-stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.drop());
     }
     
@@ -180,7 +180,7 @@ public class ComplexStackTest {
         assertEquals(false, stack.over());
         
         //Check - stack is empty
-        stack.stack_clear();
+        stack.stackClear();
         assertEquals(false, stack.over());
         
         

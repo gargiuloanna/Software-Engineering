@@ -10,7 +10,6 @@ package scientificcalculator_model;
  */
 public class Calculator {
     
-    
     /**
      * This method makes the arithmetical addition between two operands
      * ComplexNumber object (a+bj)*(c+dj).
@@ -23,7 +22,7 @@ public class Calculator {
     }
     /**
      * This method makes the arithmetical subtraction between two operands
-     * ComplexNumber object (a+bj)*(c+dj).
+     * ComplexNumber object (a+bj)-(c+dj).
      * @param a
      * @param b
      * @return a new ComplexNumber that contains the result.
@@ -67,8 +66,7 @@ public class Calculator {
             throw new ArithmeticException();
         
         return new ComplexNumber(N.getReal()/D.getReal(), N.getImaginary()/D.getReal());
-    }
-    
+    }  
     /**
      * This method acts like a - before the entire ComplexNumber to invert the sign
      * for the real and imaginary part.
@@ -79,14 +77,19 @@ public class Calculator {
         return new ComplexNumber(-x.getReal(), -x.getImaginary());
     }
     
+    /**
+     * This method makes the module of a ComplexNumber
+     * @param x
+     * @return the module 
+     */
     public static Double module(ComplexNumber x){
         return Math.sqrt(Math.pow(x.getReal(), 2) + Math.pow(x.getImaginary(), 2));
     }
     
     /**
-     * 
+     * This method makes the square root of a ComplexNumber
      * @param x
-     * @return 
+     * @return a new ComplexNumber that contains the result
      */
     public static ComplexNumber sqrt(ComplexNumber x){
         double bABS = x.getImaginary()/Math.abs(x.getImaginary());
