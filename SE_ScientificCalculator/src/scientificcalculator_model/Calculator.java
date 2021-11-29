@@ -100,4 +100,6 @@ public class Calculator {
         
         return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
     }
+    
+    
 }

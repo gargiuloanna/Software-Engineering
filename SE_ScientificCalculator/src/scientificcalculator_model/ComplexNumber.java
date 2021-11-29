@@ -103,6 +103,24 @@ public class ComplexNumber {
         
         return new ComplexNumber(real, immaginary);
     }
+    /**
+     * This method returns the phase of a ComplexNumber
+     * @return a double element that contains the result
+     */
+    public double phase(){
+        if (real == 0 && imaginary > 0)
+            return Math.PI/2;
+        else if (real == 0 && imaginary < 0)
+            return -Math.PI/2;
+        else if (real > 0)
+            return Math.atan(imaginary/real);
+        else if (real < 0 && imaginary >= 0)
+            return Math.atan(imaginary/real) +  Math.PI;
+        else if (real < 0 && imaginary < 0)
+            return Math.atan(imaginary/real) -  Math.PI;
+        return 0;
+        
+    }
     
     @Override
     public String toString(){
