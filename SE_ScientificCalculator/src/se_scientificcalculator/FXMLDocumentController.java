@@ -6,14 +6,18 @@
 package se_scientificcalculator;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import scientificcalculator_model.*;
 
 /**
@@ -23,13 +27,71 @@ import scientificcalculator_model.*;
 public class FXMLDocumentController implements Initializable {
     
     
-    
     @FXML
     private TextField addTextfield;
     @FXML
     private ListView<ComplexNumber> history;
+    
     private ComplexStack hist;
     private ObservableList<ComplexNumber> list;
+    private HashMap<Character, ComplexNumber> variableMemory;
+    
+    @FXML
+    private ToggleGroup variables;
+    @FXML
+    private TextField addOperation;
+    @FXML
+    private RadioButton radioA;
+    @FXML
+    private RadioButton radioB;
+    @FXML
+    private RadioButton radioC;
+    @FXML
+    private RadioButton radioD;
+    @FXML
+    private RadioButton radioE;
+    @FXML
+    private RadioButton radioF;
+    @FXML
+    private RadioButton radioG;
+    @FXML
+    private RadioButton radioH;
+    @FXML
+    private RadioButton radioI;
+    @FXML
+    private RadioButton radioJ;
+    @FXML
+    private RadioButton radioK;
+    @FXML
+    private RadioButton radioL;
+    @FXML
+    private RadioButton radioM;
+    @FXML
+    private RadioButton radioN;
+    @FXML
+    private RadioButton radioO;
+    @FXML
+    private RadioButton radioP;
+    @FXML
+    private RadioButton radioQ;
+    @FXML
+    private RadioButton radioR;
+    @FXML
+    private RadioButton radioS;
+    @FXML
+    private RadioButton radioT;
+    @FXML
+    private RadioButton radioU;
+    @FXML
+    private RadioButton radioV;
+    @FXML
+    private RadioButton radioW;
+    @FXML
+    private RadioButton radioX;
+    @FXML
+    private RadioButton radioY;
+    @FXML
+    private RadioButton radioZ;
     
     
     @Override
@@ -144,5 +206,40 @@ public class FXMLDocumentController implements Initializable {
         hist.add(operand);
         list.add(operand);
     }
+
+    private char selectedVariable(){
+        String s = variables.getSelectedToggle().toString();
+        return s.charAt(s.length()-2);
+    }
+    
+    @FXML
+    private void moduleButton(ActionEvent event) {
+    }
+
+    @FXML
+    private void phaseButton(ActionEvent event) {
+    }
+
+    @FXML
+    private void exeOperation(ActionEvent event) {
+    }
+
+    @FXML
+    private void insertInVariable(ActionEvent event) {
+    }
+
+    @FXML
+    private void getFromVariable(ActionEvent event) {
+    }
+
+    @FXML
+    private void addToLast(ActionEvent event) {
+    }
+
+    @FXML
+    private void subToLast(ActionEvent event) {
+    }
+    
+    
     
 }
