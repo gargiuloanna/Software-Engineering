@@ -49,7 +49,6 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
         list.add(0, sum);
         hist.add(sum);
-        FXCollections.sort(list, Collections.reverseOrder());
     }
 
     @FXML
@@ -133,7 +132,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperand(ActionEvent event) {
-        ComplexNumber operand = Calculator.stringToComplex(addTextfield.getText());
+        ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
         hist.add(operand);
         list.add(0, operand);
     }
