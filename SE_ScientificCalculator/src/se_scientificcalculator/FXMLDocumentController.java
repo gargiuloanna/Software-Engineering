@@ -283,16 +283,19 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void insertInVariable(ActionEvent event) {
+        System.out.println(selectedVariable());
          Calculator.insertInVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void getFromVariable(ActionEvent event) {
+        System.out.println(selectedVariable());
          Calculator.getFromVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void addToLast(ActionEvent event) {
+        System.out.println(selectedVariable());
          Calculator.addToLast(hist, variableMemory, selectedVariable());
     }
 
