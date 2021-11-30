@@ -105,6 +105,7 @@ public class ComplexNumber {
     }
     /**
      * This method returns the phase of a ComplexNumber
+     * <p>
      * @return a double element that contains the result
      */
     public double phase(){

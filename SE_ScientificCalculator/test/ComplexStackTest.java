@@ -163,41 +163,5 @@ public class ComplexStackTest {
         assertEquals(false, stack.over());
 
     }
-    
-    @Test
-    public void testInsertInVariable(){
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
-        
-        //Check that the map doesnt contain the key
-        assertEquals(false, stack.insertInVariable(variables, x));
-        
-        //Insert the value in the variable x
-        variables.put(x, four);
-        
-        //Check that the values has been modified/added
-        assertEquals(true, stack.insertInVariable(variables, x));
-        assertEquals(variables.get(x), stack.peek());
 
-        
-    }
-    
-    @Test
-    public void testgetFromVariable(){
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
-        
-        //Check that the map doesnt contain the key
-        assertEquals(false, stack.getFromVariable(variables, x));
-        
-        //Insert the value in the variable x
-        variables.put(x, four);
-        
-        //Check that the value has been added to the stack
-        assertEquals(true, stack.getFromVariable(variables, x));
-        assertEquals(variables.get(x), stack.peek());
-
-    }
-    
-    
 }

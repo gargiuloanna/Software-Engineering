@@ -4,6 +4,9 @@
  */
 package scientificcalculator_model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author marco
@@ -13,6 +16,7 @@ public class Calculator {
     /**
      * This method makes the arithmetical addition between two operands
      * ComplexNumber object (a+bj)*(c+dj).
+     * <p>
      * @param a
      * @param b
      * @return a new ComplexNumber that contains the result.
@@ -23,6 +27,7 @@ public class Calculator {
     /**
      * This method makes the arithmetical subtraction between two operands
      * ComplexNumber object (a+bj)-(c+dj).
+     * <p>
      * @param a
      * @param b
      * @return a new ComplexNumber that contains the result.
@@ -35,6 +40,7 @@ public class Calculator {
     /**
      * This method makes the arithmetical product between two operands
      * ComplexNumber object (a+bj)*(c+dj).
+     * <p>
      * @param a
      * @param b
      * @return a new ComplexNumber that contains the result.
@@ -54,6 +60,7 @@ public class Calculator {
     /**
      * This method makes the arithmetical division between two operands
      * ComplexNumber object (a+bj)/(c+dj).
+     * <p>
      * @param a
      * @param b
      * @return a new ComplexNumber that contains the result.
@@ -70,6 +77,7 @@ public class Calculator {
     /**
      * This method acts like a - before the entire ComplexNumber to invert the sign
      * for the real and imaginary part.
+     * <p>
      * @param x
      * @return a new ComplexNumber with -real and -imaginary.
      */
@@ -78,7 +86,8 @@ public class Calculator {
     }
     
     /**
-     * This method makes the module of a ComplexNumber
+     * This method makes the module of a ComplexNumber.
+     * <p>
      * @param x
      * @return the module 
      */
@@ -87,7 +96,8 @@ public class Calculator {
     }
     
     /**
-     * This method makes the square root of a ComplexNumber
+     * This method makes the square root of a ComplexNumber.
+     * <p>
      * @param x
      * @return a new ComplexNumber that contains the result
      */
@@ -101,5 +111,79 @@ public class Calculator {
         return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
     }
     
+    /**
+    * The method saves into variable the last element of the stack.
+    * variable should be stored into a map that stores for different variables their specific values.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable where the last value of the stack should be saved.
+    * @return      true if the element has been copied successfully.
+    */
     
+    public boolean insertInVariable(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+                
+        variables.put(variable, (ComplexNumber) s.peek());
+        return true;
+        
+    }
+    
+    /**
+    * The method saves into the stack the value stored in variable
+    * variable should be stored into a map that stores for different variables their specific values.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable whose value should be stored into the stack.
+    * @return      true if the element has been copied successfully.
+    */
+    
+    public boolean getFromVariable(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+                
+        s.add(variables.get(variable));
+        return true;
+        
+    }
+    
+     /**
+    * The method takes the top element from the stack and adds it to the value of the variable
+    * variable should be stored into a map that stores for different variables their specific values
+    * The result of the addition is stored into the variable.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable whose value should be stored into the stack.
+    * @return      true if the addition has been performed successfully.
+    */
+    
+    public boolean addToLast(ComplexStack s,Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+        
+        ComplexNumber last = (ComplexNumber) s.peek();
+        ComplexNumber variableNumber = variables.get(variable);
+        variables.put(variable,addition(last, variableNumber));
+        return true;  
+    }
+    
+     /**
+    * The method takes the top element from the stack and subtracts it to the value of the variable
+    * variable should be stored into a map that stores for different variables their specific values
+    * The result of the subtraction is stored into the variable.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable whose value should be stored into the stack.
+    * @return      true if the subtraction has been performed successfully.
+    */
+    
+    public boolean subToLast(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+        
+        ComplexNumber last = (ComplexNumber) s.peek();
+        ComplexNumber variableNumber = variables.get(variable);
+        variables.put(variable,subtraction(last, variableNumber));
+        return true;  
+    }
 }
