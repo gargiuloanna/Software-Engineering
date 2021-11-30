@@ -39,7 +39,6 @@ public class ComplexStack<ComplexNumber>{
 * @return an ArrayList containing the elements
 */
     public ObservableList<ComplexNumber> getMemory(){
-       Collections.reverse(list);
        return list;
 }
 
@@ -49,7 +48,7 @@ public class ComplexStack<ComplexNumber>{
 * @return the element removed
 */
     public ComplexNumber pop(){
-       return (ComplexNumber) list.remove(list.size()-1);
+       return (ComplexNumber) list.remove(0);
     }
 
 /**
@@ -59,7 +58,8 @@ public class ComplexStack<ComplexNumber>{
 */
 
     public void push(ComplexNumber number){
-        list.add(number);
+        list.add(0,number);
+        
 }
 
 /**
@@ -69,7 +69,7 @@ public class ComplexStack<ComplexNumber>{
 */
 
     public ComplexNumber peek(){
-        return (ComplexNumber) list.get(list.size()-1);
+        return (ComplexNumber) list.get(0);
 }
 
 /**

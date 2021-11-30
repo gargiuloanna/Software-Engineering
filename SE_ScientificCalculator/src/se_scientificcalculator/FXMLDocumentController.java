@@ -7,10 +7,9 @@ package se_scientificcalculator;
 
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +32,6 @@ public class FXMLDocumentController implements Initializable {
     private TextField addTextfield;
     @FXML
     private ListView<ComplexNumber> history;
-    
     private ComplexStack hist;
     private HashMap<Character, ComplexNumber> variableMemory;
     
@@ -97,15 +95,13 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         variableMemory = new HashMap<>();
-         hist= new ComplexStack();
-         history.setItems(hist.getMemory());
-        
-        alertBox= new Alert(Alert.AlertType.ERROR);
+        variableMemory = new HashMap<>();
+        hist = new ComplexStack();
+        history.setItems(hist.getMemory());
+        alertBox = new Alert(Alert.AlertType.ERROR);
         alertBox.setHeaderText("OPERANDI MANCANTI");
         alertBox.setTitle("ERRORE");
-        
-
+  
     }    
 
     @FXML
@@ -115,9 +111,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber prod=Calculator.product(firstOperand, secondOperand);
+            ComplexNumber prod = Calculator.product(firstOperand, secondOperand);
             hist.push(prod);
             }
 
@@ -130,10 +126,10 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber sum=Calculator.subtraction(firstOperand, secondOperand);
-            hist.push(sum);
+            ComplexNumber sub = Calculator.subtraction(firstOperand, secondOperand);
+            hist.push(sub);
             }
     }
 
@@ -144,9 +140,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber sum=Calculator.addition(firstOperand, secondOperand);
+            ComplexNumber sum = Calculator.addition(firstOperand, secondOperand);
             hist.push(sum);
             }
     }
@@ -158,9 +154,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                         }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-            ComplexNumber sum=Calculator.invert(firstOperand);
-            hist.push(sum);
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            ComplexNumber inv = Calculator.invert(firstOperand);
+            hist.push(inv);
             }
     }
 
@@ -171,9 +167,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                            }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-            ComplexNumber sum=Calculator.sqrt(firstOperand);
-            hist.push(sum);
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            ComplexNumber s = Calculator.sqrt(firstOperand);
+            hist.push(s);
             }
 
     }
@@ -185,10 +181,10 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                          }
         else{
-            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber sum=Calculator.division(firstOperand, secondOperand);
-            hist.push(sum);
+            ComplexNumber div = Calculator.division(firstOperand, secondOperand);
+            hist.push(div);
             }
         
     }
@@ -247,6 +243,8 @@ public class FXMLDocumentController implements Initializable {
         ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
         addTextfield.clear();
         hist.push(operand);
+        
+            
     }
 
     private char selectedVariable(){
@@ -261,7 +259,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();            
         }
         else{
-          //Da implementare
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            double mod = Calculator.module(firstOperand);
+            hist.push(mod);
           }
     }
 
@@ -272,7 +272,9 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();            
         }
         else{
-          //Da implementare
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            double ph = firstOperand.phase();
+            hist.push(ph);
           }
     }
 
@@ -283,25 +285,22 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void insertInVariable(ActionEvent event) {
-        System.out.println(selectedVariable());
-         Calculator.insertInVariable(hist, variableMemory, selectedVariable());
+        Calculator.insertInVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void getFromVariable(ActionEvent event) {
-        System.out.println(selectedVariable());
-         Calculator.getFromVariable(hist, variableMemory, selectedVariable());
+        Calculator.getFromVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void addToLast(ActionEvent event) {
-        System.out.println(selectedVariable());
-         Calculator.addToLast(hist, variableMemory, selectedVariable());
+       Calculator.addToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void subToLast(ActionEvent event) {
-         Calculator.subToLast(hist, variableMemory, selectedVariable());
+        Calculator.subToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
@@ -310,7 +309,7 @@ public class FXMLDocumentController implements Initializable {
           ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
           addTextfield.clear();
           hist.push(operand);
-        
+          
         }
     }
     
