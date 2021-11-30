@@ -6,7 +6,10 @@
 package scientificcalculator_model;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Stack;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  *
  * @author Anna
@@ -35,15 +38,14 @@ public class ComplexStack<ComplexNumber> extends Stack{
     * @param  k    the number of elements to retrieve
     * @return      an ArrayList containing the elements
     */
-    public ArrayList<ComplexNumber> getMemory(int k){
-        ArrayList<ComplexNumber> elements= new ArrayList<>();
+    public ObservableList<ComplexNumber> getMemory(int k){
+        ObservableList<ComplexNumber> elements= FXCollections.observableArrayList();
 
         if(k>size())
             k=size();
         
         for(int index=0; index<k; index++)
             elements.add((ComplexNumber) pop());  
-        
         for (int index=0; index<elements.size(); index++)
             add(elements.get(elements.size()-1-index));
             
@@ -130,6 +132,42 @@ public class ComplexStack<ComplexNumber> extends Stack{
         }
         
         return false;
+    }
+    
+    /**
+    * The method saves into variable the last element of the stack.
+    * variable should be stored into a map that stores for different variables their specific values.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable where the last value of the stack should be saved.
+    * @return      true if the element has been copied successfully.
+    */
+    
+    public boolean insertInVariable(Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+                
+        variables.put(variable, (ComplexNumber) peek());
+        return true;
+        
+    }
+    
+    /**
+    * The method saves into the stack the value stored in variable
+    * variable should be stored into a map that stores for different variables their specific values.
+    * <p>
+    * @param  variables The map where the variable and its values are stored.     
+    * @param  variable  the variable whose value should be stored into the stack.
+    * @return      true if the element has been copied successfully.
+    */
+    
+    public boolean getFromVariable(Map<String, ComplexNumber> variables, String variable){
+        if(!variables.containsKey(variable))
+            return false;
+                
+        add(variables.get(variable));
+        return true;
+        
     }
           
     

@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -52,27 +52,6 @@ public class ComplexStackTest {
     public void tearDown() {
         
     }
-
-    @Test
-    public void testGetMemory() {
-        
-        ArrayList<ComplexNumber> actuals=stack.getMemory(3);
-        
-        //Comparison to see if five is pulled out correctly
-        assertEquals(five.getReal(), actuals.get(0).getReal(), 0.0000001);
-        assertEquals(five.getImaginary(), actuals.get(0).getImaginary(), 0.0000001);
-       
-        //Comparison to see if four is pulled out correctly
-        assertEquals(four.getReal(), actuals.get(1).getReal(), 0.0000001);
-        assertEquals(four.getImaginary(), actuals.get(1).getImaginary(), 0.0000001);
-        
-        //Comparison to see if three is pulled out correctly
-        assertEquals(three.getReal(), actuals.get(2).getReal(), 0.0000001);
-        assertEquals(three.getImaginary(), actuals.get(2).getImaginary(), 0.0000001);
-        
-
-    }
-    
     @Test
     public void testClear(){
         assertEquals(0, stack.stackClear());
@@ -182,12 +161,43 @@ public class ComplexStackTest {
         //Check - stack is empty
         stack.stackClear();
         assertEquals(false, stack.over());
-        
-        
-        
-        
-    
-    
+
     }
+    
+    @Test
+    public void testInsertInVariable(){
+        Map<String, ComplexNumber> variables = new HashMap<>();
+        String x= "x";
+        
+        //Check that the map doesnt contain the key
+        assertEquals(false, stack.insertInVariable(variables, x));
+        
+        //Insert the value in the variable x
+        variables.put(x, four);
+        
+        //Check that the values has been modified/added
+        assertEquals(true, stack.insertInVariable(variables, x));
+        assertEquals(variables.get(x), stack.peek());
+
+        
+    }
+    
+    @Test
+    public void testgetFromVariable(){
+        Map<String, ComplexNumber> variables = new HashMap<>();
+        String x= "x";
+        
+        //Check that the map doesnt contain the key
+        assertEquals(false, stack.getFromVariable(variables, x));
+        
+        //Insert the value in the variable x
+        variables.put(x, four);
+        
+        //Check that the value has been added to the stack
+        assertEquals(true, stack.getFromVariable(variables, x));
+        assertEquals(variables.get(x), stack.peek());
+
+    }
+    
     
 }

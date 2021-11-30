@@ -5,6 +5,7 @@
  */
 package se_scientificcalculator;
 
+import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -18,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
 import scientificcalculator_model.*;
 
 /**
@@ -203,6 +205,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void addOperand(ActionEvent event) {
         ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+        addTextfield.clear();
         hist.add(operand);
         list.add(operand);
     }
@@ -240,6 +243,16 @@ public class FXMLDocumentController implements Initializable {
     private void subToLast(ActionEvent event) {
     }
     
+    public void onEnter(KeyEvent e){
+
+    if(e.getCode().equals(KeyCode.ENTER) || e.getCharacter().getBytes()[0] == '\n' || e.getCharacter().getBytes()[0] == '\r') {
+        ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+        addTextfield.clear();
+        hist.add(operand);
+        list.add(operand);
+        }
+}
+
     
     
 }

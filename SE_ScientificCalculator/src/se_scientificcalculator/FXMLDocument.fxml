@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="323.0" prefWidth="571.0" style="-fx-background-color: #635687;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se_scientificcalculator.FXMLDocumentController">
    <children>
-      <TextField fx:id="addTextfield" alignment="CENTER_RIGHT" layoutX="22.0" layoutY="13.0" prefHeight="55.0" prefWidth="175.0" promptText="a + bj" style="-fx-background-color: #A2639B; -fx-text-fill: white;">
+      <TextField fx:id="addTextfield" alignment="CENTER_RIGHT" layoutX="22.0" layoutY="13.0" onAction="#onEnter" onKeyPressed="#addOperand" prefHeight="55.0" prefWidth="175.0" promptText="a + bj" style="-fx-background-color: #A2639B; -fx-text-fill: white;">
          <font>
             <Font size="29.0" />
          </font></TextField>
