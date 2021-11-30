@@ -165,8 +165,6 @@ public class CalculatorTest {
         Map<Character, ComplexNumber> variables = new HashMap<>();
         char x= 'x';
         
-        //Check that the map doesnt contain the key
-        assertEquals(false, c.insertInVariable(s,variables, x));
         
         //Insert the value in the variable x
         variables.put(x, four);

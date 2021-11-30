@@ -121,9 +121,7 @@ public class Calculator {
     */
     
     public static boolean insertInVariable(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
-        if(!variables.containsKey(variable))
-            return false;
-                
+
         variables.put(variable, (ComplexNumber) s.peek());
         return true;
         
