@@ -14,11 +14,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import scientificcalculator_model.*;
 
@@ -94,25 +96,37 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton radioY;
     @FXML
     private RadioButton radioZ;
-    
-    
+    private Alert alertBox;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         list= FXCollections.observableArrayList();
         hist= new ComplexStack();
         history.setItems(list);
+        
+        alertBox= new Alert(Alert.AlertType.ERROR);
+        alertBox.setHeaderText("OERANDI MANCANTI");
+        alertBox.setTitle("ERRORE");
+        alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
+        
+
     }    
 
     @FXML
     private void prodButton(ActionEvent event) {
-        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-        list.remove(firstOperand);
-        list.remove(secondOperand);
-        ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
-        list.add(sum);
-        hist.add(sum);
-       
+        if(hist.size()<2){
+            alertBox.showAndWait();
+        }
+        else{
+            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+            list.remove(firstOperand);
+            list.remove(secondOperand);
+            ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
+            list.add(sum);
+            hist.add(sum);
+        }
+
     }
 
     @FXML
@@ -242,17 +256,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void subToLast(ActionEvent event) {
     }
-    
-    public void onEnter(KeyEvent e){
 
-    if(e.getCode().equals(KeyCode.ENTER) || e.getCharacter().getBytes()[0] == '\n' || e.getCharacter().getBytes()[0] == '\r') {
+    @FXML
+    private void onEnter(KeyEvent event) {
+        if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
         ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
         addTextfield.clear();
         hist.add(operand);
         list.add(operand);
+        
         }
-}
-
+    }
     
+
     
 }
