@@ -161,9 +161,9 @@ public class CalculatorTest {
     public void testInsertInVariable(){
         ComplexStack s = new ComplexStack();
         ComplexNumber four=new ComplexNumber(4,0);
-        s.add(four);
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
+        s.push(four);
+        Map<Character, ComplexNumber> variables = new HashMap<>();
+        char x= 'x';
         
         //Check that the map doesnt contain the key
         assertEquals(false, c.insertInVariable(s,variables, x));
@@ -182,9 +182,9 @@ public class CalculatorTest {
     public void testgetFromVariable(){
         ComplexStack s = new ComplexStack();
         ComplexNumber four=new ComplexNumber(4,0);
-        s.add(four);
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
+        s.push(four);
+        Map<Character, ComplexNumber> variables = new HashMap<>();
+        char x= 'x';
         
         //Check that the map doesnt contain the key
         assertEquals(false, c.getFromVariable(s,variables, x));
@@ -202,9 +202,9 @@ public class CalculatorTest {
     public void testAddtoLast(){
         ComplexStack s = new ComplexStack();
         ComplexNumber four=new ComplexNumber(4,0);
-        s.add(four);
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
+        s.push(four);
+        Map<Character, ComplexNumber> variables = new HashMap<>();
+        char x= 'x';
         
         //Check that the map doesnt contain the key
         assertEquals(false, c.addToLast(s,variables, x));
@@ -221,9 +221,9 @@ public class CalculatorTest {
     public void testSubtoLast(){
         ComplexStack s = new ComplexStack();
         ComplexNumber four=new ComplexNumber(4,0);
-        s.add(four);
-        Map<String, ComplexNumber> variables = new HashMap<>();
-        String x= "x";
+        s.push(four);
+        Map<Character, ComplexNumber> variables = new HashMap<>();
+        char x= 'x';
         
         //Check that the map doesnt contain the key
         assertEquals(false, c.subToLast(s,variables, x));

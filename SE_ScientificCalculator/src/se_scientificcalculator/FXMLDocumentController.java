@@ -15,12 +15,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import scientificcalculator_model.*;
 
@@ -102,6 +100,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         list= FXCollections.observableArrayList();
         hist= new ComplexStack();
+        variableMemory = new HashMap<>();
         history.setItems(list);
         
         alertBox= new Alert(Alert.AlertType.ERROR);
@@ -116,34 +115,28 @@ public class FXMLDocumentController implements Initializable {
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-        }
+                          }
         else{
             ComplexNumber firstOperand= (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            list.remove(firstOperand);
-            list.remove(secondOperand);
-            ComplexNumber sum=Calculator.product(firstOperand, secondOperand);
-            list.add(sum);
-            hist.add(sum);
-        }
+            ComplexNumber prod=Calculator.product(firstOperand, secondOperand);
+            hist.push(prod);
+            }
 
     }
 
     @FXML
     private void subButton(ActionEvent event) {
-         if(hist.size()<2){
+        if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-        }
+                          }
         else{
             ComplexNumber firstOperand= (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            list.remove(firstOperand);
-            list.remove(secondOperand);
             ComplexNumber sum=Calculator.subtraction(firstOperand, secondOperand);
-            list.add(sum);
-            hist.add(sum);
-        }
+            hist.push(sum);
+            }
     }
 
     @FXML
@@ -151,46 +144,40 @@ public class FXMLDocumentController implements Initializable {
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-        }
+                          }
         else{
             ComplexNumber firstOperand= (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            list.remove(firstOperand);
-            list.remove(secondOperand);
             ComplexNumber sum=Calculator.addition(firstOperand, secondOperand);
-            list.add(sum);
-            hist.add(sum);
-        }
+            hist.push(sum);
+            }
     }
 
     @FXML
     private void invButton(ActionEvent event) {
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                        }
         else{
             ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-            list.remove(firstOperand);
             ComplexNumber sum=Calculator.invert(firstOperand);
-            list.add(sum);
-            hist.add(sum);
-        }
+            hist.push(sum);
+            }
     }
 
     @FXML
     private void sqrtButton(ActionEvent event) {
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                           }
         else{
             ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-            list.remove(firstOperand);
             ComplexNumber sum=Calculator.sqrt(firstOperand);
-            list.add(sum);
-            hist.add(sum);
-        }
+            hist.push(sum);
+            }
+
     }
 
     @FXML
@@ -198,84 +185,70 @@ public class FXMLDocumentController implements Initializable {
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-        }
+                         }
         else{
-        ComplexNumber firstOperand= (ComplexNumber) hist.pop();
-        ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-        list.remove(firstOperand);
-        list.remove(secondOperand);
-        ComplexNumber sum=Calculator.division(firstOperand, secondOperand);
-        list.add(sum);
-        hist.add(sum);
-        }
+            ComplexNumber firstOperand= (ComplexNumber) hist.pop();
+            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
+            ComplexNumber sum=Calculator.division(firstOperand, secondOperand);
+            hist.push(sum);
+            }
+        
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
-           if(hist.isEmpty()){
+        if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                           }
         else{
         hist.dup();
-        list.add((ComplexNumber) hist.peek());
-        }
+             }
     }
 
     @FXML
     private void dropButton(ActionEvent event) {
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                           }
         else{
-        hist.drop();
-        list.remove(list.size()-1);
-        }
+            hist.drop();
+            }
     }
 
     @FXML
     private void clearButton(ActionEvent event) {
         hist.stackClear();
-        list.clear();
     }
 
     @FXML
     private void overButton(ActionEvent event) {
         if(hist.size()<2){
             alertBox.setContentText("Inserire almeno due operandi");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                           }
         else{
-        hist.over();
-        list.add(list.get(list.size()-2));
-        }
+            hist.over();
+            }
     }
 
     @FXML
     private void swapButton(ActionEvent event) {
         if(hist.size()<2){
             alertBox.setContentText("Inserire almeno due operandi");
-            alertBox.showAndWait();            
-        }
+            alertBox.showAndWait();
+                          }
         else{
-        hist.swap();
-        ComplexNumber last=list.get(list.size()-1);
-        ComplexNumber secondLast=list.get(list.size()-2);
-        list.remove(list.size()-1);
-        list.remove(list.size()-1);
-        
-        list.add(last);
-        list.add(secondLast);
-        }
+            hist.swap();
+            }
     }
 
     @FXML
     private void addOperand(ActionEvent event) {
         ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
         addTextfield.clear();
-        hist.add(operand);
-        list.add(operand);
+        hist.push(operand);
     }
 
     private char selectedVariable(){
@@ -312,31 +285,30 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void insertInVariable(ActionEvent event) {
-         //Da implementare
+         Calculator.insertInVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void getFromVariable(ActionEvent event) {
-         //Da implementare
+         Calculator.getFromVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void addToLast(ActionEvent event) {
-         //Da implementare
+         Calculator.addToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void subToLast(ActionEvent event) {
-         //Da implementare
+         Calculator.subToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void onEnter(KeyEvent event) {
-        if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
-        ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-        addTextfield.clear();
-        hist.add(operand);
-        list.add(operand);
+       if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
+          ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+          addTextfield.clear();
+          hist.push(operand);
         
         }
     }

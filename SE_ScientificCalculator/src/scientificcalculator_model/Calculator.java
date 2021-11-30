@@ -120,7 +120,7 @@ public class Calculator {
     * @return      true if the element has been copied successfully.
     */
     
-    public boolean insertInVariable(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+    public static boolean insertInVariable(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
         if(!variables.containsKey(variable))
             return false;
                 
@@ -138,11 +138,11 @@ public class Calculator {
     * @return      true if the element has been copied successfully.
     */
     
-    public boolean getFromVariable(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+    public static boolean getFromVariable(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
         if(!variables.containsKey(variable))
             return false;
                 
-        s.add(variables.get(variable));
+        s.push(variables.get(variable));
         return true;
         
     }
@@ -157,7 +157,7 @@ public class Calculator {
     * @return      true if the addition has been performed successfully.
     */
     
-    public boolean addToLast(ComplexStack s,Map<String, ComplexNumber> variables, String variable){
+    public static boolean addToLast(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
         if(!variables.containsKey(variable))
             return false;
         
@@ -177,7 +177,7 @@ public class Calculator {
     * @return      true if the subtraction has been performed successfully.
     */
     
-    public boolean subToLast(ComplexStack s, Map<String, ComplexNumber> variables, String variable){
+    public static boolean subToLast(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
         if(!variables.containsKey(variable))
             return false;
         
