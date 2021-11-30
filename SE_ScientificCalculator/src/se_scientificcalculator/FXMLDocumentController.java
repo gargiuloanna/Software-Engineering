@@ -35,7 +35,6 @@ public class FXMLDocumentController implements Initializable {
     private ListView<ComplexNumber> history;
     
     private ComplexStack hist;
-    private ObservableList<ComplexNumber> list;
     private HashMap<Character, ComplexNumber> variableMemory;
     
     @FXML
@@ -98,10 +97,9 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        list= FXCollections.observableArrayList();
-        hist= new ComplexStack();
-        variableMemory = new HashMap<>();
-        history.setItems(list);
+         variableMemory = new HashMap<>();
+         hist= new ComplexStack();
+         history.setItems(hist.getMemory());
         
         alertBox= new Alert(Alert.AlertType.ERROR);
         alertBox.setHeaderText("OPERANDI MANCANTI");
