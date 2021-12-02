@@ -7,7 +7,6 @@ package se_scientificcalculator;
 
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -17,16 +16,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.GridPane;
 import scientificcalculator_model.*;
-import scientificcalculator_model.personalizedoperations.Operations;
+import scientificcalculator_model.personalizedoperations.*;
+
 
 /**
  *
@@ -58,6 +56,7 @@ public class FXMLDocumentController implements Initializable {
     private Map<Character, ComplexNumber> variableMemory;
     private Map<String, Operations> personalizedOperations;
     private String opName;
+    private ExecuteCommand exe;
     
 
     @Override
@@ -74,6 +73,7 @@ public class FXMLDocumentController implements Initializable {
         exeOpButton.disableProperty().bind(addOpButton.selectedProperty());
         addTextfield.disableProperty().bind(addOpButton.selectedProperty());
         opName = "";
+        exe = new ExecuteCommand();
   
     }    
 
@@ -108,8 +108,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addButton(ActionEvent event) {
-        if(addOperation.isPressed() || addOperation.isFocused()){
-            System.out.print("inserimento in add");
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"addition");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -298,9 +300,17 @@ public class FXMLDocumentController implements Initializable {
            addName.setTitle("Nuova Operazione");
            addName.setHeaderText("prova");
            addName.setContentText("Aggiungere il nome dell'operazione che si vuole inserire");
-           addName.show();
-           opName = addName.getEditor().getText();
-           personalizedOperations.put(opName, new Operations());
+           if (addOpButton.isSelected()){
+               addOpButton.setText("Termina Operazione");
+               addName.show();
+               opName = addName.getEditor().getText();
+               personalizedOperations.put(opName, new Operations());
+           }
+           else{
+               addOpButton.setText("Aggiungi Operazione");
+           }
+
+           
 
 
     }
