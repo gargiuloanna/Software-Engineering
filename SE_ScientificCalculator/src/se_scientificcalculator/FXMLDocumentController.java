@@ -9,6 +9,7 @@ import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,12 +19,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.GridPane;
 import scientificcalculator_model.*;
+import scientificcalculator_model.personalizedoperations.Operations;
 
 /**
  *
@@ -35,32 +38,32 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField addTextfield;
     @FXML
-    private ListView<ComplexNumber> history;
-    private ComplexStack hist;
-    private HashMap<Character, ComplexNumber> variableMemory;
-    
+    private ListView<ComplexNumber> history; 
     @FXML
     private ToggleGroup variables;
     @FXML
     private TextField addOperation;
-
-    private Alert alertBox;
     @FXML
     private GridPane radioGrid;
     @FXML
     private ToggleButton addOpButton;
     @FXML
-    private Button addOperandButton;
-  
-  
+    private Button addOperandButton;  
     @FXML
     private Button exeOpButton;
-   
-
+    
+    
+    private Alert alertBox;
+    private ComplexStack hist;
+    private Map<Character, ComplexNumber> variableMemory;
+    private Map<String, Operations> personalizedOperations;
+    private String opName;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         variableMemory = new HashMap<>();
+        personalizedOperations = new HashMap<>();
         hist = new ComplexStack();
         history.setItems(hist.getMemory());
         alertBox = new Alert(Alert.AlertType.ERROR);
@@ -70,6 +73,7 @@ public class FXMLDocumentController implements Initializable {
         addOperandButton.disableProperty().bind(addOpButton.selectedProperty());
         exeOpButton.disableProperty().bind(addOpButton.selectedProperty());
         addTextfield.disableProperty().bind(addOpButton.selectedProperty());
+        opName = "";
   
     }    
 
@@ -104,16 +108,21 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addButton(ActionEvent event) {
+        if(addOperation.isPressed() || addOperation.isFocused()){
+            System.out.print("inserimento in add");
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                          }
+        }
         else{
             ComplexNumber firstOperand = (ComplexNumber) hist.pop();
             ComplexNumber secondOperand = (ComplexNumber) hist.pop();
             ComplexNumber sum = Calculator.addition(firstOperand, secondOperand);
             hist.push(sum);
             }
+        }
     }
 
     @FXML
@@ -284,6 +293,16 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperation(ActionEvent event) {
+           
+           TextInputDialog addName = new TextInputDialog();
+           addName.setTitle("Nuova Operazione");
+           addName.setHeaderText("prova");
+           addName.setContentText("Aggiungere il nome dell'operazione che si vuole inserire");
+           addName.show();
+           opName = addName.getEditor().getText();
+           personalizedOperations.put(opName, new Operations());
+
+
     }
 
   

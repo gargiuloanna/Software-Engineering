@@ -18,7 +18,7 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Anna
  */
-class Operations {
+public class Operations {
     private ArrayList<String> opers;
     
     
