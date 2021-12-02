@@ -14,11 +14,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.TouchEvent;
+import javafx.scene.layout.GridPane;
 import scientificcalculator_model.*;
 
 /**
@@ -39,6 +43,18 @@ public class FXMLDocumentController implements Initializable {
     private ToggleGroup variables;
     @FXML
     private TextField addOperation;
+
+    private Alert alertBox;
+    @FXML
+    private GridPane radioGrid;
+    @FXML
+    private ToggleButton addOpButton;
+    @FXML
+    private Button addOperandButton;
+  
+  
+    @FXML
+    private Button exeOpButton;
     @FXML
     private RadioButton radioA;
     @FXML
@@ -91,7 +107,6 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton radioY;
     @FXML
     private RadioButton radioZ;
-    private Alert alertBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -101,6 +116,10 @@ public class FXMLDocumentController implements Initializable {
         alertBox = new Alert(Alert.AlertType.ERROR);
         alertBox.setHeaderText("OPERANDI MANCANTI");
         alertBox.setTitle("ERRORE");
+        radioGrid.disableProperty().bind(addOpButton.selectedProperty());
+        addOperandButton.disableProperty().bind(addOpButton.selectedProperty());
+        exeOpButton.disableProperty().bind(addOpButton.selectedProperty());
+        addTextfield.disableProperty().bind(addOpButton.selectedProperty());
   
     }    
 
@@ -312,7 +331,20 @@ public class FXMLDocumentController implements Initializable {
           
         }
     }
-    
+
+    @FXML
+    private void enableCalculator(TouchEvent event) {
+    }
+
+    @FXML
+    private void addOperation(ActionEvent event) {
+    }
+
+    @FXML
+    private void addOperation(TouchEvent event) {
+    }
+
+
 
     
 }
