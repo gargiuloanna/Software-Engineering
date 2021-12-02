@@ -55,58 +55,8 @@ public class FXMLDocumentController implements Initializable {
   
     @FXML
     private Button exeOpButton;
-    @FXML
-    private RadioButton radioA;
-    @FXML
-    private RadioButton radioB;
-    @FXML
-    private RadioButton radioC;
-    @FXML
-    private RadioButton radioD;
-    @FXML
-    private RadioButton radioE;
-    @FXML
-    private RadioButton radioF;
-    @FXML
-    private RadioButton radioG;
-    @FXML
-    private RadioButton radioH;
-    @FXML
-    private RadioButton radioI;
-    @FXML
-    private RadioButton radioJ;
-    @FXML
-    private RadioButton radioK;
-    @FXML
-    private RadioButton radioL;
-    @FXML
-    private RadioButton radioM;
-    @FXML
-    private RadioButton radioN;
-    @FXML
-    private RadioButton radioO;
-    @FXML
-    private RadioButton radioP;
-    @FXML
-    private RadioButton radioQ;
-    @FXML
-    private RadioButton radioR;
-    @FXML
-    private RadioButton radioS;
-    @FXML
-    private RadioButton radioT;
-    @FXML
-    private RadioButton radioU;
-    @FXML
-    private RadioButton radioV;
-    @FXML
-    private RadioButton radioW;
-    @FXML
-    private RadioButton radioX;
-    @FXML
-    private RadioButton radioY;
-    @FXML
-    private RadioButton radioZ;
+   
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -333,18 +283,10 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void enableCalculator(TouchEvent event) {
-    }
-
-    @FXML
     private void addOperation(ActionEvent event) {
     }
 
-    @FXML
-    private void addOperation(TouchEvent event) {
-    }
-
-
+  
 
     
 }
