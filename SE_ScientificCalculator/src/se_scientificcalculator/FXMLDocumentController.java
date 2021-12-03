@@ -25,13 +25,11 @@ import javafx.scene.layout.GridPane;
 import scientificcalculator_model.*;
 import scientificcalculator_model.personalizedoperations.*;
 
-
 /**
  *
  * @author Anna
  */
 public class FXMLDocumentController implements Initializable {
-    
     
     @FXML
     private TextField addTextfield;
@@ -50,14 +48,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button exeOpButton;
     
-    
     private Alert alertBox;
     private ComplexStack hist;
     private Map<Character, ComplexNumber> variableMemory;
     private Map<String, Operations> personalizedOperations;
     private String opName;
     private ExecuteCommand exe;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -220,11 +216,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperand(ActionEvent event) {
-        ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-        addTextfield.clear();
-        hist.push(operand);
-        
-            
+        if(addTextfield.getText().isEmpty()){
+            alertBox.setContentText("Scrivi qualcosa nello spazio di testo");
+            alertBox.showAndWait();
+        }
+        else{
+            ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+            addTextfield.clear();
+            hist.push(operand);
+        }
     }
 
     private char selectedVariable(){
@@ -286,10 +286,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void onEnter(KeyEvent event) {
        if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
-          ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-          addTextfield.clear();
-          hist.push(operand);
-          
+          if(addTextfield.getText().isEmpty()){
+            alertBox.setContentText("Scrivi qualcosa nello spazio di testo");
+            alertBox.showAndWait();
+            }
+            else{
+                ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+                addTextfield.clear();
+                hist.push(operand);
+            }
         }
     }
 
