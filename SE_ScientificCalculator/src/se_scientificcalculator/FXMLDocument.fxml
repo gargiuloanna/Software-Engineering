@@ -14,15 +14,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="387.0" prefWidth="643.0" style="-fx-background-color: e9e9e9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se_scientificcalculator.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="387.0" prefWidth="808.0" style="-fx-background-color: e9e9e9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se_scientificcalculator.FXMLDocumentController">
    <children>
       <TextField fx:id="addTextfield" alignment="CENTER_RIGHT" layoutX="13.0" layoutY="13.0" onKeyPressed="#onEnter" prefHeight="55.0" prefWidth="196.0" promptText="a + bj">
          <font>
             <Font name="System Italic" size="24.0" />
          </font></TextField>
       <Button fx:id="addOperandButton" layoutX="13.0" layoutY="79.0" mnemonicParsing="false" onAction="#addOperand" prefHeight="70.0" prefWidth="196.0" text="Aggiungi Operando" textAlignment="CENTER" wrapText="true" />
-      <ListView fx:id="history" editable="true" layoutX="445.0" layoutY="46.0" prefHeight="327.0" prefWidth="184.0" />
-      <Label layoutX="489.0" layoutY="21.0" prefHeight="19.0" prefWidth="83.0" text="  Cronologia" textAlignment="CENTER" wrapText="true">
+      <ListView fx:id="history" editable="true" layoutX="629.0" layoutY="44.0" prefHeight="325.0" prefWidth="166.0" />
+      <Label layoutX="672.0" layoutY="14.0" prefHeight="19.0" prefWidth="83.0" text="  Cronologia" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -253,5 +253,19 @@
          </font>
       </TextField>
       <ToggleButton fx:id="addOpButton" layoutX="225.0" layoutY="79.0" mnemonicParsing="false" onAction="#addOperation" prefHeight="70.0" prefWidth="101.0" text="Aggiungi Operazione" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="480.0" layoutY="14.0" prefHeight="19.0" prefWidth="111.0" text="Operazioni Utente" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="operationList" layoutX="447.0" layoutY="45.0" prefHeight="324.0" prefWidth="174.0">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn fx:id="nameClm" prefWidth="53.514312744140625" text="Nome" />
+            <TableColumn fx:id="opClm" prefWidth="118.48568725585938" text="Operazioni" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
