@@ -13,6 +13,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,10 +23,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import scientificcalculator_model.*;
@@ -58,11 +64,24 @@ public class FXMLDocumentController implements Initializable {
     private Map<String, Operations> personalizedOperations;
     private String opName;
     private ExecuteCommand exe;
+    private ObservableList<Entry> list;
+    @FXML
+    private TableView<Entry> operationList;
+    @FXML
+    private TableColumn<Entry, String> nameClm;
+    @FXML
+    private TableColumn<Entry, String> opClm;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         variableMemory = new HashMap<>();
-        personalizedOperations = new HashMap<>();
+        personalizedOperations = new HashMap();
+        
+        list = FXCollections.observableArrayList();
+        operationList.setItems(list);
+        nameClm.setCellValueFactory(new PropertyValueFactory<>("name"));
+        opClm.setCellValueFactory(new PropertyValueFactory<>("op"));
+        
         hist = new ComplexStack();
         history.setItems(hist.getMemory());
         alertBox = new Alert(Alert.AlertType.ERROR);
@@ -74,7 +93,6 @@ public class FXMLDocumentController implements Initializable {
         addTextfield.disableProperty().bind(addOpButton.selectedProperty());
         opName = "";
         exe = new ExecuteCommand();
-  
     }    
 
     @FXML
@@ -82,7 +100,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"product");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -104,7 +121,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"subtraction");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -125,7 +141,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"addition");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -146,7 +161,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"invert");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -166,7 +180,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"sqrt");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -187,7 +200,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"division");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -208,7 +220,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"dup");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -226,7 +237,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"drop");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -249,7 +259,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"over");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -267,7 +276,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"swap");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.size()<2){
@@ -285,7 +293,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"module");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -305,7 +312,6 @@ public class FXMLDocumentController implements Initializable {
         if(addOpButton.isSelected()){
             Command com = new AddOperationCommand(personalizedOperations.get(opName),"phase");
             exe.execute(com);
-            System.out.println(personalizedOperations.get(opName).getOpers());
         }
         else{
         if(hist.isEmpty()){
@@ -340,8 +346,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        Operations op = personalizedOperations.get(addOperation.getText());
-        ExecuteOperationCommand comm = new ExecuteOperationCommand(op, hist);
+        System.out.println(addOperation.getText());
+        Command comm = new ExecuteOperationCommand(personalizedOperations.get(addOperation.getText()), hist);
         comm.execute();
         
     }
@@ -389,20 +395,16 @@ public class FXMLDocumentController implements Initializable {
            addName.setHeaderText("Aggiungere il nome dell'operazione che si vuole inserire");
            if (addOpButton.isSelected()){
                addOpButton.setText("Termina Operazione");
-               addName.show();
-               opName = addName.getEditor().getText();
+               Optional<String> result = addName.showAndWait();
+               opName = result.get();
                personalizedOperations.put(opName, new Operations());
+               
            }
            else{
                addOpButton.setText("Aggiungi Operazione");
+               list.add(new Entry(opName, personalizedOperations.get(opName).getOpString()));
+               System.out.println(personalizedOperations.get(opName).getOpString());
            }
-
-           
-
-
     }
-
-  
-
     
 }
