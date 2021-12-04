@@ -379,7 +379,6 @@ public class FXMLDocumentController implements Initializable {
            
            TextInputDialog addName = new TextInputDialog();
            addName.setTitle("Nuova Operazione");
-           addName.setHeaderText("prova");
            addName.setContentText("Aggiungere il nome dell'operazione che si vuole inserire");
            if (addOpButton.isSelected()){
                addOpButton.setText("Termina Operazione");
