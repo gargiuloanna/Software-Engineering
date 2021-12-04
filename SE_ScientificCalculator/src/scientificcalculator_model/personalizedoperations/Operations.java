@@ -38,11 +38,15 @@ public class Operations {
         
         for (int i=0; i<opers.size(); i++){
             try {
-                Calculator c= new Calculator();
+                Calculator c = new Calculator();
                     if(opers.get(i).equals("addition") || opers.get(i).equals("subtraction") || opers.get(i).equals("prodcut") || opers.get(i).equals("division")){
                         Method method= c.getClass().getMethod(opers.get(i), ComplexNumber.class, ComplexNumber.class);
                         method.invoke(c, stack.pop(), stack.pop());
-                    }else{
+                    }else if(opers.get(i).equals("dup") || opers.get(i).equals("drop") || opers.get(i).equals("swap") || opers.get(i).equals("over")){
+                        Method method= stack.getClass().getMethod(opers.get(i));  
+                        method.invoke(stack);
+                    }
+                    else{
                         Method method= c.getClass().getMethod(opers.get(i), ComplexNumber.class);  
                         method.invoke(c, stack.pop());
                     }       
@@ -57,13 +61,8 @@ public class Operations {
             } catch (InvocationTargetException ex) {
                 Logger.getLogger(Operations.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            
-            
-        
+        }
     }
-    }
-
 
 }
     
