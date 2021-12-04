@@ -75,6 +75,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void prodButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"product");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
@@ -85,11 +91,18 @@ public class FXMLDocumentController implements Initializable {
             ComplexNumber prod = Calculator.product(firstOperand, secondOperand);
             hist.push(prod);
             }
+        }
 
     }
 
     @FXML
     private void subButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"subtraction");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
@@ -100,6 +113,7 @@ public class FXMLDocumentController implements Initializable {
             ComplexNumber sub = Calculator.subtraction(firstOperand, secondOperand);
             hist.push(sub);
             }
+        }
     }
 
     @FXML
@@ -125,6 +139,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void invButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"invert");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
             alertBox.showAndWait();
@@ -134,10 +154,17 @@ public class FXMLDocumentController implements Initializable {
             ComplexNumber inv = Calculator.invert(firstOperand);
             hist.push(inv);
             }
+        }
     }
 
     @FXML
     private void sqrtButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"sqrt");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
             alertBox.showAndWait();
@@ -147,11 +174,18 @@ public class FXMLDocumentController implements Initializable {
             ComplexNumber s = Calculator.sqrt(firstOperand);
             hist.push(s);
             }
+        }
 
     }
 
     @FXML
     private void divButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"division");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
@@ -162,11 +196,17 @@ public class FXMLDocumentController implements Initializable {
             ComplexNumber div = Calculator.division(firstOperand, secondOperand);
             hist.push(div);
             }
-        
+        }
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"dup");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
             alertBox.showAndWait();
@@ -174,10 +214,17 @@ public class FXMLDocumentController implements Initializable {
         else{
         hist.dup();
              }
+        }
     }
 
     @FXML
     private void dropButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"drop");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.isEmpty()){
             alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
             alertBox.showAndWait();
@@ -185,6 +232,7 @@ public class FXMLDocumentController implements Initializable {
         else{
             hist.drop();
             }
+        }
     }
 
     @FXML
@@ -194,6 +242,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void overButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"over");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire almeno due operandi");
             alertBox.showAndWait();
@@ -201,10 +255,17 @@ public class FXMLDocumentController implements Initializable {
         else{
             hist.over();
             }
+        }
     }
 
     @FXML
     private void swapButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"swap");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
         if(hist.size()<2){
             alertBox.setContentText("Inserire almeno due operandi");
             alertBox.showAndWait();
@@ -212,6 +273,47 @@ public class FXMLDocumentController implements Initializable {
         else{
             hist.swap();
             }
+        }
+    }
+    
+      @FXML
+    private void moduleButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"module");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
+        if(hist.isEmpty()){
+            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+            alertBox.showAndWait();            
+        }
+        else{
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            double mod = Calculator.module(firstOperand);
+            hist.push(mod);
+          }
+        }
+    }
+
+    @FXML
+    private void phaseButton(ActionEvent event) {
+        if(addOpButton.isSelected()){
+            Command com = new AddOperationCommand(personalizedOperations.get(opName),"phase");
+            exe.execute(com);
+            System.out.println(personalizedOperations.get(opName).getOpers());
+        }
+        else{
+        if(hist.isEmpty()){
+            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+            alertBox.showAndWait();            
+        }
+        else{
+            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
+            double ph = firstOperand.phase();
+            hist.push(ph);
+          }
+        }
     }
 
     @FXML
@@ -232,32 +334,6 @@ public class FXMLDocumentController implements Initializable {
         return s.charAt(s.length()-2);
     }
     
-    @FXML
-    private void moduleButton(ActionEvent event) {
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
-        else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            double mod = Calculator.module(firstOperand);
-            hist.push(mod);
-          }
-    }
-
-    @FXML
-    private void phaseButton(ActionEvent event) {
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
-        else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            double ph = firstOperand.phase();
-            hist.push(ph);
-          }
-    }
-
     @FXML
     private void exeOperation(ActionEvent event) {
         //Da implementare
