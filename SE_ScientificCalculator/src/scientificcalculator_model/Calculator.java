@@ -102,13 +102,18 @@ public class Calculator {
      * @return a new ComplexNumber that contains the result
      */
     public static ComplexNumber sqrt(ComplexNumber x){
-        double bABS = x.getImaginary()/Math.abs(x.getImaginary());
-        double xABS = module(x);
-        
-        double a1 = Math.sqrt((xABS+x.getReal())/2);
-        double a2 = Math.sqrt((xABS-x.getReal())/2);
-        
-        return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
+        if (x.getImaginary() == 0){
+            return new ComplexNumber(Math.sqrt(x.getReal()), 0);
+        }
+        else{
+            double bABS = x.getImaginary()/Math.abs(x.getImaginary());
+            double xABS = module(x);
+
+            double a1 = Math.sqrt((xABS+x.getReal())/2);
+            double a2 = Math.sqrt((xABS-x.getReal())/2);
+            
+            return new ComplexNumber(a1, (x.getImaginary()/bABS)*a2);
+        }
     }
     
     /**
