@@ -30,6 +30,15 @@ public class Operations {
         return opers;
     }
     
+    public String getOpString(){
+        String s = "";
+        for(String oper: opers){
+            s+=oper + ",";
+        }
+        s = s.substring(0, s.length()-1);
+        return s;
+    }
+    
     public void addOperation(String op){
         opers.add(op);
     }
@@ -37,18 +46,21 @@ public class Operations {
     public void exeOperation(ComplexStack stack){
         
         for (int i=0; i<opers.size(); i++){
+            System.out.println("Entrato nel for");
             try {
                 Calculator c = new Calculator();
-                    if(opers.get(i).equals("addition") || opers.get(i).equals("subtraction") || opers.get(i).equals("prodcut") || opers.get(i).equals("division")){
-                        Method method= c.getClass().getMethod(opers.get(i), ComplexNumber.class, ComplexNumber.class);
-                        method.invoke(c, stack.pop(), stack.pop());
+                    if(opers.get(i).equals("addition") || opers.get(i).equals("subtraction") || opers.get(i).equals("product") || opers.get(i).equals("division")){
+                        Method method = c.getClass().getMethod(opers.get(i), ComplexNumber.class, ComplexNumber.class);
+                        ComplexNumber x = (ComplexNumber) method.invoke(c, stack.pop(), stack.pop());
+                        stack.push(x);
                     }else if(opers.get(i).equals("dup") || opers.get(i).equals("drop") || opers.get(i).equals("swap") || opers.get(i).equals("over")){
                         Method method= stack.getClass().getMethod(opers.get(i));  
                         method.invoke(stack);
                     }
                     else{
-                        Method method= c.getClass().getMethod(opers.get(i), ComplexNumber.class);  
-                        method.invoke(c, stack.pop());
+                        Method method = c.getClass().getMethod(opers.get(i), ComplexNumber.class);  
+                        ComplexNumber x = (ComplexNumber) method.invoke(c, stack.pop());
+                        stack.push(x);
                     }       
             } catch (NoSuchMethodException ex) {
                 Logger.getLogger(Operations.class.getName()).log(Level.SEVERE, null, ex);
