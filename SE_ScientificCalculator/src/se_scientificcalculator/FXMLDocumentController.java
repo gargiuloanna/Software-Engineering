@@ -9,12 +9,16 @@ import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -336,7 +340,10 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        //Da implementare
+        Operations op = personalizedOperations.get(addOperation.getText());
+        ExecuteOperationCommand comm = new ExecuteOperationCommand(op, hist);
+        comm.execute();
+        
     }
 
     @FXML
@@ -379,7 +386,7 @@ public class FXMLDocumentController implements Initializable {
            
            TextInputDialog addName = new TextInputDialog();
            addName.setTitle("Nuova Operazione");
-           addName.setContentText("Aggiungere il nome dell'operazione che si vuole inserire");
+           addName.setHeaderText("Aggiungere il nome dell'operazione che si vuole inserire");
            if (addOpButton.isSelected()){
                addOpButton.setText("Termina Operazione");
                addName.show();
