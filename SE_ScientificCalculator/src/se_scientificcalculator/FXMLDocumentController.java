@@ -346,7 +346,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        System.out.println(addOperation.getText());
         Command comm = new ExecuteOperationCommand(personalizedOperations.get(addOperation.getText()), hist);
         comm.execute();
         
@@ -403,7 +402,6 @@ public class FXMLDocumentController implements Initializable {
            else{
                addOpButton.setText("Aggiungi Operazione");
                list.add(new Entry(opName, personalizedOperations.get(opName).getOpString()));
-               System.out.println(personalizedOperations.get(opName).getOpString());
            }
     }
     

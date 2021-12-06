@@ -46,7 +46,6 @@ public class Operations {
     public void exeOperation(ComplexStack stack){
         
         for (int i=0; i<opers.size(); i++){
-            System.out.println("Entrato nel for");
             try {
                 Calculator c = new Calculator();
                     if(opers.get(i).equals("addition") || opers.get(i).equals("subtraction") || opers.get(i).equals("product") || opers.get(i).equals("division")){
