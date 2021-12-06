@@ -127,7 +127,7 @@ public class Calculator {
     
     public static boolean insertInVariable(ComplexStack s, Map<Character, ComplexNumber> variables, char variable){
 
-        variables.put(variable, (ComplexNumber) s.peek());
+        variables.put(variable, (ComplexNumber) s.pop());
         return true;
         
     }
@@ -164,7 +164,7 @@ public class Calculator {
         if(!variables.containsKey(variable))
             return false;
         
-        ComplexNumber last = (ComplexNumber) s.peek();
+        ComplexNumber last = (ComplexNumber) s.pop();
         ComplexNumber variableNumber = variables.get(variable);
         variables.put(variable,addition(last, variableNumber));
         return true;  
@@ -184,7 +184,7 @@ public class Calculator {
         if(!variables.containsKey(variable))
             return false;
         
-        ComplexNumber last = (ComplexNumber) s.peek();
+        ComplexNumber last = (ComplexNumber) s.pop();
         ComplexNumber variableNumber = variables.get(variable);
         variables.put(variable,subtraction(last, variableNumber));
         return true;  
