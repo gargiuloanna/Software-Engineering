@@ -26,7 +26,7 @@ public class ModuleCommand implements Command{
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
-        c.push(Math.sqrt(Math.pow(a.getReal(), 2) + Math.pow(a.getImaginary(), 2)));
+        c.push(new ComplexNumber(Math.sqrt(Math.pow(a.getReal(), 2) + Math.pow(a.getImaginary(), 2)), 0));
     }
     
 }
