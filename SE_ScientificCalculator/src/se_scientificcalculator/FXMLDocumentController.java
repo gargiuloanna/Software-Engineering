@@ -5,24 +5,25 @@
  */
 package se_scientificcalculator;
 
+import java.io.*;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,7 +32,10 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+
 import scientificcalculator_model.*;
 import scientificcalculator_model.personalizedoperations.*;
 
@@ -70,36 +74,38 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TableColumn<Entry, String> nameClm;
     @FXML
-    private TableColumn<Entry, String> opClm;
+    private TableColumn<Entry, Operations> opClm;
+    @FXML
+    private MenuItem modifyOp;
+    @FXML
+    private MenuItem cancelOp;
+    @FXML
+    private MenuItem SaveFile;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         variableMemory = new HashMap<>();
-        personalizedOperations = new HashMap();
-        
+        personalizedOperations = new HashMap<>();
         list = FXCollections.observableArrayList();
-        operationList.setItems(list);
         nameClm.setCellValueFactory(new PropertyValueFactory<>("name"));
         opClm.setCellValueFactory(new PropertyValueFactory<>("op"));
-        
+        operationList.setItems(list); 
         hist = new ComplexStack();
         history.setItems(hist.getMemory());
         alertBox = new Alert(Alert.AlertType.ERROR);
         alertBox.setHeaderText("OPERANDI MANCANTI");
         alertBox.setTitle("ERRORE");
         radioGrid.disableProperty().bind(addOpButton.selectedProperty());
-        addOperandButton.disableProperty().bind(addOpButton.selectedProperty());
         exeOpButton.disableProperty().bind(addOpButton.selectedProperty());
-        addTextfield.disableProperty().bind(addOpButton.selectedProperty());
         opName = "";
         exe = new ExecuteCommand();
     }    
 
     @FXML
     private void prodButton(ActionEvent event) {
+        Command prod = new ProductCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"product");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(prod);
         }
         else{
         if(hist.size()<2){
@@ -107,10 +113,7 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber prod = Calculator.product(firstOperand, secondOperand);
-            hist.push(prod);
+            exe.execute(prod);
             }
         }
 
@@ -118,9 +121,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void subButton(ActionEvent event) {
+        Command sub = new SubtractionCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"subtraction");
-            exe.execute(com);
+           personalizedOperations.get(opName).addOperation(sub);
         }
         else{
         if(hist.size()<2){
@@ -128,19 +131,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber sub = Calculator.subtraction(firstOperand, secondOperand);
-            hist.push(sub);
+            exe.execute(sub);
             }
         }
     }
 
     @FXML
     private void addButton(ActionEvent event) {
+        Command add = new AdditionCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"addition");
-            exe.execute(com);
+           personalizedOperations.get(opName).addOperation(add);
         }
         else{
         if(hist.size()<2){
@@ -148,19 +148,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
         }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber sum = Calculator.addition(firstOperand, secondOperand);
-            hist.push(sum);
+            exe.execute(add);
             }
         }
     }
 
     @FXML
     private void invButton(ActionEvent event) {
+        Command inv = new InvertCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"invert");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(inv);
         }
         else{
         if(hist.isEmpty()){
@@ -168,18 +165,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                         }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber inv = Calculator.invert(firstOperand);
-            hist.push(inv);
+            exe.execute(inv);
             }
         }
     }
 
     @FXML
     private void sqrtButton(ActionEvent event) {
+        Command sqrt = new SqrtCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"sqrt");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(sqrt);
         }
         else{
         if(hist.isEmpty()){
@@ -187,9 +182,7 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                            }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber s = Calculator.sqrt(firstOperand);
-            hist.push(s);
+            exe.execute(sqrt);
             }
         }
 
@@ -197,9 +190,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void divButton(ActionEvent event) {
+        Command div = new DivisionCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"division");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(div);
         }
         else{
         if(hist.size()<2){
@@ -207,19 +200,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                          }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            ComplexNumber secondOperand = (ComplexNumber) hist.pop();
-            ComplexNumber div = Calculator.division(firstOperand, secondOperand);
-            hist.push(div);
+            exe.execute(div);
             }
         }
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
+        Command dup = new DupCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"dup");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(dup);
         }
         else{
         if(hist.isEmpty()){
@@ -227,16 +217,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                            }
         else{
-        hist.dup();
+            exe.execute(dup);
              }
         }
     }
 
     @FXML
     private void dropButton(ActionEvent event) {
+        Command drop = new DropCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"drop");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(drop);
         }
         else{
         if(hist.isEmpty()){
@@ -244,7 +234,7 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                            }
         else{
-            hist.drop();
+            exe.execute(drop);
             }
         }
     }
@@ -256,9 +246,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void overButton(ActionEvent event) {
+        Command over = new OverCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"over");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(over);
         }
         else{
         if(hist.size()<2){
@@ -266,16 +256,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                            }
         else{
-            hist.over();
+            exe.execute(over);
             }
         }
     }
 
     @FXML
     private void swapButton(ActionEvent event) {
+        Command swap = new SwapCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"swap");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(swap);
         }
         else{
         if(hist.size()<2){
@@ -283,16 +273,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();
                           }
         else{
-            hist.swap();
+            exe.execute(swap);
             }
         }
     }
     
       @FXML
     private void moduleButton(ActionEvent event) {
+        Command mod = new ModuleCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"module");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(mod);
         }
         else{
         if(hist.isEmpty()){
@@ -300,18 +290,16 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();            
         }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            double mod = Calculator.module(firstOperand);
-            hist.push(mod);
+            exe.execute(mod);
           }
         }
     }
 
     @FXML
     private void phaseButton(ActionEvent event) {
+        Command ph = new PhaseCommand(hist);
         if(addOpButton.isSelected()){
-            Command com = new AddOperationCommand(personalizedOperations.get(opName),"phase");
-            exe.execute(com);
+            personalizedOperations.get(opName).addOperation(ph);
         }
         else{
         if(hist.isEmpty()){
@@ -319,23 +307,31 @@ public class FXMLDocumentController implements Initializable {
             alertBox.showAndWait();            
         }
         else{
-            ComplexNumber firstOperand = (ComplexNumber) hist.pop();
-            double ph = firstOperand.phase();
-            hist.push(ph);
+            exe.execute(ph);
           }
         }
     }
 
     @FXML
     private void addOperand(ActionEvent event) {
+       
         if(addTextfield.getText().isEmpty()){
             alertBox.setContentText("Scrivi qualcosa nello spazio di testo");
             alertBox.showAndWait();
         }
         else{
+            
             ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-            addTextfield.clear();
-            hist.push(operand);
+            Command ph = new PushCommand(hist, operand);
+            if(addOpButton.isSelected()){
+            personalizedOperations.get(opName).addOperation(ph);
+            System.out.println("sto facendo l'op personalizzata");
+                 }
+            else{
+                addTextfield.clear();
+                exe.execute(ph);
+                System.out.println("sto eseguendo l'op personalizzata");
+        }
         }
     }
 
@@ -346,29 +342,31 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        Command comm = new ExecuteOperationCommand(personalizedOperations.get(addOperation.getText()), hist);
-        comm.execute();
+        for(Command c :  personalizedOperations.get(addOperation.getText()).getOpers()){
+            exe.execute(c);
+        }
+        
         
     }
 
     @FXML
     private void insertInVariable(ActionEvent event) {
-        Calculator.insertInVariable(hist, variableMemory, selectedVariable());
+        VariablesOperations.insertInVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void getFromVariable(ActionEvent event) {
-        Calculator.getFromVariable(hist, variableMemory, selectedVariable());
+        VariablesOperations.getFromVariable(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void addToLast(ActionEvent event) {
-       Calculator.addToLast(hist, variableMemory, selectedVariable());
+       VariablesOperations.addToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
     private void subToLast(ActionEvent event) {
-        Calculator.subToLast(hist, variableMemory, selectedVariable());
+        VariablesOperations.subToLast(hist, variableMemory, selectedVariable());
     }
 
     @FXML
@@ -401,8 +399,42 @@ public class FXMLDocumentController implements Initializable {
            }
            else{
                addOpButton.setText("Aggiungi Operazione");
-               list.add(new Entry(opName, personalizedOperations.get(opName).getOpString()));
+               list.add(new Entry(opName, personalizedOperations.get(opName)));
            }
+    }
+
+    @FXML
+    private void modifyOperation(ActionEvent event) {
+    }
+
+    @FXML
+    private void cancelOperation(ActionEvent event) {
+    }
+
+    @FXML
+    private void saveOnfFile(ActionEvent event) {
+        FileChooser file = new FileChooser();
+        File fileChosen = file.showSaveDialog(null);
+        PrintWriter writer; 
+        if (fileChosen != null)
+            try {
+                writer = new PrintWriter(fileChosen, "UTF-8");
+                for(String s : personalizedOperations.keySet()){
+                    writer.println(s + ": " +  personalizedOperations.get(s).getOpers());
+                    }
+                writer.close();
+        } catch (FileNotFoundException ex) {
+            Alert aler = new Alert(Alert.AlertType.ERROR);
+            aler.setContentText("File not found");
+            aler.setTitle("File Error");
+                    
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+
+
     }
     
 }

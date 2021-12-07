@@ -9,7 +9,7 @@ package scientificcalculator_model.personalizedoperations;
  *
  * @author Anna
  */
-public interface Command {
-    void execute();
+public abstract class Command {
+    public abstract void execute();
     
 }

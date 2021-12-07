@@ -4,7 +4,9 @@
  */
 package scientificcalculator_model;
 
+import java.util.ArrayList;
 import scientificcalculator_model.personalizedoperations.Operations;
+
 
 /**
  *
@@ -12,9 +14,9 @@ import scientificcalculator_model.personalizedoperations.Operations;
  */
 public class Entry {
     private String name;
-    private String op;
+    private Operations op;
 
-    public Entry(String name, String op) {
+    public Entry(String name,Operations op) {
         this.name = name;
         this.op = op;
     }
@@ -23,8 +25,15 @@ public class Entry {
         return name;
     }
 
-    public String getOp() {
+    public Operations getOp() {
         return op;
     }
+
+    @Override
+    public String toString() {
+        return "Entry{" + "name=" + name + ", op=" + op + '}';
+    }
+    
+    
     
 }

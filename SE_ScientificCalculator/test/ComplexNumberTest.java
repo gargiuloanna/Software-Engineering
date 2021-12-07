@@ -55,19 +55,6 @@ public class ComplexNumberTest {
         assertEquals(new ComplexNumber(15, 4).getReal(), ComplexNumber.stringToComplex("15+4j").getReal(), 0.0000001);
         assertEquals(new ComplexNumber(15, 4).getImaginary(), ComplexNumber.stringToComplex("15+4j").getImaginary(), 0.0000001);
     }
-    @Test
-    public void testPhase(){
-        //4j
-        assertEquals(Math.PI/2, new ComplexNumber(0,4).phase(),0.0000001);
-        //-4j
-        assertEquals(-Math.PI/2, new ComplexNumber(0,-4).phase(),0.0000001);
-        //15+4j
-        assertEquals(0.2606023, new ComplexNumber(15,4).phase(),0.0000001);
-        //-15+4j
-        assertEquals(2.8809902, new ComplexNumber(-15,4).phase(),0.0000001);
-        //-15-4j
-        assertEquals(-2.8809902, new ComplexNumber(-15,-4).phase(),0.0000001);
-    }
     
 
 }

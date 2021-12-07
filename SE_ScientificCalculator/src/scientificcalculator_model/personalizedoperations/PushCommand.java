@@ -5,25 +5,28 @@
  */
 package scientificcalculator_model.personalizedoperations;
 
+import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 
 /**
  *
- * @author Anna
+ * @author Luigina
  */
-public class ExecuteOperationCommand implements Command{
-    private Operations opers;
-    private ComplexStack stack;
-
-    public ExecuteOperationCommand(Operations opers, ComplexStack stack) {
-        this.opers = opers;
-        this.stack= stack;
-    }
+public class PushCommand extends Command{
     
+    ComplexStack c;
+    ComplexNumber a;
+
+    public PushCommand(ComplexStack c, ComplexNumber a) {
+        this.c = c;
+        this.a = a;
+    }
 
     @Override
     public void execute() {
-        opers.exeOperation(stack);
+        c.push(a);
     }
+    
+    
     
 }

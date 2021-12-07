@@ -84,10 +84,10 @@ public class ComplexNumber {
                 immaginary = 0;
             }
             else if (j_index != -1){
-                if (s.substring(0, 1).equals("+")){
+                if (s.substring(0, 1).equals("+") && s.substring(1,2).equals("j")){
                     immaginary = 1;
                 }
-                else if (s.substring(0, 1).equals("-")){
+                else if (s.substring(0, 1).equals("-")&& s.substring(1,2).equals("j")){
                     immaginary = -1;
                 }
                 else if (s.substring(0, 1).equals("j")){
@@ -102,25 +102,6 @@ public class ComplexNumber {
         }
         
         return new ComplexNumber(real, immaginary);
-    }
-    /**
-     * This method returns the phase of a ComplexNumber
-     * <p>
-     * @return a double element that contains the result
-     */
-    public double phase(){
-        if (real == 0 && imaginary > 0)
-            return Math.PI/2;
-        else if (real == 0 && imaginary < 0)
-            return -Math.PI/2;
-        else if (real > 0)
-            return Math.atan(imaginary/real);
-        else if (real < 0 && imaginary >= 0)
-            return Math.atan(imaginary/real) +  Math.PI;
-        else if (real < 0 && imaginary < 0)
-            return Math.atan(imaginary/real) -  Math.PI;
-        return 0;
-        
     }
     
     @Override

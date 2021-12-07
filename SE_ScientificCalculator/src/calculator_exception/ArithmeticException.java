@@ -8,7 +8,7 @@ package calculator_exception;
  *
  * @author marco
  */
-public class ArithmeticException extends Exception{
+public class ArithmeticException extends RuntimeException{
 
     /**
      * Creates a new instance of <code>ArithmeticException</code> without detail

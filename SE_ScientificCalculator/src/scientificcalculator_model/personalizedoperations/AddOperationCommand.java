@@ -9,11 +9,11 @@ package scientificcalculator_model.personalizedoperations;
  *
  * @author Anna
  */
-public class AddOperationCommand implements Command{
+public class AddOperationCommand extends Command{
     private Operations struct;
-    private String op;
+    private Command op;
 
-    public AddOperationCommand(Operations struct, String op) {
+    public AddOperationCommand(Operations struct, Command op) {
         this.struct = struct;
         this.op = op;
     }
