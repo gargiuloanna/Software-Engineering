@@ -26,7 +26,7 @@ public class PhaseCommand implements Command{
     @Override
     public void execute() {
        ComplexNumber a = (ComplexNumber) c.pop();
-       c.push(Math.atan2(a.getImaginary(), a.getReal()));
+       c.push(new ComplexNumber(Math.atan2(a.getImaginary(), a.getReal()), 0));
     }
     
 }
