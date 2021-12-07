@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package scientificcalculator_model.personalizedoperations;
+package scientificcalculator_model.operationscommands;
 
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -12,21 +12,21 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class PushCommand extends Command{
+public class ModuleCommand extends Command{
     
-    ComplexStack c;
-    ComplexNumber a;
+    private ComplexStack c;
 
-    public PushCommand(ComplexStack c, ComplexNumber a) {
+    public ModuleCommand(ComplexStack c) {
         this.c = c;
-        this.a = a;
     }
-
+    
+    /**
+     * This method makes the module of a ComplexNumber.
+     */
     @Override
     public void execute() {
-        c.push(a);
+        ComplexNumber a = (ComplexNumber) c.pop();
+        c.push(Math.sqrt(Math.pow(a.getReal(), 2) + Math.pow(a.getImaginary(), 2)));
     }
-    
-    
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package scientificcalculator_model.personalizedoperations;
+package scientificcalculator_model.operationscommands;
 
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -12,21 +12,22 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class ModuleCommand extends Command{
+public class InvertCommand extends Command {
     
     private ComplexStack c;
 
-    public ModuleCommand(ComplexStack c) {
+    public InvertCommand(ComplexStack c) {
         this.c = c;
     }
     
     /**
-     * This method makes the module of a ComplexNumber.
+     * This method acts like a - before the entire ComplexNumber to invert the sign
+     * for the real and imaginary part.
      */
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
-        c.push(Math.sqrt(Math.pow(a.getReal(), 2) + Math.pow(a.getImaginary(), 2)));
+        c.push(new ComplexNumber(-a.getReal(), -a.getImaginary()));
     }
     
 }

@@ -5,7 +5,7 @@
 package scientificcalculator_model;
 
 import java.util.ArrayList;
-import scientificcalculator_model.personalizedoperations.Operations;
+import scientificcalculator_model.operationscommands.Operations;
 
 
 /**

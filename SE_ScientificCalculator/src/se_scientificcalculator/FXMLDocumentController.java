@@ -5,6 +5,22 @@
  */
 package se_scientificcalculator;
 
+import scientificcalculator_model.operationscommands.DupCommand;
+import scientificcalculator_model.operationscommands.SubtractionCommand;
+import scientificcalculator_model.operationscommands.AdditionCommand;
+import scientificcalculator_model.operationscommands.PhaseCommand;
+import scientificcalculator_model.operationscommands.Command;
+import scientificcalculator_model.operationscommands.ExecuteCommand;
+import scientificcalculator_model.operationscommands.SwapCommand;
+import scientificcalculator_model.operationscommands.Operations;
+import scientificcalculator_model.operationscommands.OverCommand;
+import scientificcalculator_model.operationscommands.ModuleCommand;
+import scientificcalculator_model.operationscommands.DropCommand;
+import scientificcalculator_model.operationscommands.SqrtCommand;
+import scientificcalculator_model.operationscommands.PushCommand;
+import scientificcalculator_model.operationscommands.ProductCommand;
+import scientificcalculator_model.operationscommands.DivisionCommand;
+import scientificcalculator_model.operationscommands.InvertCommand;
 import java.io.*;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
@@ -37,7 +53,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 
 import scientificcalculator_model.*;
-import scientificcalculator_model.personalizedoperations.*;
 
 /**
  *

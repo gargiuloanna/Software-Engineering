@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package scientificcalculator_model.personalizedoperations;
+package scientificcalculator_model.operationscommands;
 
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -14,7 +14,7 @@ import scientificcalculator_model.ComplexStack;
  */
 
 /**
-* This class implement an Addition command which makes the arithmetical addition between two operands
+* This class implements an Addition command which makes the arithmetical addition between two operands
 * ComplexNumber object (a+bj)+(c+dj).
 */
 public class AdditionCommand extends Command{
