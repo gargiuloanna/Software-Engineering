@@ -12,17 +12,17 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class SqrtCommand extends Command{
+/**
+* This class implements a Sqrt command which makes the square root of a complex number.
+*/
+public class SqrtCommand implements Command{
     
     private ComplexStack c;
 
     public SqrtCommand(ComplexStack c) {
         this.c = c;
     }
-    
-    /**
-     * This method makes the square root of a ComplexNumber.
-     */
+
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();

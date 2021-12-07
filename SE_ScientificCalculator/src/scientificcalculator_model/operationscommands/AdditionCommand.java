@@ -14,10 +14,9 @@ import scientificcalculator_model.ComplexStack;
  */
 
 /**
-* This class implements an Addition command which makes the arithmetical addition between two operands
-* ComplexNumber object (a+bj)+(c+dj).
+* This class implements an Addition command which makes the arithmetical addition between two complex numbers.
 */
-public class AdditionCommand extends Command{
+public class AdditionCommand implements Command{
     
     private ComplexStack c;
 

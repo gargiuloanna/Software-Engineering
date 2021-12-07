@@ -18,7 +18,7 @@ import scientificcalculator_model.ComplexStack;
 * adds it to the top of the stack.
 * If the stack is empty duplication is not performed.
 */
-public class OverCommand extends Command {
+public class OverCommand implements Command {
     
     private ComplexStack c;
 

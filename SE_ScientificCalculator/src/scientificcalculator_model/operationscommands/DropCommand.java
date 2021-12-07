@@ -16,7 +16,7 @@ import scientificcalculator_model.ComplexStack;
 * The class implements a Drop command which removes the last element of a stack.
 * If the stack is empty drop is not performed.
 */
-public class DropCommand extends Command{
+public class DropCommand implements Command{
     
     private ComplexStack c;
 

@@ -9,7 +9,7 @@ package scientificcalculator_model.operationscommands;
  *
  * @author Anna
  */
-public class AddOperationCommand extends Command{
+public class AddOperationCommand implements Command{
     private Operations struct;
     private Command op;
 

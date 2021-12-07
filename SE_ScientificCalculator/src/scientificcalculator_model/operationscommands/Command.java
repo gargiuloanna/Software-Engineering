@@ -9,7 +9,8 @@ package scientificcalculator_model.operationscommands;
  *
  * @author Anna
  */
-public abstract class Command {
-    public abstract void execute();
+public interface Command {
+   void execute();
+    
     
 }

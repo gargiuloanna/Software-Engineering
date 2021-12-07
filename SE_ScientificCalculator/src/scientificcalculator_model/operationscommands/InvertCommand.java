@@ -12,18 +12,18 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class InvertCommand extends Command {
+/**
+* This class implements an Invert command which acts like a - before the entire ComplexNumber to invert the sign
+* for the real and imaginary part.
+*/
+public class InvertCommand implements Command {
     
     private ComplexStack c;
 
     public InvertCommand(ComplexStack c) {
         this.c = c;
     }
-    
-    /**
-     * This method acts like a - before the entire ComplexNumber to invert the sign
-     * for the real and imaginary part.
-     */
+
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();

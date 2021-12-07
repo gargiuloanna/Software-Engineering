@@ -18,7 +18,7 @@ import scientificcalculator_model.ComplexStack;
 * If the stack is empty or the size of the stack is less than two, 
 * then the swap is not performed
 */
-public class SwapCommand extends Command {
+public class SwapCommand implements Command {
     
     ComplexStack c;
 

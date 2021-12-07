@@ -12,7 +12,11 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class ProductCommand extends Command{
+
+/**
+* This class implements a Product command which makes the arithmetical product between two complex numbers.
+*/
+public class ProductCommand implements Command{
     
     private ComplexStack c;
 
@@ -20,10 +24,7 @@ public class ProductCommand extends Command{
         this.c = c;
     }
     
- /**
-     * This method makes the arithmetical product between two operands
-     * ComplexNumber object (a+bj)*(c+dj).
-     */
+
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();

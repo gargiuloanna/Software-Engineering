@@ -12,7 +12,7 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class ModuleCommand extends Command{
+public class ModuleCommand implements Command{
     
     private ComplexStack c;
 

@@ -427,7 +427,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void saveOnfFile(ActionEvent event) {
+    private void saveOnFile(ActionEvent event) {
         FileChooser file = new FileChooser();
         File fileChosen = file.showSaveDialog(null);
         PrintWriter writer; 

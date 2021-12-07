@@ -12,7 +12,7 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class PhaseCommand extends Command{
+public class PhaseCommand implements Command{
     
     private ComplexStack c;
 

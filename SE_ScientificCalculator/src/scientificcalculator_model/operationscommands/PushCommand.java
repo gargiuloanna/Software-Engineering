@@ -12,7 +12,7 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class PushCommand extends Command{
+public class PushCommand implements Command{
     
     ComplexStack c;
     ComplexNumber a;

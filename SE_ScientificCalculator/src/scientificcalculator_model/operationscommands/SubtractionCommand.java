@@ -14,10 +14,9 @@ import scientificcalculator_model.ComplexStack;
  */
 
 /**
-* This class implement an Subtraction command which makes the arithmetical addition between two operands
-* ComplexNumber object (a+bj)-(c+dj).
+* This class implements a Subtraction command which makes the arithmetical subtraction between two complex numbers.
 */
-public class SubtractionCommand extends Command{
+public class SubtractionCommand implements Command{
     
     private ComplexStack c;
 

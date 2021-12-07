@@ -5,14 +5,8 @@
  */
 package scientificcalculator_model.operationscommands;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import scientificcalculator_model.VariablesOperations;
-import scientificcalculator_model.ComplexNumber;
-import scientificcalculator_model.ComplexStack;
+
 
 /**
  *

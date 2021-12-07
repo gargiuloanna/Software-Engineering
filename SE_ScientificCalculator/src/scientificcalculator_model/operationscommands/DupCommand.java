@@ -19,7 +19,7 @@ import scientificcalculator_model.ComplexStack;
 * If the stack is empty the duplication is not performed.
 */
 
-public class DupCommand extends Command{
+public class DupCommand implements Command{
     
     ComplexStack c;
 

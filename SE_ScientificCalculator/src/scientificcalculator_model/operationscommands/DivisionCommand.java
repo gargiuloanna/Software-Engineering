@@ -12,7 +12,10 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
-public class DivisionCommand extends Command{
+/**
+* This class implements a Division command which makes the arithmetical division between two complex numbers.
+*/
+public class DivisionCommand implements Command{
     
     private ComplexStack c;
 
@@ -23,10 +26,7 @@ public class DivisionCommand extends Command{
     private ComplexNumber conjugated(ComplexNumber x){
         return new ComplexNumber(x.getReal(), -x.getImaginary());
     }
-    /**
-     * This method makes the arithmetical division between two operands
-     * ComplexNumber object (a+bj)/(c+dj).
-     */
+    
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
