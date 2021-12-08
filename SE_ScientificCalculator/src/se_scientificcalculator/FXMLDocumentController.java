@@ -341,8 +341,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperationTryMethod(ActionEvent event) {
-        addOperationTry.setDisable(true);
-        stopInsert.setDisable(false);
         setState(new OperationState());
         opName = addOperation.getText();
         if (personalizedOperations.containsKey(opName)){
@@ -353,6 +351,8 @@ public class FXMLDocumentController implements Initializable {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
+                addOperationTry.setDisable(true);
+                stopInsert.setDisable(false);
                 personalizedOperations.put(opName, new Operations());
                 for(Entry e: list){
                     if(e.getName().equals(opName)){
@@ -363,29 +363,27 @@ public class FXMLDocumentController implements Initializable {
             }
             else{
                 System.out.println("L'operazione è annullata");
-                return;
+            }
+        }else{
+            System.out.println(opName);
+            if (opName.equals("")) {
+                alertBox.setContentText("L'operazione non esiste oppure non hai inserito il nome dell'operazione da creare");
+                alertBox.setTitle("Errore");
+                alertBox.setHeaderText("Manca il nome dell'operazione");
+                alertBox.showAndWait();
+            }else{
+                addOperationTry.setDisable(true);
+                stopInsert.setDisable(false);
+                personalizedOperations.put(opName, new Operations());
+                radioGrid.setDisable(true);
+                exeOpButton.setDisable(true);
+                history.setDisable(true);
             }
         }
-        System.out.println(opName);
-        if (opName.equals("")) {
-            alertBox.setContentText("L'operazione non esiste oppure non hai inserito il nome dell'operazione da creare");
-            alertBox.setTitle("Errore");
-            alertBox.setHeaderText("Manca il nome dell'operazione");
-            alertBox.showAndWait();
-            return;
-        }
-        
-        personalizedOperations.put(opName, new Operations());
-        radioGrid.setDisable(true);
-        exeOpButton.setDisable(true);
-        history.setDisable(true);
     }
 
     @FXML
     private void stopInsertMethod(ActionEvent event) {
-        addOperationTry.setDisable(false);
-        stopInsert.setDisable(true);
-        
         setState(new CalculatorState());
         if (!personalizedOperations.isEmpty()) {
             list.add(new Entry(opName, personalizedOperations.get(opName)));
@@ -393,6 +391,8 @@ public class FXMLDocumentController implements Initializable {
         radioGrid.setDisable(false);
         exeOpButton.setDisable(false);
         history.setDisable(false);
+        addOperationTry.setDisable(false);
+        stopInsert.setDisable(true);
     }
 
     @FXML
