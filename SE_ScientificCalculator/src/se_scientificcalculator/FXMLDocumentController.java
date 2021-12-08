@@ -5,22 +5,7 @@
  */
 package se_scientificcalculator;
 
-import scientificcalculator_model.operationscommands.DupCommand;
-import scientificcalculator_model.operationscommands.SubtractionCommand;
-import scientificcalculator_model.operationscommands.AdditionCommand;
-import scientificcalculator_model.operationscommands.PhaseCommand;
-import scientificcalculator_model.operationscommands.Command;
-import scientificcalculator_model.operationscommands.ExecuteCommand;
-import scientificcalculator_model.operationscommands.SwapCommand;
-import scientificcalculator_model.operationscommands.Operations;
-import scientificcalculator_model.operationscommands.OverCommand;
-import scientificcalculator_model.operationscommands.ModuleCommand;
-import scientificcalculator_model.operationscommands.DropCommand;
-import scientificcalculator_model.operationscommands.SqrtCommand;
-import scientificcalculator_model.operationscommands.PushCommand;
-import scientificcalculator_model.operationscommands.ProductCommand;
-import scientificcalculator_model.operationscommands.DivisionCommand;
-import scientificcalculator_model.operationscommands.InvertCommand;
+import scientificcalculator_model.operationscommands.*;
 import java.io.*;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
@@ -53,6 +38,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 
 import scientificcalculator_model.*;
+import scientificcalculator_model.statecalculator.CalculatorState;
+import scientificcalculator_model.statecalculator.OperationState;
+import scientificcalculator_model.statecalculator.State;
 
 /**
  *
@@ -60,6 +48,7 @@ import scientificcalculator_model.*;
  */
 public class FXMLDocumentController implements Initializable {
     
+    //GUI Elements
     @FXML
     private TextField addTextfield;
     @FXML
@@ -70,20 +59,11 @@ public class FXMLDocumentController implements Initializable {
     private TextField addOperation;
     @FXML
     private GridPane radioGrid;
-    @FXML
     private ToggleButton addOpButton;
     @FXML
     private Button addOperandButton;  
     @FXML
     private Button exeOpButton;
-    
-    private Alert alertBox;
-    private ComplexStack hist;
-    private Map<Character, ComplexNumber> variableMemory;
-    private Map<String, Operations> personalizedOperations;
-    private String opName;
-    private ExecuteCommand exe;
-    private ObservableList<Entry> list;
     @FXML
     private TableView<Entry> operationList;
     @FXML
@@ -96,9 +76,32 @@ public class FXMLDocumentController implements Initializable {
     private MenuItem cancelOp;
     @FXML
     private MenuItem SaveFile;
+    
+    //Memory Structures
+    private ObservableList<Entry> list;
+    private ComplexStack hist;
+    private Map<Character, ComplexNumber> variableMemory;
+    private Map<String, Operations> personalizedOperations;
+    private String opName;
+    
+    private Alert alertBox;
+    
+    //Command Executer for the pattern implementation
+    private ExecuteCommand exe;
+    
+    //State for State Pattern implementation
+    private State state;
+    
+    @FXML
+    private Button addOperationTry;
+    @FXML
+    private Button stopInsert;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         variableMemory = new HashMap<>();
         personalizedOperations = new HashMap<>();
         list = FXCollections.observableArrayList();
@@ -110,10 +113,10 @@ public class FXMLDocumentController implements Initializable {
         alertBox = new Alert(Alert.AlertType.ERROR);
         alertBox.setHeaderText("OPERANDI MANCANTI");
         alertBox.setTitle("ERRORE");
-        radioGrid.disableProperty().bind(addOpButton.selectedProperty());
-        exeOpButton.disableProperty().bind(addOpButton.selectedProperty());
         opName = "";
         exe = new ExecuteCommand();
+        
+        setState(new CalculatorState(hist));
     }    
 
     @FXML
@@ -153,19 +156,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addButton(ActionEvent event) {
-        Command add = new AdditionCommand(hist);
-        if(addOpButton.isSelected()){
-           personalizedOperations.get(opName).addOperation(add);
-        }
-        else{
-        if(hist.size()<2){
-            alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
-            alertBox.showAndWait();
-        }
-        else{
-            exe.execute(add);
-            }
-        }
+        state.addition();
+        System.out.println(personalizedOperations.get(opName).getOpers());
     }
 
     @FXML
@@ -357,11 +349,10 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        for(Command c :  personalizedOperations.get(addOperation.getText()).getOpers()){
+        System.out.println(personalizedOperations.get(addOperation.getText()).getOpers());
+        for(Command c: personalizedOperations.get(addOperation.getText()).getOpers()){
             exe.execute(c);
         }
-        
-        
     }
 
     @FXML
@@ -399,23 +390,20 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
-    @FXML
     private void addOperation(ActionEvent event) {
            
-           TextInputDialog addName = new TextInputDialog();
-           addName.setTitle("Nuova Operazione");
-           addName.setHeaderText("Aggiungere il nome dell'operazione che si vuole inserire");
-           if (addOpButton.isSelected()){
-               addOpButton.setText("Termina Operazione");
-               Optional<String> result = addName.showAndWait();
-               opName = result.get();
-               personalizedOperations.put(opName, new Operations());
-               
-           }
-           else{
-               addOpButton.setText("Aggiungi Operazione");
-               list.add(new Entry(opName, personalizedOperations.get(opName)));
-           }
+        TextInputDialog addName = new TextInputDialog();
+        addName.setTitle("Nuova Operazione");
+        addName.setHeaderText("Aggiungere il nome dell'operazione che si vuole inserire");
+        if (addOpButton.isSelected()){
+            addOpButton.setText("Termina Operazione");
+            Optional<String> result = addName.showAndWait();
+            opName = result.get();
+            personalizedOperations.put(opName, new Operations());       
+        }else{
+            addOpButton.setText("Aggiungi Operazione");
+            list.add(new Entry(opName, personalizedOperations.get(opName)));
+        }
     }
 
     @FXML
@@ -435,8 +423,8 @@ public class FXMLDocumentController implements Initializable {
             try {
                 writer = new PrintWriter(fileChosen, "UTF-8");
                 for(String s : personalizedOperations.keySet()){
-                    writer.println(s + ": " +  personalizedOperations.get(s).getOpers());
-                    }
+                    writer.println(s + ": " + personalizedOperations.get(s).getOpers());
+                }
                 writer.close();
         } catch (FileNotFoundException ex) {
             Alert aler = new Alert(Alert.AlertType.ERROR);
@@ -446,10 +434,31 @@ public class FXMLDocumentController implements Initializable {
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
 
+    @FXML
+    private void addOperationTryMethod(ActionEvent event) {
+        opName = addOperation.getText();
+        if (opName.isEmpty()){
+            return;
+        }
+        System.out.println(opName);
+        personalizedOperations.put(opName, new Operations());
+        System.out.println(personalizedOperations.get(opName));
+        setState(new OperationState(hist, personalizedOperations, opName));
+        radioGrid.setDisable(true);
+        exeOpButton.setDisable(true);
+    }
 
-
+    @FXML
+    private void stopInsertMethod(ActionEvent event) {
+        setState(new CalculatorState(hist));
+        radioGrid.setDisable(false);
+        exeOpButton.setDisable(false);
+    }
+    
+    private void setState(State s){
+        state = s;
     }
     
 }
