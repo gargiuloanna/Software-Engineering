@@ -29,10 +29,6 @@ public class Entry {
         return op;
     }
 
-    @Override
-    public String toString() {
-        return "Entry{" + "name=" + name + ", op=" + op + '}';
-    }
     
     
     

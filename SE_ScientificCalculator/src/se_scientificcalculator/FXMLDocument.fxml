@@ -247,7 +247,7 @@
          </opaqueInsets>
       </GridPane>
       <Button fx:id="exeOpButton" layoutX="422.0" layoutY="114.0" mnemonicParsing="false" onAction="#exeOperation" prefHeight="70.0" prefWidth="116.0" text="Esegui Operazione" textAlignment="CENTER" wrapText="true" />
-      <TextField fx:id="addOperation" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="49.0" prefHeight="55.0" prefWidth="323.0" promptText="Operazione" style="-: ;">
+      <TextField fx:id="addOperation" alignment="CENTER_RIGHT" layoutX="215.0" layoutY="49.0" prefHeight="55.0" prefWidth="323.0" promptText="Inserire il nome dell'operazione" style="-: ;">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
