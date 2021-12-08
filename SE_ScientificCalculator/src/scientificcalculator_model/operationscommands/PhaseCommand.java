@@ -12,6 +12,9 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
+/**
+ * This class implements a Phase command which makes the phase of a complex number
+ */
 public class PhaseCommand implements Command{
     
     private ComplexStack c;
@@ -20,13 +23,17 @@ public class PhaseCommand implements Command{
         this.c = c;
     }
     
-    /**
-     * This method returns the phase of a ComplexNumber
-     */
     @Override
     public void execute() {
        ComplexNumber a = (ComplexNumber) c.pop();
        c.push(new ComplexNumber(Math.atan2(a.getImaginary(), a.getReal()), 0));
     }
+
+    @Override
+    public String toString() {
+        return "arg(z)";
+    }
+    
+    
     
 }

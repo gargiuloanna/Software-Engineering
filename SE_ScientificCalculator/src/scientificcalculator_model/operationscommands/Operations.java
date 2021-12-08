@@ -28,6 +28,16 @@ public class Operations {
     public void addOperation(Command op){
         opers.add(op);
     }
+
+
+    @Override
+    public String toString() {
+        String str = opers.get(0).toString();
+        for(int i = 1; i < opers.size(); i++){
+            str = str + "," + opers.get(i).toString();
+        }
+        return str;
+    }
     
     
 }

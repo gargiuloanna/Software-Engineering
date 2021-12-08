@@ -40,5 +40,12 @@ public class DivisionCommand implements Command{
         else
             c.push(new ComplexNumber(N.getReal()/D.getReal(), N.getImaginary()/D.getReal()));
     }
+
+    @Override
+    public String toString() {
+        return "/";
+    }
+    
+    
     
 }

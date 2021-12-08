@@ -33,6 +33,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
@@ -116,7 +117,7 @@ public class FXMLDocumentController implements Initializable {
         opName = "";
         exe = new ExecuteCommand();
         
-        setState(new CalculatorState(hist));
+        //setState(new CalculatorState(hist));
     }    
 
     @FXML
@@ -329,15 +330,14 @@ public class FXMLDocumentController implements Initializable {
         else{
             
             ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-            Command ph = new PushCommand(hist, operand);
+            Command push = new PushCommand(hist, operand);
             if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(ph);
-            System.out.println("sto facendo l'op personalizzata");
+            personalizedOperations.get(opName).addOperation(push);
                  }
             else{
                 addTextfield.clear();
-                exe.execute(ph);
-                System.out.println("sto eseguendo l'op personalizzata");
+                exe.execute(push);
+                
         }
         }
     }
@@ -384,9 +384,15 @@ public class FXMLDocumentController implements Initializable {
             }
             else{
                 ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+                Command push = new PushCommand(hist, operand);
+                if(addOpButton.isSelected()){
+                   personalizedOperations.get(opName).addOperation(push);
+                             }
+            else{
                 addTextfield.clear();
-                hist.push(operand);
-            }
+                exe.execute(push);
+                
+        }            }
         }
     }
 
@@ -459,6 +465,17 @@ public class FXMLDocumentController implements Initializable {
     
     private void setState(State s){
         state = s;
+    }
+
+    @FXML
+    private void userDefinition(MouseEvent event) {
+        if(addOpButton.isSelected()){
+            Entry e = operationList.getSelectionModel().getSelectedItem();
+            Command o = new UserOperationCommand(e.getName(),e.getOp());
+            personalizedOperations.get(opName).addOperation(o);
+        }
+
+        
     }
     
 }

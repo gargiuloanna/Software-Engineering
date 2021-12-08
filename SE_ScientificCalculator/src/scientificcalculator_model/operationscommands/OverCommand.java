@@ -26,7 +26,6 @@ public class OverCommand implements Command {
         this.c = c;
     }
     
-
     @Override
     public void execute() {
         Command swap = new SwapCommand(c);
@@ -36,6 +35,13 @@ public class OverCommand implements Command {
         c.push(last);
     
     }
+
+    @Override
+    public String toString() {
+        return "over";
+    }
+    
+    
        
     
     

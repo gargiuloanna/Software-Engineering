@@ -35,5 +35,12 @@ public class ProductCommand implements Command{
         double iibb = -1 * b.getImaginary() * a.getImaginary();
         c.push(new ComplexNumber((aa + iibb), (aib_1 + aib_2)));
     }
+
+    @Override
+    public String toString() {
+        return "*";
+    }
+    
+    
     
 }

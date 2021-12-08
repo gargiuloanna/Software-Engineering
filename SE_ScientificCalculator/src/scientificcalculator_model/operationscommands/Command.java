@@ -11,6 +11,6 @@ package scientificcalculator_model.operationscommands;
  */
 public interface Command {
    void execute();
-    
-    
+   
+   
 }

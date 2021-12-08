@@ -29,5 +29,12 @@ public class InvertCommand implements Command {
         ComplexNumber a = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(-a.getReal(), -a.getImaginary()));
     }
+
+    @Override
+    public String toString() {
+        return "+-";
+    }
+    
+    
     
 }

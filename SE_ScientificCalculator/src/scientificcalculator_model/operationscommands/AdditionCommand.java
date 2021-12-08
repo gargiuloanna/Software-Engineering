@@ -23,13 +23,18 @@ public class AdditionCommand implements Command{
     public AdditionCommand(ComplexStack c) {
         this.c = c;
     }
-    
+
     
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
         ComplexNumber b = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary()));
+    }
+    
+    @Override
+    public String toString() {
+        return "+";
     }
     
     

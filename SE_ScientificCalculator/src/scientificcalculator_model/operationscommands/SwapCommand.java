@@ -35,5 +35,12 @@ public class SwapCommand implements Command {
              c.push(secondLastElement);
          }
     }
+
+    @Override
+    public String toString() {
+        return "swap";
+    }
+    
+    
     
 }

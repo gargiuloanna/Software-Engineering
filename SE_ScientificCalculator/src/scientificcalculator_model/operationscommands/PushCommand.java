@@ -26,6 +26,12 @@ public class PushCommand implements Command{
     public void execute() {
         c.push(a);
     }
+
+    @Override
+    public String toString() {
+        return a.toString();
+    }
+    
     
     
     

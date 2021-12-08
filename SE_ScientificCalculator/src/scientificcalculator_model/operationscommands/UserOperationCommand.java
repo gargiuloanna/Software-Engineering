@@ -9,18 +9,28 @@ package scientificcalculator_model.operationscommands;
  *
  * @author Anna
  */
-public class AddOperationCommand implements Command{
+public class UserOperationCommand implements Command{
+    
+    private String name;
     private Operations struct;
-    private Command op;
 
-    public AddOperationCommand(Operations struct, Command op) {
+    public UserOperationCommand(String name, Operations struct) {
+        this.name = name;
         this.struct = struct;
-        this.op = op;
     }
 
     @Override
     public void execute() {
-        struct.addOperation(op);
+        for (Command c: struct.getOpers()){
+            c.execute();
+        }
     }
+
+    @Override
+    public String toString() {
+        return  name;
+    }
+    
+    
     
 }

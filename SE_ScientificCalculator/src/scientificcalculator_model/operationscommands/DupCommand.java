@@ -32,5 +32,12 @@ public class DupCommand implements Command{
        if (!c.isEmpty())
            c.push(c.peek());
     }
+
+    @Override
+    public String toString() {
+        return "dup";
+    }
+    
+    
     
 }

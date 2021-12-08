@@ -38,5 +38,12 @@ public class SqrtCommand implements Command{
             c.push(new ComplexNumber(a1, a2));
         }
     }
+
+    @Override
+    public String toString() {
+        return "sqrt";
+    }
+    
+    
     
 }

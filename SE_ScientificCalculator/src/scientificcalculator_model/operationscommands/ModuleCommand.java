@@ -12,6 +12,9 @@ import scientificcalculator_model.ComplexStack;
  *
  * @author Luigina
  */
+/**
+ * This class implements a Module command which makes the module of a complex number.
+ */
 public class ModuleCommand implements Command{
     
     private ComplexStack c;
@@ -20,13 +23,16 @@ public class ModuleCommand implements Command{
         this.c = c;
     }
     
-    /**
-     * This method makes the module of a ComplexNumber.
-     */
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(Math.sqrt(Math.pow(a.getReal(), 2) + Math.pow(a.getImaginary(), 2)), 0));
     }
+
+    @Override
+    public String toString() {
+        return "mod";
+    }
+    
     
 }

@@ -29,5 +29,11 @@ public class DropCommand implements Command{
         if (!c.isEmpty())
             c.pop();
     }
+
+    @Override
+    public String toString() {
+        return "drop";
+    }
+    
     
 }

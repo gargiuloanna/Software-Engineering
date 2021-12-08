@@ -23,16 +23,19 @@ public class SubtractionCommand implements Command{
     public SubtractionCommand(ComplexStack c) {
         this.c = c;
     }
-    
-    /**
-     * This method makes the arithmetical subtraction between two operands
-     * ComplexNumber object (a+bj)-(c+dj).
-     */
+ 
     @Override
     public void execute() {
         ComplexNumber a = (ComplexNumber) c.pop();
         ComplexNumber b = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(a.getReal() - b.getReal(),a.getImaginary() - b.getImaginary()));
     }
+
+    @Override
+    public String toString() {
+        return "-";
+    }
+    
+    
     
 }
