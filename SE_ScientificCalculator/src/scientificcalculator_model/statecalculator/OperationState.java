@@ -6,6 +6,7 @@ package scientificcalculator_model.statecalculator;
 
 import java.util.HashMap;
 import java.util.Map;
+import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 import scientificcalculator_model.operationscommands.AdditionCommand;
 import scientificcalculator_model.operationscommands.Command;
@@ -18,28 +19,59 @@ import scientificcalculator_model.operationscommands.Operations;
  */
 public class OperationState extends State{
 
-    private ComplexStack stack;
-    private Map<String, Operations> opMemory;
-    private String opName;
-    private ExecuteCommand exe;
-    
-    public OperationState(ComplexStack stack, Map opMemory, String opName) {
-        this.stack = stack;
-        this.opMemory = opMemory;
-        this.opName = opName;
-        exe = new ExecuteCommand();
-    }
-    
-
-    @Override
-    public void addition() {
-        Command add = new AdditionCommand(stack);
-        opMemory.get(opName).addOperation(add);
+   @Override
+    public void addition(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+         Command add = new AdditionCommand(stack);
+         operations.get(operationName).addOperation(add);
     }
 
     @Override
-    public void subtraction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void product(ComplexStack stack, Map<String, Operations> operations, String operationName) {
     }
+
+    @Override
+    public void subtraction(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void division(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void drop(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void dup(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void invert(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void module(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void over(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void phase(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void sqrt(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void swap(ComplexStack stack, Map<String, Operations> operations, String operationName) {
+    }
+
+    @Override
+    public void push(ComplexStack stack, ComplexNumber number) {
+    }
+    
     
 }

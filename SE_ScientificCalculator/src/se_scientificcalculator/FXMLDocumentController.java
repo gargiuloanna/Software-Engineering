@@ -156,7 +156,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addButton(ActionEvent event) {
-        state.addition();
+        //state.addition();
         System.out.println(personalizedOperations.get(opName).getOpers());
     }
 
@@ -445,14 +445,14 @@ public class FXMLDocumentController implements Initializable {
         System.out.println(opName);
         personalizedOperations.put(opName, new Operations());
         System.out.println(personalizedOperations.get(opName));
-        setState(new OperationState(hist, personalizedOperations, opName));
+        //setState(new OperationState(hist, personalizedOperations, opName));
         radioGrid.setDisable(true);
         exeOpButton.setDisable(true);
     }
 
     @FXML
     private void stopInsertMethod(ActionEvent event) {
-        setState(new CalculatorState(hist));
+        //setState(new CalculatorState(hist));
         radioGrid.setDisable(false);
         exeOpButton.setDisable(false);
     }
