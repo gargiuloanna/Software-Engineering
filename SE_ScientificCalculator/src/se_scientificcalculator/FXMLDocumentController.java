@@ -98,9 +98,11 @@ public class FXMLDocumentController implements Initializable {
         variableMemory = new HashMap<>();
         personalizedOperations = new HashMap<>();
         list = FXCollections.observableArrayList();
+        
         nameClm.setCellValueFactory(new PropertyValueFactory<>("name"));
         opClm.setCellValueFactory(new PropertyValueFactory<>("op"));
         operationList.setItems(list);
+        
         hist = new ComplexStack();
         history.setItems(hist.getMemory());
         alertBox = new Alert(Alert.AlertType.ERROR);
@@ -248,7 +250,7 @@ public class FXMLDocumentController implements Initializable {
             addTextfield.clear();
             alertBox.showAndWait();
         } else {
-            ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+            ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText()); //FACTORY METHOD
             state.push(hist, operand, personalizedOperations, opName);
             addTextfield.clear();
         }
