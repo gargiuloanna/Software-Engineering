@@ -10,7 +10,6 @@ public class UserOperationCommand implements Command{
     /**
      * Initializes a newly created UserOperationCommand object. The c argument is the stack used to create a Command that allows to execute the operations of the defined operations.
      * <p>
-     * @param c the stack used to create the command
      */
     public UserOperationCommand(String name, Operations struct) {
         this.name = name;

@@ -373,6 +373,7 @@ public class FXMLDocumentController implements Initializable {
                 alertBox.setTitle("Errore");
                 alertBox.setHeaderText("Manca il nome dell'operazione");
                 alertBox.showAndWait();
+                exeOp.setText("Esegui");
             }else{
                 addOperationTry.setDisable(true);
                 stopInsert.setDisable(false);
