@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package scientificcalculator_model.operationscommands;
 
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 
-/**
- *
- * @author Luigina
- */
 
 /**
 * The class implements a Swap command which swaps the last two elements of a stack.
@@ -22,10 +14,20 @@ public class SwapCommand implements Command {
     
     ComplexStack c;
 
+    /**
+     * Initializes a newly created SwapCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * <p>
+     * @param c the stack used to create the command
+     */
     public SwapCommand(ComplexStack c) {
         this.c = c;
     }
-   
+    
+    /**
+     * The method executes the operation swap on the stack.
+     * It swaps the last two elements of the stack.
+     * The result is pushed into the stack maintained by the command.
+     */      
     @Override
     public void execute() {
          if(!c.isEmpty() || c.size() > 2){
@@ -35,7 +37,12 @@ public class SwapCommand implements Command {
              c.push(secondLastElement);
          }
     }
-
+    
+    /**
+     * This method creates the string form of the SwapCommand.
+     * <p>
+     * @return the string form of the command
+     */ 
     @Override
     public String toString() {
         return "swap";

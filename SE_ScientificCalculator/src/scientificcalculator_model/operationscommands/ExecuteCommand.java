@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package scientificcalculator_model.operationscommands;
 
 /**
- *
- * @author Anna
+ * The class represents the Invoker of the Command. The Invoker allows to execute the specific command received as a parameter.
  */
 public class ExecuteCommand {
     
-    
+    /**
+     * The method executes the command received as an argument.
+     * @param command the command to execute
+     */
     public void execute(Command command){
         command.execute();
     }

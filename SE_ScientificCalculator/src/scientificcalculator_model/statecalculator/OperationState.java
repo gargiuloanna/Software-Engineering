@@ -1,23 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package scientificcalculator_model.statecalculator;
+
 
 import java.util.Map;
 import scientificcalculator_model.*;
 import scientificcalculator_model.operationscommands.*;
 
 /**
- *The OperationState class implements the State of the Calculator that allows the user to define new complex operations.
+ * The OperationState class implements the State of the Calculator that allows the user to define new complex operations.
  */
 public class OperationState extends State{
     
     /**
-    *The method adds the operation "addition" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "addition" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
    @Override
     public void addition(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -26,10 +25,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "product" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "product" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void product(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -38,10 +38,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "subtraction" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "subtraction" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void subtraction(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -50,10 +51,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "division" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "division" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void division(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -62,10 +64,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "drop" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "drop" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void drop(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -74,10 +77,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "dup" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "dup" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void dup(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -86,10 +90,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "invert" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "invert" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void invert(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -98,10 +103,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "module" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "module" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void module(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -116,10 +122,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "phase" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "phase" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void phase(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -128,10 +135,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "sqrt" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "sqrt" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void sqrt(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -140,10 +148,11 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "swap" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "swap" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void swap(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -152,11 +161,12 @@ public class OperationState extends State{
     }
     
     /**
-    *The method adds the operation "push" as one of the operations of the user defined operation operationName.
-     * @param stack the stack containing the complex number imputs
-     * @param number the number to push on the stack
-     * @param operations the map where the user defined operations are located
-     * @param operationName the name of the operation to define
+    * The method adds the operation "push" as one of the operations of the user defined operation operationName.
+    * <p>
+    * @param stack the stack containing the complex number imputs
+    * @param number the number to push on the stack
+    * @param operations the map where the user defined operations are located
+    * @param operationName the name of the operation to define
     */
     @Override
     public void push(ComplexStack stack, ComplexNumber number,  Map<String, Operations> operations, String operationName) {
