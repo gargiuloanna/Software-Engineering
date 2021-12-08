@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Exception.java to edit this template
- */
+
 package calculator_exception;
 
+
 /**
- *
- * @author marco
+ *The class ArithmeticException allows to throw an exception when the requirements of a calculator's methods are not met.
  */
 public class ArithmeticException extends RuntimeException{
 

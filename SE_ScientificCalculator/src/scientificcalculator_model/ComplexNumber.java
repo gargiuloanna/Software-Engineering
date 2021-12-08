@@ -1,37 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package scientificcalculator_model;
 
+
 /**
- *
- * @author marco
+ * The class implements a ComplexNumber composed of both a real and imaginary part.
  */
 public class ComplexNumber {
     
     double real, imaginary;
     
+    /**
+     * This method creates a new ComplexNumber using the real and imaginary arguments.
+     * <p>
+     * @param real the real part of the ComplexNumber to create
+     * @param imaginary the imaginary part of the ComplexNumber to create
+     */
+    
     public ComplexNumber(double real, double imaginary){
         this.real = real;
         this.imaginary = imaginary;
     }
-
+    
+    /**
+     * This method gets the real part of the complex number.
+     * <p>
+     * @return the real part of the complex number
+     */
     public double getReal() {
         return real;
     }
-
+    
+    /**
+     * This method gets the imaginary part of the complex number.
+     * <p>
+     * @return the imagianry part of the complex number
+     */
     public double getImaginary() {
         return imaginary;
     }
     
     /**
-     * This method acts as a parser for the input string that contains the 
-     * complex number in algebraic (or Cartesian) form. The string is converted into
-     * a ComplexNumber object that simplifies its representation for any operations.
-     * @param s
-     * @return a new ComplexNumber with real and imaginary part divided in two
-     * different attribute.
+     * This method acts as a parser for the input string that contains the complex number in algebraic (or Cartesian) form. 
+     * The string is converted into a ComplexNumber object that simplifies its representation for any operations.
+     * <p>
+     * @param s the string to parse into a complex number
+     * @return a new ComplexNumber with real and imaginary part divided in two different attribute
      */
     public static ComplexNumber stringToComplex(String s){
         
@@ -104,6 +117,11 @@ public class ComplexNumber {
         return new ComplexNumber(real, immaginary);
     }
     
+    /**
+     * This method creates the string form of the complex Number.
+     * <p>
+     * @return the string form of the complex number
+     */
     @Override
     public String toString(){
         if (imaginary > 0)

@@ -14,18 +14,27 @@ import scientificcalculator_model.ComplexStack;
  */
 
 /**
-* The class implements an Over command which duplicates the second last element of a stack and
-* adds it to the top of the stack.
+* The class implements an Over command which duplicates the second last element of a stack and adds it to the top of the stack.
 * If the stack is empty duplication is not performed.
 */
 public class OverCommand implements Command {
     
     private ComplexStack c;
 
+    /**
+     * Initializes a newly created AdditionCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * <p>
+     * @param c the stack used to create the command
+     */
     public OverCommand(ComplexStack c) {
         this.c = c;
     }
     
+    /**
+     * The method executes the operation Over on the Stack.
+     * It duplicates the second last element contained on the stack.
+     * The result is pushed into the stack maintained by the command.
+     */        
     @Override
     public void execute() {
         Command swap = new SwapCommand(c);
@@ -33,9 +42,13 @@ public class OverCommand implements Command {
         ComplexNumber last= (ComplexNumber) c.peek();
         swap.execute();
         c.push(last);
-    
     }
 
+    /**
+     * This method creates the string form of the OverCommand.
+     * <p>
+     * @return the string form of the command
+     */  
     @Override
     public String toString() {
         return "over";

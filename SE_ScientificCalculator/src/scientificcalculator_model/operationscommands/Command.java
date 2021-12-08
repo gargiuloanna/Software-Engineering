@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package scientificcalculator_model.operationscommands;
 
 /**
- *
- * @author Anna
+ * The Interface implements a Command that allows to execute a specific operation.
  */
 public interface Command {
+    
+   /**
+   * The execute method executes the specific Command.
+   */
    void execute();
    
    

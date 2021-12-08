@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package scientificcalculator_model.operationscommands;
+
 
 import scientificcalculator_model.ComplexStack;
 
-/**
- *
- * @author Luigina
- */
 
 /**
 * The class implements a Drop command which removes the last element of a stack.
@@ -19,17 +12,32 @@ import scientificcalculator_model.ComplexStack;
 public class DropCommand implements Command{
     
     private ComplexStack c;
-
+    
+    /**
+     * Initializes a newly created DropCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * <p>
+     * @param c the stack used to create the command
+     */
     public DropCommand(ComplexStack c) {
         this.c = c;
     }
     
+    /**
+     * The method executes the operation Drop on the stack.
+     * It eliminates the last element contained on the stack.
+     * The result is pushed into the stack maintained by the command.
+     */  
     @Override
     public void execute() {
         if (!c.isEmpty())
             c.pop();
     }
-
+    
+    /**
+     * This method creates the string form of the DropCommand.
+     * <p>
+     * @return the string form of the command
+     */ 
     @Override
     public String toString() {
         return "drop";
