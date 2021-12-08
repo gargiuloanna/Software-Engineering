@@ -221,6 +221,12 @@ public class CalculatorState extends State{
         exe.execute(push);
     }
 
+    @Override
+    public void userDefinition(Entry user, Map<String, Operations> operations, String operationName) {
+        for (Command c : operations.get(operationName).getOpers())
+                exe.execute(c);
+    }
+
   
     
 }

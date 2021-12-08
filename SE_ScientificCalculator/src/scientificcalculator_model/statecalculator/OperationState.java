@@ -173,6 +173,12 @@ public class OperationState extends State{
         Command push = new PushCommand(stack, number);
         operations.get(operationName).addOperation(push);
     }
+
+    @Override
+    public void userDefinition(Entry user, Map<String, Operations> operations, String operationName) {
+        Command userOp = new UserOperationCommand(user.getName(), user.getOp());
+        operations.get(operationName).addOperation(userOp);
+    }
     
     
 }
