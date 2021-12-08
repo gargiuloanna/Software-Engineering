@@ -28,5 +28,5 @@ public abstract class State {
     public abstract void phase(ComplexStack stack, Map<String, Operations> operations, String operationName);
     public abstract void sqrt(ComplexStack stack, Map<String, Operations> operations, String operationName);
     public abstract void swap(ComplexStack stack, Map<String, Operations> operations, String operationName);
-    public abstract void push(ComplexStack stack, ComplexNumber number);
+    public abstract void push(ComplexStack stack, ComplexNumber number, Map<String, Operations> operations, String operationName);
 }

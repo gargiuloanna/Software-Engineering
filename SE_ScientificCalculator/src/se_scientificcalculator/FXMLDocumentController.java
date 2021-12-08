@@ -117,133 +117,88 @@ public class FXMLDocumentController implements Initializable {
         opName = "";
         exe = new ExecuteCommand();
         
-        //setState(new CalculatorState(hist));
+        setState(new CalculatorState());
     }    
 
     @FXML
     private void prodButton(ActionEvent event) {
-        Command prod = new ProductCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(prod);
-        }
-        else{
-        if(hist.size()<2){
+       try {
+        state.product(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                          }
-        else{
-            exe.execute(prod);
-            }
         }
 
     }
 
     @FXML
     private void subButton(ActionEvent event) {
-        Command sub = new SubtractionCommand(hist);
-        if(addOpButton.isSelected()){
-           personalizedOperations.get(opName).addOperation(sub);
-        }
-        else{
-        if(hist.size()<2){
+        try {
+        state.subtraction(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                          }
-        else{
-            exe.execute(sub);
-            }
         }
     }
 
     @FXML
     private void addButton(ActionEvent event) {
-        //state.addition();
-        System.out.println(personalizedOperations.get(opName).getOpers());
+        try {
+        state.addition(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
+            alertBox.showAndWait();
+        }
     }
 
     @FXML
     private void invButton(ActionEvent event) {
-        Command inv = new InvertCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(inv);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+      try {
+        state.invert(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
             alertBox.showAndWait();
-                        }
-        else{
-            exe.execute(inv);
-            }
         }
     }
 
     @FXML
     private void sqrtButton(ActionEvent event) {
-        Command sqrt = new SqrtCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(sqrt);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+        try {
+        state.sqrt(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
             alertBox.showAndWait();
-                           }
-        else{
-            exe.execute(sqrt);
-            }
         }
 
     }
 
     @FXML
     private void divButton(ActionEvent event) {
-        Command div = new DivisionCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(div);
-        }
-        else{
-        if(hist.size()<2){
+        try {
+        state.division(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
             alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                         }
-        else{
-            exe.execute(div);
-            }
         }
     }
 
     @FXML
     private void dupButton(ActionEvent event) {
-        Command dup = new DupCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(dup);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+        try {
+        state.dup(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
             alertBox.showAndWait();
-                           }
-        else{
-            exe.execute(dup);
-             }
         }
     }
 
     @FXML
     private void dropButton(ActionEvent event) {
-        Command drop = new DropCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(drop);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
+       try {
+        state.drop(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
             alertBox.showAndWait();
-                           }
-        else{
-            exe.execute(drop);
-            }
         }
     }
 
@@ -254,91 +209,54 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void overButton(ActionEvent event) {
-        Command over = new OverCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(over);
-        }
-        else{
-        if(hist.size()<2){
-            alertBox.setContentText("Inserire almeno due operandi");
+       try {
+        state.over(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                           }
-        else{
-            exe.execute(over);
-            }
         }
     }
 
     @FXML
     private void swapButton(ActionEvent event) {
-        Command swap = new SwapCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(swap);
-        }
-        else{
-        if(hist.size()<2){
-            alertBox.setContentText("Inserire almeno due operandi");
+       try {
+        state.swap(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire due operandi per effettuare l'operazione");
             alertBox.showAndWait();
-                          }
-        else{
-            exe.execute(swap);
-            }
         }
     }
     
       @FXML
     private void moduleButton(ActionEvent event) {
-        Command mod = new ModuleCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(mod);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
-        else{
-            exe.execute(mod);
-          }
+       try {
+        state.module(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
+            alertBox.showAndWait();
         }
     }
 
     @FXML
     private void phaseButton(ActionEvent event) {
-        Command ph = new PhaseCommand(hist);
-        if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(ph);
-        }
-        else{
-        if(hist.isEmpty()){
-            alertBox.setContentText("Inserire l'operando per effettuare l'operazione");
-            alertBox.showAndWait();            
-        }
-        else{
-            exe.execute(ph);
-          }
+        try {
+        state.phase(hist, personalizedOperations, opName);
+        }catch(ArithmeticException e){
+            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
+            alertBox.showAndWait();
         }
     }
 
     @FXML
-    private void addOperand(ActionEvent event) {
-       
-        if(addTextfield.getText().isEmpty()){
-            alertBox.setContentText("Scrivi qualcosa nello spazio di testo");
+    private void addOperand(ActionEvent event) {       
+        if(addTextfield.getText().isEmpty() || !(inputCheck(addTextfield.getText()))){
+            alertBox.setContentText("Inserisci un numero valido");
             alertBox.showAndWait();
         }
-        else{
-            
+        else{            
             ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-            Command push = new PushCommand(hist, operand);
-            if(addOpButton.isSelected()){
-            personalizedOperations.get(opName).addOperation(push);
-                 }
-            else{
-                addTextfield.clear();
-                exe.execute(push);
-                
-        }
+            state.push(hist,operand, personalizedOperations, opName);
+            addTextfield.clear();
         }
     }
 
@@ -378,37 +296,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void onEnter(KeyEvent event) {
        if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
-          if(addTextfield.getText().isEmpty()){
-            alertBox.setContentText("Scrivi qualcosa nello spazio di testo");
+            if(addTextfield.getText().isEmpty()  || !(inputCheck(addTextfield.getText()))){
+            alertBox.setContentText("Inserisci un numero valido");
             alertBox.showAndWait();
             }
-            else{
+            else{            
                 ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
-                Command push = new PushCommand(hist, operand);
-                if(addOpButton.isSelected()){
-                   personalizedOperations.get(opName).addOperation(push);
-                             }
-            else{
+                state.push(hist,operand, personalizedOperations, opName);
                 addTextfield.clear();
-                exe.execute(push);
-                
-        }            }
-        }
-    }
-
-    private void addOperation(ActionEvent event) {
-           
-        TextInputDialog addName = new TextInputDialog();
-        addName.setTitle("Nuova Operazione");
-        addName.setHeaderText("Aggiungere il nome dell'operazione che si vuole inserire");
-        if (addOpButton.isSelected()){
-            addOpButton.setText("Termina Operazione");
-            Optional<String> result = addName.showAndWait();
-            opName = result.get();
-            personalizedOperations.put(opName, new Operations());       
-        }else{
-            addOpButton.setText("Aggiungi Operazione");
-            list.add(new Entry(opName, personalizedOperations.get(opName)));
+            }                
         }
     }
 
@@ -444,29 +340,28 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void addOperationTryMethod(ActionEvent event) {
+        setState(new OperationState());
         opName = addOperation.getText();
         if (opName.isEmpty()){
             return;
         }
         System.out.println(opName);
         personalizedOperations.put(opName, new Operations());
-        System.out.println(personalizedOperations.get(opName));
-        //setState(new OperationState(hist, personalizedOperations, opName));
+        //System.out.println(personalizedOperations.get(opName).getOpers());
+        //list.add(new Entry(opName,personalizedOperations.get(opName)));
         radioGrid.setDisable(true);
         exeOpButton.setDisable(true);
+        history.setDisable(true);
     }
 
     @FXML
     private void stopInsertMethod(ActionEvent event) {
-        //setState(new CalculatorState(hist));
+        setState(new CalculatorState());
         radioGrid.setDisable(false);
         exeOpButton.setDisable(false);
+        history.setDisable(false);
     }
     
-    private void setState(State s){
-        state = s;
-    }
-
     @FXML
     private void userDefinition(MouseEvent event) {
         if(addOpButton.isSelected()){
@@ -474,8 +369,19 @@ public class FXMLDocumentController implements Initializable {
             Command o = new UserOperationCommand(e.getName(),e.getOp());
             personalizedOperations.get(opName).addOperation(o);
         }
-
         
+    }
+       
+    private void setState(State s){
+        state = s;
+    }
+    private boolean inputCheck(String s){
+        for(int i=0; i<s.length(); i++)
+            if(s.charAt(i)>='A' && s.charAt(i)<='z')
+                if(! (s.charAt(i) == 'j'))
+                    return false;       
+        
+        return true;
     }
     
 }
