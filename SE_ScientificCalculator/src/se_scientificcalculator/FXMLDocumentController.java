@@ -60,7 +60,6 @@ public class FXMLDocumentController implements Initializable {
     private TextField addOperation;
     @FXML
     private GridPane radioGrid;
-    private ToggleButton addOpButton;
     @FXML
     private Button addOperandButton;  
     @FXML
@@ -251,6 +250,7 @@ public class FXMLDocumentController implements Initializable {
     private void addOperand(ActionEvent event) {       
         if(addTextfield.getText().isEmpty() || !(inputCheck(addTextfield.getText()))){
             alertBox.setContentText("Inserisci un numero valido");
+            addTextfield.clear();
             alertBox.showAndWait();
         }
         else{            
@@ -267,7 +267,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void exeOperation(ActionEvent event) {
-        System.out.println(personalizedOperations.get(addOperation.getText()).getOpers());
         for(Command c: personalizedOperations.get(addOperation.getText()).getOpers()){
             exe.execute(c);
         }
@@ -297,8 +296,9 @@ public class FXMLDocumentController implements Initializable {
     private void onEnter(KeyEvent event) {
        if(event.getCode().equals(KeyCode.ENTER) || event.getCharacter().getBytes()[0] == '\n' || event.getCharacter().getBytes()[0] == '\r') {
             if(addTextfield.getText().isEmpty()  || !(inputCheck(addTextfield.getText()))){
-            alertBox.setContentText("Inserisci un numero valido");
-            alertBox.showAndWait();
+                alertBox.setContentText("Inserisci un numero valido");
+                addTextfield.clear();
+                alertBox.showAndWait();
             }
             else{            
                 ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
@@ -342,13 +342,16 @@ public class FXMLDocumentController implements Initializable {
     private void addOperationTryMethod(ActionEvent event) {
         setState(new OperationState());
         opName = addOperation.getText();
+        String str = "";
+        addOperation.clear();
         if (opName.isEmpty()){
-            return;
+            alertBox.setContentText("Inserire un nome valido");
+            alertBox.showAndWait();
         }
-        System.out.println(opName);
-        personalizedOperations.put(opName, new Operations());
-        //System.out.println(personalizedOperations.get(opName).getOpers());
-        //list.add(new Entry(opName,personalizedOperations.get(opName)));
+        Operations o = new Operations();
+        personalizedOperations.put(opName, o);
+        
+        
         radioGrid.setDisable(true);
         exeOpButton.setDisable(true);
         history.setDisable(true);
@@ -357,6 +360,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void stopInsertMethod(ActionEvent event) {
         setState(new CalculatorState());
+        Entry e = new Entry(opName,personalizedOperations.get(opName));
+        list.add(e);
         radioGrid.setDisable(false);
         exeOpButton.setDisable(false);
         history.setDisable(false);
@@ -364,12 +369,11 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void userDefinition(MouseEvent event) {
-        if(addOpButton.isSelected()){
-            Entry e = operationList.getSelectionModel().getSelectedItem();
-            Command o = new UserOperationCommand(e.getName(),e.getOp());
-            personalizedOperations.get(opName).addOperation(o);
-        }
-        
+ 
+        Entry e = operationList.getSelectionModel().getSelectedItem();
+        Command o = new UserOperationCommand(e.getName(),e.getOp());
+        personalizedOperations.get(opName).addOperation(o);
+               
     }
        
     private void setState(State s){
