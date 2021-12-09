@@ -35,7 +35,7 @@ public class PhaseCommandTest {
     }
     
     @Test 
-    public void textExecute(){
+    public void testExecute(){
         //Test for (a+bj)
         Command ph = new PhaseCommand(stack);
         stack.push(oper1);
