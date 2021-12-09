@@ -33,10 +33,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import scientificcalculator_model.*;
+import scientificcalculator_model.factorycomplexparser.*;
 import scientificcalculator_model.statecalculator.*;
 
 /**
@@ -250,7 +250,7 @@ public class FXMLDocumentController implements Initializable {
             addTextfield.clear();
             alertBox.showAndWait();
         } else {
-            ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText()); //FACTORY METHOD
+            ComplexNumber operand = ComplexNumberFactory.buildComplexNumberFromString(addTextfield.getText()); //FACTORY METHOD
             state.push(hist, operand, personalizedOperations, opName);
             addTextfield.clear();
         }
@@ -289,7 +289,7 @@ public class FXMLDocumentController implements Initializable {
                 addTextfield.clear();
                 alertBox.showAndWait();
             } else {
-                ComplexNumber operand = ComplexNumber.stringToComplex(addTextfield.getText());
+                ComplexNumber operand = ComplexNumberFactory.buildComplexNumberFromString(addTextfield.getText());
                 state.push(hist, operand, personalizedOperations, opName);
                 addTextfield.clear();
             }
