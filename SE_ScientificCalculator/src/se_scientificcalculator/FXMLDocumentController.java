@@ -392,7 +392,12 @@ public class FXMLDocumentController implements Initializable {
             stopInsert.setDisable(false);
             addOperation.setDisable(true);
             personalizedOperations.replace(name, new Operations());
-
+            for (UserOperation e : list) {
+                if (e.getName().equals(name)) {
+                    list.remove(e);
+                    break;
+                }
+            }
         } 
     }
 
