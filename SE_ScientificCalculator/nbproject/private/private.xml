@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/test/SubToLastCommandTest.java</file>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/test/VariablesOperationsTest.java</file>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/test/SwapCommandTest.java</file>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/operationscommands/AddToLastCommand.java</file>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/src/se_scientificcalculator/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/Luigina/Documents/NetBeansProjects/SE_ScientificCalculator/SE_ScientificCalculator/test/AddToLastCommandTest.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/test/AdditionCommandTest.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/test/ComplexNumberFactoryTest.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/se_scientificcalculator/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/ComplexNumber.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/factorycomplexparser/ComplexNumberFactory.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/se_scientificcalculator/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/operationscommands/DivisionCommand.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/se_scientificcalculator/SE_ScientificCalculator.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/operationscommands/UserOperationCommand.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/operationscommands/AdditionCommand.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/statecalculator/CalculatorState.java</file>
+            <file>file:/C:/Users/annin/Documents/NetBeansProjects/SOFTWARE%20ENGINEERING/SE_ScientificCalculator/SE_ScientificCalculator/src/scientificcalculator_model/ComplexStack.java</file>
         </group>
     </open-files>
 </project-private>
