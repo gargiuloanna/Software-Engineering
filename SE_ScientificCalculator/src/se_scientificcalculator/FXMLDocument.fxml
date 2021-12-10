@@ -246,7 +246,7 @@
             <Insets bottom="2.0" left="2.0" right="2.0" />
          </opaqueInsets>
       </GridPane>
-      <TextField fx:id="addOperation" alignment="CENTER_RIGHT" layoutX="221.0" layoutY="49.0" prefHeight="55.0" prefWidth="282.0" promptText="Inserire il nome dell'operazione da inserire" style="-: ;">
+      <TextField fx:id="addOperation" alignment="CENTER_RIGHT" layoutX="221.0" layoutY="49.0" onKeyPressed="#onEnterOperation" prefHeight="55.0" prefWidth="282.0" promptText="Inserire il nome dell'operazione da inserire" style="-: ;">
          <font>
             <Font name="System Italic" size="14.0" />
          </font>
@@ -261,8 +261,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn fx:id="nameClm" prefWidth="104.0" text="Nome" />
-            <TableColumn fx:id="opClm" prefWidth="520.0" text="Operazioni" />
+            <TableColumn fx:id="nameClm" prefWidth="134.0" text="Nome" />
+            <TableColumn fx:id="opClm" prefWidth="557.0" text="Operazioni" />
          </columns>
          <contextMenu>
             <ContextMenu>
