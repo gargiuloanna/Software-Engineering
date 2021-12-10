@@ -24,6 +24,7 @@ public class SE_ScientificCalculator extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.setTitle("Calcolatrice Scientifica");
         stage.show();
     }
