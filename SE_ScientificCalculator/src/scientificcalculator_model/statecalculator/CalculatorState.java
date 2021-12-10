@@ -266,6 +266,8 @@ public class CalculatorState extends State {
      */
     @Override
     public void userDefinition(UserOperation user, Map<String, Operations> operations, String operationName) {
+         if(operations.get(user.getName()) == null)
+             throw new OperationNotExistsException();
         
         try {
             for (Command c : operations.get(operationName).getOpers()) {

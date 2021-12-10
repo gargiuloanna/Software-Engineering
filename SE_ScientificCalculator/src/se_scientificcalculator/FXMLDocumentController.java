@@ -99,7 +99,7 @@ public class FXMLDocumentController implements Initializable {
         hist = new ComplexStack();
         history.setItems(hist.getMemory());
         alertBox = new Alert(Alert.AlertType.ERROR);
-        alertBox.setHeaderText("OPERANDI MANCANTI");
+        alertBox.setHeaderText("ATTENZIONE");
         alertBox.setTitle("ERRORE");
         opName = "";
         exe = new ExecuteCommand();
@@ -264,7 +264,6 @@ public class FXMLDocumentController implements Initializable {
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
        }catch(NullPointerException ex){
-           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -275,7 +274,6 @@ public class FXMLDocumentController implements Initializable {
        try{
            state.getFromVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
        }catch(NullPointerException ex){
-           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -289,7 +287,6 @@ public class FXMLDocumentController implements Initializable {
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
         }catch(NullPointerException ex){
-           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -303,7 +300,6 @@ public class FXMLDocumentController implements Initializable {
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
         }catch(NullPointerException ex){
-           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -382,6 +378,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void modifyOperation(ActionEvent event) {
         setState(new OperationState());
+        exeOp.setText("Aggiungi");
         UserOperation selected = operationList.getSelectionModel().getSelectedItem();
         String name = selected.getName();
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -395,15 +392,8 @@ public class FXMLDocumentController implements Initializable {
             stopInsert.setDisable(false);
             addOperation.setDisable(true);
             personalizedOperations.replace(name, new Operations());
-            for (UserOperation e : list) {
-                if (e.getName().equals(name)) {
-                    list.remove(e);
-                    break;
-                }
-            }
-        } else {
-            System.out.println("L'operazione è annullata");
-        }
+
+        } 
     }
 
     @FXML
@@ -426,14 +416,11 @@ public class FXMLDocumentController implements Initializable {
                 writer.println(s + ": " + personalizedOperations.get(s).getOpers());
             }
             writer.close();
-        } catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
             Alert aler = new Alert(Alert.AlertType.ERROR);
             aler.setContentText("File non trovato");
             aler.setTitle("Errore nel file");
-
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
     }
 
     @FXML
@@ -498,6 +485,7 @@ public class FXMLDocumentController implements Initializable {
         addOperationTry.setDisable(false);
         stopInsert.setDisable(true);
         addOperation.setDisable(false);
+        System.out.println(personalizedOperations);
     }
 
     private void setState(State s) {
