@@ -2,6 +2,7 @@
 package scientificcalculator_model.statecalculator;
 
 
+import scientificcalculator_model.Operations;
 import java.util.Map;
 import scientificcalculator_model.*;
 import scientificcalculator_model.operationscommands.*;
