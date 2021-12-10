@@ -14,9 +14,9 @@ public class DropCommand implements Command{
     private ComplexStack c;
     
     /**
-     * Initializes a newly created DropCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * Initializes a newly created DropCommand object.  
      * <p>
-     * @param c the stack used to create the command
+     * @param c the stack the stack on which the command acts
      */
     public DropCommand(ComplexStack c) {
         this.c = c;

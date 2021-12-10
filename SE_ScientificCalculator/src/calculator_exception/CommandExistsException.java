@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Exception.java to edit this template
- */
+
 package calculator_exception;
 
-/**
- *
- * @author marco
- */
+/*
+* The class CommandExistsException allows to throw an exception when the command is not present.
+*/
 public class CommandExistsException extends RuntimeException{
 
     /**

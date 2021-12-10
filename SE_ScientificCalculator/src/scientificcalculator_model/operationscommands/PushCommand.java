@@ -13,9 +13,9 @@ public class PushCommand implements Command{
     ComplexNumber a;
 
     /**
-     * Initializes a newly created PushCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * Initializes a newly created PushCommand object. 
      * <p>
-     * @param c the stack used to create the command
+     * @param c the stack on which the command acts
      * @param a the element to be pushed
      */
     public PushCommand(ComplexStack c, ComplexNumber a) {

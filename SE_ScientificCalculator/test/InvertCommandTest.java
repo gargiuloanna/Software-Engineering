@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 import scientificcalculator_model.operationscommands.Command;
@@ -16,8 +9,7 @@ import scientificcalculator_model.operationscommands.ExecuteCommand;
 import scientificcalculator_model.operationscommands.InvertCommand;
 
 /**
- *
- * @author marco
+ * This is a class to test the InvertCommand class.
  */
 public class InvertCommandTest {
     

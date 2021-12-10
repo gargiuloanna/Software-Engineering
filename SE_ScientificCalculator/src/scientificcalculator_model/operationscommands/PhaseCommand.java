@@ -13,9 +13,9 @@ public class PhaseCommand implements Command{
     private ComplexStack c;
 
     /**
-     * Initializes a newly created PhaseCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * Initializes a newly created PhaseCommand object. 
      * <p>
-     * @param c the stack used to create the command
+     * @param c the stack on which the command acts
      */
     public PhaseCommand(ComplexStack c) {
         this.c = c;

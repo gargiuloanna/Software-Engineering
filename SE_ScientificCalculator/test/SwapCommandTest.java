@@ -1,25 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 import scientificcalculator_model.operationscommands.Command;
-import scientificcalculator_model.operationscommands.DropCommand;
 import scientificcalculator_model.operationscommands.ExecuteCommand;
 import scientificcalculator_model.operationscommands.SwapCommand;
 
-/**
- *
- * @author marco
- */
+/*
+* This is a class to test the SwapCommand class
+*/
 public class SwapCommandTest {
     
     ExecuteCommand exe;
@@ -42,7 +33,7 @@ public class SwapCommandTest {
 
     @Test
     public void testExecute(){
-        //The order of push is oper2 - oper1 (the last is the second push did)
+        //The order of push is oper2 - oper1 (the last is the second push done)
         stack.push(oper1);
         stack.push(oper2);
         

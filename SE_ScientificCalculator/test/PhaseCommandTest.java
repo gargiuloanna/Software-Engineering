@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -13,9 +9,8 @@ import scientificcalculator_model.operationscommands.ExecuteCommand;
 import scientificcalculator_model.operationscommands.PhaseCommand;
 
 /**
- *
- * @author marco
- */
+* This is a class to test the PhaseCommand class.
+*/
 public class PhaseCommandTest {
     
     ExecuteCommand exe;

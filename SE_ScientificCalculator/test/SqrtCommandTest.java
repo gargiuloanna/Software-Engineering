@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,8 +9,7 @@ import scientificcalculator_model.operationscommands.ExecuteCommand;
 import scientificcalculator_model.operationscommands.SqrtCommand;
 
 /**
- *
- * @author marco
+ * This is a class to test the SqrtCommand class.
  */
 public class SqrtCommandTest {
     

@@ -15,7 +15,7 @@ public class SwapCommand implements Command {
     ComplexStack c;
 
     /**
-     * Initializes a newly created SwapCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * Initializes a newly created SwapCommand object. 
      * <p>
      * @param c the stack used to create the command
      */

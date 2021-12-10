@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
-
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.factorycomplexparser.ComplexNumberFactory;
 
-/**
- *
- * @author marco
- */
+/*
+* This is a class to test the ComplexNumberFactory class.
+*/
 public class ComplexNumberFactoryTest {
 
     public ComplexNumberFactoryTest() {

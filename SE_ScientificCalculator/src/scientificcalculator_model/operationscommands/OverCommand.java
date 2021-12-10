@@ -9,11 +9,6 @@ import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 
 /**
- *
- * @author Luigina
- */
-
-/**
 * The class implements an Over command which duplicates the second last element of a stack and adds it to the top of the stack.
 * If the stack is empty duplication is not performed.
 */
@@ -22,9 +17,9 @@ public class OverCommand implements Command {
     private ComplexStack c;
 
     /**
-     * Initializes a newly created AdditionCommand object. The c argument is the stack used to create a Command that allows to maintain the result of the operations executed using the Command.
+     * Initializes a newly created AdditionCommand object. 
      * <p>
-     * @param c the stack used to create the command
+     * @param c the stack on which the command acts
      */
     public OverCommand(ComplexStack c) {
         this.c = c;

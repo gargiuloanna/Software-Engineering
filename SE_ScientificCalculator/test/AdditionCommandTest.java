@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,10 +8,9 @@ import scientificcalculator_model.operationscommands.AdditionCommand;
 import scientificcalculator_model.operationscommands.Command;
 import scientificcalculator_model.operationscommands.ExecuteCommand;
 
-/**
- *
- * @author marco
- */
+/*
+* This is a class to test the AdditionCommand class.
+*/
 public class AdditionCommandTest {
     ExecuteCommand exe;
     ComplexStack stack;
@@ -50,12 +45,6 @@ public class AdditionCommandTest {
         oper4_1 = new ComplexNumber(0, 2);
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-    
     @Test
     public void textExecute(){
         Command add = new AdditionCommand(stack);

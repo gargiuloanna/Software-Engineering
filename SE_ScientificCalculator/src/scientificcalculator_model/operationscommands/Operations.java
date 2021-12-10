@@ -44,7 +44,7 @@ public class Operations {
     public String toString() {
         String str = opers.get(0).toString();
         for(int i = 1; i < opers.size(); i++){
-            str = str + "," + opers.get(i).toString();
+            str = str + " " + opers.get(i).toString();
         }
         return str;
     }

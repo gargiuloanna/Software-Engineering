@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package scientificcalculator_model.factorycomplexparser;
 
 import scientificcalculator_model.ComplexNumber;
 
-/**
- *
- * @author marco
- */
+
 public final class ComplexNumberFactory {
     /**
      * This method acts as a parser for the input string that contains the complex number in algebraic (or Cartesian) form. 
