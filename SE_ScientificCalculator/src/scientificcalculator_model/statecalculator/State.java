@@ -5,7 +5,7 @@ import java.util.Map;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
 import scientificcalculator_model.UserOperation;
-import scientificcalculator_model.operationscommands.Operations;
+import scientificcalculator_model.Operations;
 
 
 /**
