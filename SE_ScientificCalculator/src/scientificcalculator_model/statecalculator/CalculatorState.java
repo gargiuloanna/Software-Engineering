@@ -2,6 +2,7 @@
 package scientificcalculator_model.statecalculator;
 
 
+import scientificcalculator_model.Operations;
 import calculator_exception.CommandExistsException;
 import calculator_exception.DivisionForZeroException;
 import java.util.Map;
