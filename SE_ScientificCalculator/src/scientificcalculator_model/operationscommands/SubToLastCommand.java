@@ -5,7 +5,6 @@
  */
 package scientificcalculator_model.operationscommands;
 
-import calculator_exception.VariableNotSelectedException;
 import java.util.Map;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -35,13 +34,9 @@ public class SubToLastCommand implements Command{
     /**
      * The method executes the arithmetical subtraction between the top element of the stack and the value associated to the variable in input.
      * The result replaces the value associated to the variable in the map
-     * <p>
-     * @throws VariableNotSelectedException if no variable is selected
      */ 
     @Override
     public void execute() {
-        if (v == null)
-            throw new VariableNotSelectedException();
         ComplexNumber last = (ComplexNumber) c.pop();
         ComplexNumber variableNumber = variables.get(v);
         ComplexNumber sub = new ComplexNumber(last.getReal() - variableNumber.getReal(), last.getImaginary() - variableNumber.getImaginary());

@@ -5,7 +5,6 @@
  */
 package scientificcalculator_model.operationscommands;
 
-import calculator_exception.VariableNotSelectedException;
 import java.util.Map;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -35,13 +34,9 @@ public class InsertInVariableCommand implements Command {
     /**
      * The method executes the extraction of the top element of the stack and saves it into the variable in input.
      * The result replaces the value associated to the variable in the map
-     * <p>
-     * @throws VariableNotSelectedException if no variable is selected
      */     
     @Override
     public void execute() {
-        if(v == null)
-            throw new VariableNotSelectedException();
         variables.put(v, (ComplexNumber) c.pop());      
     }
     

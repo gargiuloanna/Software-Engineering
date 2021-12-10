@@ -3,7 +3,6 @@ package se_scientificcalculator;
 import scientificcalculator_model.Operations;
 import calculator_exception.DivisionForZeroException;
 import calculator_exception.OperationNotExistsException;
-import calculator_exception.VariableNotSelectedException;
 import scientificcalculator_model.operationscommands.*;
 import java.io.*;
 import javafx.scene.input.KeyEvent;
@@ -264,7 +263,8 @@ public class FXMLDocumentController implements Initializable {
        }catch (ArithmeticException e){
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
-       }catch(VariableNotSelectedException ex){
+       }catch(NullPointerException ex){
+           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -274,7 +274,8 @@ public class FXMLDocumentController implements Initializable {
     private void getFromVariable(ActionEvent event) {
        try{
            state.getFromVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
-       }catch(VariableNotSelectedException ex){
+       }catch(NullPointerException ex){
+           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -287,7 +288,8 @@ public class FXMLDocumentController implements Initializable {
         }catch (ArithmeticException ex){
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
-        }catch(VariableNotSelectedException ex){
+        }catch(NullPointerException ex){
+           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }
@@ -300,7 +302,8 @@ public class FXMLDocumentController implements Initializable {
         }catch (ArithmeticException ex){
            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
            alertBox.showAndWait();
-        }catch(VariableNotSelectedException ex){
+        }catch(NullPointerException ex){
+           alertBox.setHeaderText("Variabile non selezionata");
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
        }

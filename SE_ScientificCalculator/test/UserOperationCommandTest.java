@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,14 +40,16 @@ public class UserOperationCommandTest {
       oper3 = new ComplexNumber(2, 0);
       
       op = new HashMap<>();
-      op.addOperation(new AdditionCommand(stack));
-      op.addOperation(new AdditionCommand(stack));
+      
       nomeOp = "sum";
       exe = new ExecuteCommand();
     }
     
     @Test
     public void testExecute(){
+      op.put(nomeOp, new Operations());
+      op.get(nomeOp).addOperation(new AdditionCommand(stack));
+      op.get(nomeOp).addOperation(new AdditionCommand(stack));
       stack.push(oper1);
       stack.push(oper2);
       stack.push(oper3);
