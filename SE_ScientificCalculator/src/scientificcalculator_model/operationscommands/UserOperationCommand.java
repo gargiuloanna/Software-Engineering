@@ -14,6 +14,8 @@ public class UserOperationCommand implements Command{
      /**
      * Initializes a newly created UserOperationCommand object. 
      * <p>
+     * @param name the name of the user operation 
+     * @param struct the Operations of the user operation
      */
 
     public UserOperationCommand(String name, Operations struct) {
