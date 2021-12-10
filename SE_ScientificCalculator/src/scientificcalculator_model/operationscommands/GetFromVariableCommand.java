@@ -5,6 +5,7 @@
  */
 package scientificcalculator_model.operationscommands;
 
+import calculator_exception.VariableNotSelectedException;
 import java.util.Map;
 import scientificcalculator_model.ComplexNumber;
 import scientificcalculator_model.ComplexStack;
@@ -34,9 +35,13 @@ public class GetFromVariableCommand implements Command{
      /**
      * The method executes the insertion into the stack of the value of the variable in input.
      * The result is pushed into the stack maintained by the command
+     * <p>
+     * @throws VariableNotSelectedException if no variable is selected
      */  
     @Override
     public void execute() {
+        if(v == null)
+            throw new VariableNotSelectedException();
         c.push(variables.get(v));   
     }
     

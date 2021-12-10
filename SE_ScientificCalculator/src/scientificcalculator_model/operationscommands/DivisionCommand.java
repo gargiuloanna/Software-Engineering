@@ -35,6 +35,8 @@ public class DivisionCommand implements Command{
     /**
      * The method executes the arithmetical division between two complex numbers.
      * The result is pushed into the stack maintained by the command
+     * <p>
+     * @throws DivisionForZeroException
      */        
     @Override
     public void execute() {

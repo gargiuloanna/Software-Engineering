@@ -1,6 +1,8 @@
 
 package scientificcalculator_model.operationscommands;
 
+import calculator_exception.OperationNotExistsException;
+import java.util.Map;
 import scientificcalculator_model.Operations;
 
 /*
@@ -9,14 +11,16 @@ import scientificcalculator_model.Operations;
 public class UserOperationCommand implements Command{
     
     private String name;
-    private Operations struct;
+    private Map<String, Operations> struct;
 
      /**
      * Initializes a newly created UserOperationCommand object. 
      * <p>
+     * @param name the name of the user operation 
+     * @param struct the Operations of the user operation
      */
 
-    public UserOperationCommand(String name, Operations struct) {
+    public UserOperationCommand(String name, Map<String, Operations> struct) {
         this.name = name;
         this.struct = struct;
     }
@@ -26,7 +30,9 @@ public class UserOperationCommand implements Command{
      */    
     @Override
     public void execute() {
-        for (Command c: struct.getOpers()){
+        if(struct.get(name) == null)
+            throw new OperationNotExistsException();
+        for (Command c: struct.get(name).getOpers()){
             c.execute();
         }
     }

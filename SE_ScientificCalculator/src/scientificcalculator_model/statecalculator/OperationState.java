@@ -191,7 +191,7 @@ public class OperationState extends State{
     */
     @Override
     public void userDefinition(UserOperation user, Map<String, Operations> operations, String operationName) {
-        Command userOp = new UserOperationCommand(user.getName(), user.getOp());
+        Command userOp = new UserOperationCommand(user.getName(), operations);
         operations.get(operationName).addOperation(userOp);
     }
     

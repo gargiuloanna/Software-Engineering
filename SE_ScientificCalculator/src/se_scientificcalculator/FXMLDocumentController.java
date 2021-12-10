@@ -1,8 +1,9 @@
 package se_scientificcalculator;
 
 import scientificcalculator_model.Operations;
-import calculator_exception.CommandExistsException;
 import calculator_exception.DivisionForZeroException;
+import calculator_exception.OperationNotExistsException;
+import calculator_exception.VariableNotSelectedException;
 import scientificcalculator_model.operationscommands.*;
 import java.io.*;
 import javafx.scene.input.KeyEvent;
@@ -258,37 +259,51 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void insertInVariable(ActionEvent event) {
-        try {
-            state.insertInVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
-        } catch (ArithmeticException e) {
-            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
-            alertBox.showAndWait();
-        }
+       try{
+           state.insertInVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
+       }catch (ArithmeticException e){
+           alertBox.setContentText("Inserire un operando per effettuare l'operazione");
+           alertBox.showAndWait();
+       }catch(VariableNotSelectedException ex){
+           alertBox.setContentText("Seleziona una variabile");
+           alertBox.showAndWait();
+       }
     }
 
     @FXML
     private void getFromVariable(ActionEvent event) {
-        state.getFromVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
+       try{
+           state.getFromVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
+       }catch(VariableNotSelectedException ex){
+           alertBox.setContentText("Seleziona una variabile");
+           alertBox.showAndWait();
+       }
     }
 
     @FXML
     private void addToLast(ActionEvent event) {
-        try {
+        try{
             state.addToLast(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
-        } catch (ArithmeticException ex) {
-            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
-            alertBox.showAndWait();
-        }
+        }catch (ArithmeticException ex){
+           alertBox.setContentText("Inserire un operando per effettuare l'operazione");
+           alertBox.showAndWait();
+        }catch(VariableNotSelectedException ex){
+           alertBox.setContentText("Seleziona una variabile");
+           alertBox.showAndWait();
+       }
     }
 
     @FXML
     private void subToLast(ActionEvent event) {
-        try {
+        try{
             state.subToLast(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
-        } catch (ArithmeticException ex) {
-            alertBox.setContentText("Inserire un operando per effettuare l'operazione");
-            alertBox.showAndWait();
-        }
+        }catch (ArithmeticException ex){
+           alertBox.setContentText("Inserire un operando per effettuare l'operazione");
+           alertBox.showAndWait();
+        }catch(VariableNotSelectedException ex){
+           alertBox.setContentText("Seleziona una variabile");
+           alertBox.showAndWait();
+       }
     }
 
     @FXML
@@ -351,13 +366,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void executeOperation(ActionEvent event) {
-        try {
+        try{
             UserOperation user = operationList.getSelectionModel().getSelectedItem();
             state.userDefinition(user, personalizedOperations, opName);
-        } catch (CommandExistsException | NullPointerException e) {
-            alertBox.setContentText("L'operazione da eseguire non è valida o non è stata ancora inserita");
+        }catch(OperationNotExistsException | NullPointerException e){
+            alertBox.setContentText("L'operazione da eseguire non è valida o è stata eliminata");
             alertBox.showAndWait();
         }
+
     }
 
     @FXML
