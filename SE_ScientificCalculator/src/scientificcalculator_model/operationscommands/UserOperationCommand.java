@@ -1,6 +1,8 @@
 
 package scientificcalculator_model.operationscommands;
 
+import scientificcalculator_model.Operations;
+
 /*
 *The class implements a UserOperationCommand that allows to use User Defined Operations as a part of other User Defined Operations.
 */
