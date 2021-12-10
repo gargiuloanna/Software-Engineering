@@ -1,8 +1,9 @@
 
-package scientificcalculator_model.operationscommands;
+package scientificcalculator_model;
 
 
 import java.util.ArrayList;
+import scientificcalculator_model.operationscommands.Command;
 
 
 /**

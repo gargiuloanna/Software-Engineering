@@ -1,6 +1,7 @@
 
 package se_scientificcalculator;
 
+import scientificcalculator_model.Operations;
 import calculator_exception.CommandExistsException;
 import calculator_exception.DivisionForZeroException;
 import scientificcalculator_model.operationscommands.*;

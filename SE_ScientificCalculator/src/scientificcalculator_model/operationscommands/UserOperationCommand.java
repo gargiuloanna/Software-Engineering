@@ -1,6 +1,8 @@
 
 package scientificcalculator_model.operationscommands;
 
+import scientificcalculator_model.Operations;
+
 /*
 *The class implements a UserOperationCommand that allows to use User Defined Operations as a part of other User Defined Operations.
 */
@@ -12,6 +14,8 @@ public class UserOperationCommand implements Command{
      /**
      * Initializes a newly created UserOperationCommand object. 
      * <p>
+     * @param name the name of the user operation 
+     * @param struct the Operations of the user operation
      */
 
     public UserOperationCommand(String name, Operations struct) {
