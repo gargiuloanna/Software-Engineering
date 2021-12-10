@@ -1,8 +1,6 @@
 
 package scientificcalculator_model;
 
-import scientificcalculator_model.operationscommands.Operations;
-
 
 /**
  * The class implements a UserOperation 
