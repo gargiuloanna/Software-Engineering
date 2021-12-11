@@ -368,7 +368,7 @@ public class FXMLDocumentController implements Initializable {
         try{
             UserOperation user = operationList.getSelectionModel().getSelectedItem();
             state.userDefinition(user, personalizedOperations, opName);
-        }catch(OperationNotExistsException | NullPointerException e | ){
+        }catch(OperationNotExistsException | NullPointerException e ){
             alertBox.setContentText("L'operazione da eseguire non è valida o è stata eliminata");
             alertBox.showAndWait();
         }

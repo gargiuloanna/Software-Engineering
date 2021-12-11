@@ -1,8 +1,7 @@
 package scientificcalculator_model.statecalculator;
 
-import scientificcalculator_model.Operations;
-import calculator_exception.DivisionForZeroException;
 import calculator_exception.OperationNotExistsException;
+import scientificcalculator_model.Operations;
 import java.util.Map;
 import scientificcalculator_model.*;
 import scientificcalculator_model.operationscommands.*;
@@ -25,8 +24,6 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void addition(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -40,8 +37,6 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void product(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -55,8 +50,6 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void subtraction(ComplexStack stack, Map<String, Operations> operations, String operationName) {
@@ -70,17 +63,11 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void division(ComplexStack stack, Map<String, Operations> operations, String operationName) {
         Command div = new DivisionCommand(stack);
-        try {
-            exe.execute(div);
-        } catch (DivisionForZeroException e) {
-            throw new DivisionForZeroException();
-        }
+        exe.execute(div);
 
     }
 
@@ -90,14 +77,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void drop(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command drop = new DropCommand(stack);
         exe.execute(drop);
     }
@@ -108,14 +90,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void dup(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command dup = new DupCommand(stack);
         exe.execute(dup);
     }
@@ -126,14 +103,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void invert(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command invert = new InvertCommand(stack);
         exe.execute(invert);
     }
@@ -145,14 +117,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void module(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command module = new ModuleCommand(stack);
         exe.execute(module);
     }
@@ -163,14 +130,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void over(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command over = new OverCommand(stack);
         exe.execute(over);
     }
@@ -181,14 +143,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void phase(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command phase = new PhaseCommand(stack);
         exe.execute(phase);
     }
@@ -200,14 +157,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least one
-     * element.
      */
     @Override
     public void sqrt(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command sqrt = new SqrtCommand(stack);
         exe.execute(sqrt);
     }
@@ -218,14 +170,9 @@ public class CalculatorState extends State {
      * @param stack the stack containing the complex number inputs
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack does not contain at least two
-     * elements.
      */
     @Override
     public void swap(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command swap = new SwapCommand(stack);
         exe.execute(swap);
     }
@@ -251,6 +198,7 @@ public class CalculatorState extends State {
      * @param user the object representing the user defined operation
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
+     * @throws OperationNotExistsException
      */
     @Override
     public void userDefinition(UserOperation user, Map<String, Operations> operations, String operationName) {
@@ -258,16 +206,12 @@ public class CalculatorState extends State {
              if(c.getClass().getSimpleName().equals("UserOperationCommand"))
                 if ( ! operations.containsKey(c.toString()))
                     throw new OperationNotExistsException();
-
         }
         
-        try {
-            for (Command c : operations.get(user.getName()).getOpers()) {
-                exe.execute(c);
-            }
-        } catch (OperationNotExistsException e) {
-            throw new OperationNotExistsException();
-        }
+        for (Command c : operations.get(user.getName()).getOpers()) 
+            exe.execute(c);
+            
+        
 
     }
 
@@ -282,9 +226,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void insertInVariable(ComplexStack stack, Map<Character, ComplexNumber> variables, Character v, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command insert = new InsertInVariableCommand(stack, variables, v);
         exe.execute(insert);
     }
@@ -317,9 +258,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void addToLast(ComplexStack stack, Map<Character, ComplexNumber> variables, Character v, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command add = new AddToLastCommand(stack, variables, v);
         exe.execute(add);
     }
@@ -333,13 +271,9 @@ public class CalculatorState extends State {
      * @param v the variable input
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack is empty.
      */
     @Override
     public void subToLast(ComplexStack stack, Map<Character, ComplexNumber> variables, Character v, Map<String, Operations> operations, String operationName) {
-        if (stack.isEmpty()) {
-            throw new ArithmeticException();
-        }
         Command sub = new SubToLastCommand(stack, variables, v);
         exe.execute(sub);
     }
