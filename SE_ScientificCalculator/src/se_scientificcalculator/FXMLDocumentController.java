@@ -273,10 +273,14 @@ public class FXMLDocumentController implements Initializable {
     private void getFromVariable(ActionEvent event) {
        try{
            state.getFromVariable(hist, variableMemory, selectedVariable(), personalizedOperations, opName);
-       }catch(NullPointerException ex){
+       }catch(NullPointerException ex ){
            alertBox.setContentText("Seleziona una variabile");
            alertBox.showAndWait();
+       } catch (ArithmeticException ex){
+           alertBox.setContentText("La variabile non contiene nessun valore");
+           alertBox.showAndWait();
        }
+           
     }
 
     @FXML
@@ -369,7 +373,10 @@ public class FXMLDocumentController implements Initializable {
             UserOperation user = operationList.getSelectionModel().getSelectedItem();
             state.userDefinition(user, personalizedOperations, opName);
         }catch(OperationNotExistsException | NullPointerException e ){
-            alertBox.setContentText("L'operazione da eseguire non è valida o è stata eliminata");
+            alertBox.setContentText("L'operazione da eseguire non è valida\no è stata eliminata");
+            alertBox.showAndWait();
+        } catch (ArithmeticException ex){
+            alertBox.setContentText("Inserire gli operandi per eseguire l'operazione");
             alertBox.showAndWait();
         }
 
@@ -475,7 +482,6 @@ public class FXMLDocumentController implements Initializable {
         setState(new CalculatorState());
         addOperation.clear();
         exeOp.setText("Esegui");
-        System.out.println(personalizedOperations);
         if(!personalizedOperations.isEmpty()) {
             list.add(new UserOperation(opName, personalizedOperations.get(opName)));
         }

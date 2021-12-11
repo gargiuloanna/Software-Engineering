@@ -37,6 +37,8 @@ public class GetFromVariableCommand implements Command{
      */  
     @Override
     public void execute() {
+        if(variables.get(v) == null)
+            throw new ArithmeticException();
         c.push(variables.get(v));   
     }
     
