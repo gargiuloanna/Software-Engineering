@@ -267,9 +267,9 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                  <MenuItem fx:id="exeOp" mnemonicParsing="false" onAction="#executeOperation" text="Esegui" />
-                <MenuItem fx:id="modifyOp" mnemonicParsing="false" onAction="#modifyOperation" text="Modifica" />
-                  <MenuItem fx:id="cancelOp" mnemonicParsing="false" onAction="#cancelOperation" text="Cancella" />
+                  <MenuItem fx:id="exeOp" mnemonicParsing="false" onAction="#executeOperation" text="Execute" />
+                <MenuItem fx:id="modifyOp" mnemonicParsing="false" onAction="#modifyOperation" text="Modify" />
+                  <MenuItem fx:id="cancelOp" mnemonicParsing="false" onAction="#cancelOperation" text="Delete" />
               </items>
             </ContextMenu>
          </contextMenu>
@@ -278,7 +278,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="SaveFile" mnemonicParsing="false" onAction="#saveOnFile" text="Salva Operazioni" />
+              <MenuItem fx:id="SaveFile" mnemonicParsing="false" onAction="#saveOnFile" text="Save Operations" />
             </items>
           </Menu>
         </menus>
