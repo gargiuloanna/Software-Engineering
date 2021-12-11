@@ -28,6 +28,9 @@ public class AdditionCommand implements Command{
      */    
     @Override
     public void execute() {
+         if (c.size() < 2) {
+            throw new ArithmeticException();
+        }
         ComplexNumber a = (ComplexNumber) c.pop();
         ComplexNumber b = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(a.getReal() + b.getReal(),a.getImaginary() + b.getImaginary()));

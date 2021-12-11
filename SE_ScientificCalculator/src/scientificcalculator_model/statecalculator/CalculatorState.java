@@ -30,9 +30,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void addition(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command add = new AdditionCommand(stack);
         exe.execute(add);
     }
@@ -48,9 +45,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void product(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command prod = new ProductCommand(stack);
         exe.execute(prod);
     }
@@ -66,9 +60,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void subtraction(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command sub = new SubtractionCommand(stack);
         exe.execute(sub);
     }
@@ -84,9 +75,6 @@ public class CalculatorState extends State {
      */
     @Override
     public void division(ComplexStack stack, Map<String, Operations> operations, String operationName) {
-        if (stack.size() < 2) {
-            throw new ArithmeticException();
-        }
         Command div = new DivisionCommand(stack);
         try {
             exe.execute(div);
@@ -266,11 +254,15 @@ public class CalculatorState extends State {
      */
     @Override
     public void userDefinition(UserOperation user, Map<String, Operations> operations, String operationName) {
-         if(operations.get(user.getName()) == null)
-             throw new OperationNotExistsException();
+         for (Command c : operations.get(user.getName()).getOpers()) {
+             if(c.getClass().getSimpleName().equals("UserOperationCommand"))
+                if ( ! operations.containsKey(c.toString()))
+                    throw new OperationNotExistsException();
+
+        }
         
         try {
-            for (Command c : operations.get(operationName).getOpers()) {
+            for (Command c : operations.get(user.getName()).getOpers()) {
                 exe.execute(c);
             }
         } catch (OperationNotExistsException e) {

@@ -40,6 +40,9 @@ public class DivisionCommand implements Command{
      */        
     @Override
     public void execute() {
+        if (c.size() < 2) {
+            throw new ArithmeticException();
+        }
         ComplexNumber a = (ComplexNumber) c.pop();
         ComplexNumber b = (ComplexNumber) c.pop();
         ComplexNumber conj_b = conjugated(b);
