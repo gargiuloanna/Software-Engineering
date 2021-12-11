@@ -28,6 +28,8 @@ public class InvertCommand implements Command {
      */  
     @Override
     public void execute() {
+        if(c.isEmpty())
+            throw new ArithmeticException();
         ComplexNumber a = (ComplexNumber) c.pop();
         c.push(new ComplexNumber(-a.getReal(), -a.getImaginary()));
     }

@@ -29,8 +29,9 @@ public class DropCommand implements Command{
      */  
     @Override
     public void execute() {
-        if (!c.isEmpty())
-            c.pop();
+        if (c.isEmpty())
+            throw new ArithmeticException();
+        c.pop();
     }
     
     /**

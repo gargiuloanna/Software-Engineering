@@ -32,6 +32,8 @@ public class OverCommand implements Command {
      */        
     @Override
     public void execute() {
+        if(c.size() < 2)
+            throw new ArithmeticException();
         Command swap = new SwapCommand(c);
         swap.execute();
         ComplexNumber last= (ComplexNumber) c.peek();

@@ -28,6 +28,8 @@ public class PhaseCommand implements Command{
      */    
     @Override
     public void execute() {
+        if(c.isEmpty())
+            throw new ArithmeticException();
        ComplexNumber a = (ComplexNumber) c.pop();
        c.push(new ComplexNumber(Math.atan2(a.getImaginary(), a.getReal()), 0));
     }

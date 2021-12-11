@@ -33,6 +33,9 @@ public class AddToLastCommand implements Command{
      */ 
     @Override
     public void execute() {
+        if (c.isEmpty()) {
+            throw new ArithmeticException();
+        }
         ComplexNumber last = (ComplexNumber) c.pop();
         ComplexNumber variableNumber = variables.get(v);
         ComplexNumber sum = new ComplexNumber(last.getReal() + variableNumber.getReal(), last.getImaginary() + variableNumber.getImaginary());

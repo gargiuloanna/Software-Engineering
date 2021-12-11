@@ -37,6 +37,8 @@ public class SubToLastCommand implements Command{
      */ 
     @Override
     public void execute() {
+        if(c.isEmpty())
+            throw new ArithmeticException();
         ComplexNumber last = (ComplexNumber) c.pop();
         ComplexNumber variableNumber = variables.get(v);
         ComplexNumber sub = new ComplexNumber(last.getReal() - variableNumber.getReal(), last.getImaginary() - variableNumber.getImaginary());

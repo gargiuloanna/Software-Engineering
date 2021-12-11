@@ -30,12 +30,14 @@ public class SwapCommand implements Command {
      */      
     @Override
     public void execute() {
-         if(!c.isEmpty() || c.size() > 2){
-             ComplexNumber lastElement =(ComplexNumber) c.pop();
-             ComplexNumber secondLastElement = (ComplexNumber) c.pop();
-             c.push(lastElement);
-             c.push(secondLastElement);
-         }
+        if (c.size() < 2) 
+            throw new ArithmeticException();
+        
+        ComplexNumber lastElement = (ComplexNumber) c.pop();
+        ComplexNumber secondLastElement = (ComplexNumber) c.pop();
+        c.push(lastElement);
+        c.push(secondLastElement);
+
     }
     
     /**

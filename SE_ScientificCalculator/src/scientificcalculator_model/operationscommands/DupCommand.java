@@ -29,8 +29,9 @@ public class DupCommand implements Command{
      */  
     @Override
     public void execute() {
-       if (!c.isEmpty())
-           c.push(c.peek());
+       if (c.isEmpty())
+           throw new ArithmeticException();
+        c.push(c.peek());
     }
     
     /**

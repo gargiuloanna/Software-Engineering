@@ -37,6 +37,8 @@ public class InsertInVariableCommand implements Command {
      */     
     @Override
     public void execute() {
+        if(c.isEmpty())
+            throw new ArithmeticException();
         variables.put(v, (ComplexNumber) c.pop());      
     }
     
