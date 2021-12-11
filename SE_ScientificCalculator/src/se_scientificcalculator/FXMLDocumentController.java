@@ -173,7 +173,7 @@ public class FXMLDocumentController implements Initializable {
             alertBox.setContentText("Insert two numbers to execute the operation");
             alertBox.showAndWait();
         } catch (DivisionForZeroException e) {
-            alertBox.setContentText("Divion by 0");
+            alertBox.setContentText("Division by 0");
             alertBox.showAndWait();
         }
     }
