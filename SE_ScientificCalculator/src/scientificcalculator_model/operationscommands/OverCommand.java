@@ -29,6 +29,8 @@ public class OverCommand implements Command {
      * The method executes the operation Over on the Stack.
      * It duplicates the second last element contained on the stack.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack does not contain at least two elements.
      */        
     @Override
     public void execute() {

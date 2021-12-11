@@ -25,6 +25,8 @@ public class AdditionCommand implements Command{
     /**
      * The method executes the arithmetical addition between two complex numbers.
      * The result is pushed into the stack maintained by the command
+     * <p>
+     * @throws ArithmeticException if the stack does not contain at least two elements.
      */    
     @Override
     public void execute() {

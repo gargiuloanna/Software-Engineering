@@ -34,6 +34,8 @@ public class SubToLastCommand implements Command{
     /**
      * The method executes the arithmetical subtraction between the top element of the stack and the value associated to the variable in input.
      * The result replaces the value associated to the variable in the map
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */ 
     @Override
     public void execute() {

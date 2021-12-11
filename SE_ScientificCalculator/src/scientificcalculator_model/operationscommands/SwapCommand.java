@@ -27,6 +27,8 @@ public class SwapCommand implements Command {
      * The method executes the operation swap on the stack.
      * It swaps the last two elements of the stack.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack does not contain at least two elements.
      */      
     @Override
     public void execute() {

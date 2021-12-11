@@ -25,6 +25,8 @@ public class InvertCommand implements Command {
      * The method executes the operation invert on the ComplexNumber.
      * It inverts the sign of the complex number.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */  
     @Override
     public void execute() {

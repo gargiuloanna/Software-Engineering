@@ -26,6 +26,8 @@ public class ModuleCommand implements Command{
      * The method executes the operation module on the ComplexNumber.
      * It calculates the absolute value of the complex number.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */      
     @Override
     public void execute() {

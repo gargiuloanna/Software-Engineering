@@ -198,7 +198,7 @@ public class CalculatorState extends State {
      * @param user the object representing the user defined operation
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws OperationNotExistsException
+     * @throws OperationNotExistsException if an user defined operation that was previously defined has been cancelled
      */
     @Override
     public void userDefinition(UserOperation user, Map<String, Operations> operations, String operationName) {
@@ -254,7 +254,6 @@ public class CalculatorState extends State {
      * @param v the variable input
      * @param operations the map where the user defined operations are located
      * @param operationName the name of the operation to define
-     * @throws ArithmeticException if the stack is empty.
      */
     @Override
     public void addToLast(ComplexStack stack, Map<Character, ComplexNumber> variables, Character v, Map<String, Operations> operations, String operationName) {

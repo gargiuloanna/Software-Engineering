@@ -24,6 +24,8 @@ public class ProductCommand implements Command{
     /**
      * The method executes the operation product on the ComplexNumber.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack does not contain at least two elements.
      */   
 
     @Override

@@ -25,6 +25,8 @@ public class SqrtCommand implements Command{
      * The method executes the operation sqrt on the ComplexNumber.
      * It calculates the square rootof the complex number.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */    
     @Override
     public void execute() {

@@ -25,6 +25,7 @@ public class DivisionCommand implements Command{
     
     /**
      * The method returns the conjugated (same real part, inverted imaginary part) of the ComplexNumber passed as an arguemnt.
+     * <p>
      * @param x the ComplexNumber on which the function is executed
      * @return the conjugated version of the number
      */
@@ -36,7 +37,8 @@ public class DivisionCommand implements Command{
      * The method executes the arithmetical division between two complex numbers.
      * The result is pushed into the stack maintained by the command
      * <p>
-     * @throws DivisionForZeroException
+     * @throws DivisionForZeroException if the division denominator is zero
+     * @throws ArithmeticException if the stack does not contain at least two elements.
      */        
     @Override
     public void execute() {

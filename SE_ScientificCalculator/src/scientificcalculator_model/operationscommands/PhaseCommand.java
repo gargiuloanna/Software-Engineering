@@ -25,6 +25,8 @@ public class PhaseCommand implements Command{
      * The method executes the operation phase on the ComplexNumber.
      * It calculates the phase of the complex number.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */    
     @Override
     public void execute() {

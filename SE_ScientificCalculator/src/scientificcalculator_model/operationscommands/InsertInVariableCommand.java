@@ -34,6 +34,8 @@ public class InsertInVariableCommand implements Command {
     /**
      * The method executes the extraction of the top element of the stack and saves it into the variable in input.
      * The result replaces the value associated to the variable in the map
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */     
     @Override
     public void execute() {

@@ -26,6 +26,8 @@ public class DropCommand implements Command{
      * The method executes the operation Drop on the stack.
      * It eliminates the last element contained on the stack.
      * The result is pushed into the stack maintained by the command.
+     * <p>
+     * @throws ArithmeticException if the stack is empty.
      */  
     @Override
     public void execute() {

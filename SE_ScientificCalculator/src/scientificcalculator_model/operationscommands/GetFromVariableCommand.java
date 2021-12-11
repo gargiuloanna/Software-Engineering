@@ -34,6 +34,8 @@ public class GetFromVariableCommand implements Command{
      /**
      * The method executes the insertion into the stack of the value of the variable in input.
      * The result is pushed into the stack maintained by the command
+     * <p>
+     * @throws ArithmeticException if the variable is not defined.
      */  
     @Override
     public void execute() {

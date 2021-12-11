@@ -27,6 +27,8 @@ public class UserOperationCommand implements Command{
 
     /**
      * The method executes the operations of the struct.
+     * <p>
+     * @throws OperationNotExistsException if the operation is not defined
      */    
     @Override
     public void execute() {

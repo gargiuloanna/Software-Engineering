@@ -20,7 +20,7 @@
          <font>
             <Font name="System Italic" size="24.0" />
          </font></TextField>
-      <Button fx:id="addOperandButton" layoutX="13.0" layoutY="114.0" mnemonicParsing="false" onAction="#addOperand" prefHeight="70.0" prefWidth="196.0" text="Add Operand" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="addOperand" layoutX="13.0" layoutY="114.0" mnemonicParsing="false" onAction="#addOperandMethod" prefHeight="70.0" prefWidth="196.0" text="Add Operand" textAlignment="CENTER" wrapText="true" />
       <ListView fx:id="history" editable="true" layoutX="515.0" layoutY="83.0" prefHeight="325.0" prefWidth="166.0" />
       <Label layoutX="557.0" layoutY="49.0" prefHeight="19.0" prefWidth="83.0" text="   History" textAlignment="CENTER" wrapText="true">
          <font>
@@ -207,7 +207,7 @@
                </font>
             </Button>
             <Button mnemonicParsing="false" onAction="#invButton" prefHeight="39.0" prefWidth="47.0" text="+-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#clearButton" prefHeight="39.0" prefWidth="49.0" text="CE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button fx:id="CEButton" mnemonicParsing="false" onAction="#clearButton" prefHeight="39.0" prefWidth="49.0" text="CE" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="10.0" />
                </font></Button>
@@ -283,7 +283,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="addOperation" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#addOperationMethod" prefHeight="31.0" prefWidth="282.0" text="Add Operation" wrapText="true" />
+      <Button fx:id="addOperationButton" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#addOperationMethod" prefHeight="31.0" prefWidth="282.0" text="Add Operation" wrapText="true" />
       <Button fx:id="stopInsert" layoutX="221.0" layoutY="153.0" mnemonicParsing="false" onAction="#stopInsertMethod" prefHeight="31.0" prefWidth="282.0" text="Finish Insertion" wrapText="true" />
    </children>
 </AnchorPane>
