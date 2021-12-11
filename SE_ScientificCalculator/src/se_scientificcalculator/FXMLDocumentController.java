@@ -380,7 +380,8 @@ public class FXMLDocumentController implements Initializable {
         setState(new OperationState());
         exeOp.setText("Aggiungi");
         UserOperation selected = operationList.getSelectionModel().getSelectedItem();
-        String name = selected.getName();
+        opName = selected.getName();
+        
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Conferma");
         alert.setHeaderText("Attenzione, stai per modificare l'operazione!");
@@ -391,13 +392,13 @@ public class FXMLDocumentController implements Initializable {
             addOperationTry.setDisable(true);
             stopInsert.setDisable(false);
             addOperation.setDisable(true);
-            personalizedOperations.replace(name, new Operations());
+            personalizedOperations.replace(opName, new Operations());
             for (UserOperation e : list) {
-                if (e.getName().equals(name)) {
-                    list.remove(e);
-                    break;
+                    if (e.getName().equals(opName)) {
+                        list.remove(e);
+                        break;
+                    }
                 }
-            }
         } 
     }
 
@@ -474,6 +475,7 @@ public class FXMLDocumentController implements Initializable {
         setState(new CalculatorState());
         addOperation.clear();
         exeOp.setText("Esegui");
+        System.out.println(personalizedOperations);
         if(!personalizedOperations.isEmpty()) {
             list.add(new UserOperation(opName, personalizedOperations.get(opName)));
         }
@@ -490,7 +492,6 @@ public class FXMLDocumentController implements Initializable {
         addOperationTry.setDisable(false);
         stopInsert.setDisable(true);
         addOperation.setDisable(false);
-        System.out.println(personalizedOperations);
     }
 
     private void setState(State s) {
